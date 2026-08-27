@@ -62,24 +62,18 @@ document.addEventListener(
 
 
         const musicControls = [
-
             musicButton,
             musicBottomButton
-
         ].filter(Boolean);
 
 
 
         /* =====================================================
-           ESTADO DE CARGA CRÍTICA
+           ESTADO DE CARGA
         ====================================================== */
 
-        let photoReady =
-            false;
-
-
-        let audioReady =
-            false;
+        let photoReady = false;
+        let audioReady = false;
 
 
 
@@ -91,10 +85,8 @@ document.addEventListener(
                 audioReady
             ) {
 
-
                 openingStatus.textContent =
                     "Todo listo para abrir nuestra invitación";
-
 
                 return;
 
@@ -105,10 +97,8 @@ document.addEventListener(
                 photoReady
             ) {
 
-
                 openingStatus.textContent =
                     "Preparando nuestra canción…";
-
 
                 return;
 
@@ -119,10 +109,8 @@ document.addEventListener(
                 audioReady
             ) {
 
-
                 openingStatus.textContent =
                     "Preparando nuestra fotografía…";
-
 
                 return;
 
@@ -132,28 +120,18 @@ document.addEventListener(
             openingStatus.textContent =
                 "Preparando nuestra celebración…";
 
-
         }
 
 
 
         /* =====================================================
            FOTO PRINCIPAL
-
-           NO se crean versiones adicionales.
-
-           El navegador empieza a descargarla desde HEAD
-           gracias al preload.
-
-           decode() se ejecuta en segundo plano mientras el
-           usuario observa la pantalla inicial.
         ====================================================== */
 
         function showMainPhoto() {
 
 
-            photoReady =
-                true;
+            photoReady = true;
 
 
             mainPhoto.classList.add(
@@ -165,17 +143,14 @@ document.addEventListener(
                 photoPlaceholder
             ) {
 
-
                 photoPlaceholder.classList.add(
                     "is-hidden"
                 );
-
 
             }
 
 
             updateOpeningStatus();
-
 
         }
 
@@ -207,20 +182,16 @@ document.addEventListener(
 
                     try {
 
-
                         await mainPhoto.decode();
-
 
                     } catch (
                         error
                     ) {
 
-
                         /*
-                            Si decode() falla por alguna razón,
-                            mostramos la imagen igualmente.
+                            La imagen se muestra igualmente
+                            aunque decode() falle.
                         */
-
 
                     }
 
@@ -230,8 +201,7 @@ document.addEventListener(
 
                 },
                 {
-                    once:
-                        true
+                    once: true
                 }
             );
 
@@ -242,32 +212,19 @@ document.addEventListener(
 
         /* =====================================================
            AUDIO
-
-           IMPORTANTE:
-
-           NO llamar audio.load().
-
-           preload="auto" +
-           <link rel="preload" as="audio">
-
-           hacen que la descarga comience inmediatamente
-           sin reiniciar la petición.
         ====================================================== */
 
-        audio.volume =
-            0.5;
+        audio.volume = 0.5;
 
 
 
         function markAudioReady() {
 
 
-            audioReady =
-                true;
+            audioReady = true;
 
 
             updateOpeningStatus();
-
 
         }
 
@@ -289,8 +246,7 @@ document.addEventListener(
                 "canplay",
                 markAudioReady,
                 {
-                    once:
-                        true
+                    once: true
                 }
             );
 
@@ -300,21 +256,18 @@ document.addEventListener(
 
 
         /* =====================================================
-           UI DEL AUDIO
+           UI MÚSICA
         ====================================================== */
 
         function syncMusicUI() {
 
 
             const playing =
-
                 !audio.paused &&
                 !audio.ended;
 
 
-
             musicControls.forEach(
-
                 button => {
 
 
@@ -326,39 +279,30 @@ document.addEventListener(
 
                     button.setAttribute(
                         "aria-pressed",
-                        String(
-                            playing
-                        )
+                        String(playing)
                     );
 
 
                     button.setAttribute(
-
                         "aria-label",
-
                         playing
                             ? "Pausar música"
                             : "Reproducir música"
-
                     );
 
 
                 }
-
             );
-
 
 
             if (
                 soundWave
             ) {
 
-
                 soundWave.classList.toggle(
                     "is-playing",
                     playing
                 );
-
 
             }
 
@@ -372,25 +316,20 @@ document.addEventListener(
 
             try {
 
-
                 await audio.play();
-
 
             } catch (
                 error
             ) {
 
-
                 console.info(
                     "El navegador necesita otra interacción para reproducir el audio."
                 );
-
 
             }
 
 
             syncMusicUI();
-
 
         }
 
@@ -404,7 +343,6 @@ document.addEventListener(
 
             syncMusicUI();
 
-
         }
 
 
@@ -416,18 +354,13 @@ document.addEventListener(
                 audio.paused
             ) {
 
-
                 await playMusic();
-
 
             } else {
 
-
                 pauseMusic();
 
-
             }
-
 
         }
 
@@ -439,26 +372,16 @@ document.addEventListener(
 
         openInvitation.addEventListener(
             "click",
-            async () => {
+            () => {
 
 
                 /*
-                    El audio se inicia directamente dentro
+                    Se solicita la reproducción dentro
                     del gesto del usuario.
                 */
 
                 playMusic();
 
-
-
-                /*
-                    No esperamos a que termine la canción ni
-                    la foto para abrir.
-
-                    La fotografía ya está descargándose y,
-                    si faltara algún fragmento, el placeholder
-                    elegante permanece hasta que termine.
-                */
 
                 openingScreen.classList.add(
                     "is-hidden"
@@ -480,7 +403,6 @@ document.addEventListener(
         ====================================================== */
 
         musicControls.forEach(
-
             button => {
 
 
@@ -491,7 +413,6 @@ document.addEventListener(
 
 
             }
-
         );
 
 
@@ -516,22 +437,18 @@ document.addEventListener(
 
         /* =====================================================
            CUENTA REGRESIVA
-
-           17 DE OCTUBRE 2026
+           17 OCTUBRE 2026
            5:00 PM
         ====================================================== */
 
         const targetDate =
-
             new Date(
-
                 2026,
                 9,
                 17,
                 17,
                 0,
                 0
-
             ).getTime();
 
 
@@ -583,14 +500,12 @@ document.addEventListener(
             number
         ) {
 
-
             return String(
                 number
             ).padStart(
                 2,
                 "0"
             );
-
 
         }
 
@@ -600,10 +515,8 @@ document.addEventListener(
 
 
             const difference =
-
                 targetDate -
                 Date.now();
-
 
 
             if (
@@ -611,126 +524,92 @@ document.addEventListener(
             ) {
 
 
-                countdown.hidden =
-                    true;
+                countdown.hidden = true;
 
 
-                countdownTitle.hidden =
-                    true;
+                countdownTitle.hidden = true;
 
 
-                eventMessage.hidden =
-                    false;
+                eventMessage.hidden = false;
 
 
                 return;
 
-
             }
 
 
-
-            const second =
-                1000;
-
+            const second = 1000;
 
             const minute =
                 second * 60;
 
-
             const hour =
                 minute * 60;
-
 
             const day =
                 hour * 24;
 
 
-
             const days =
-
                 Math.floor(
                     difference /
                     day
                 );
 
 
-
             const hours =
-
                 Math.floor(
-
                     (
                         difference %
                         day
                     )
                     /
                     hour
-
                 );
 
 
-
             const minutes =
-
                 Math.floor(
-
                     (
                         difference %
                         hour
                     )
                     /
                     minute
-
                 );
 
 
-
             const seconds =
-
                 Math.floor(
-
                     (
                         difference %
                         minute
                     )
                     /
                     second
-
                 );
-
 
 
             daysElement.textContent =
-                pad(
-                    days
-                );
+                pad(days);
 
 
             hoursElement.textContent =
-                pad(
-                    hours
-                );
+                pad(hours);
 
 
             minutesElement.textContent =
-                pad(
-                    minutes
-                );
+                pad(minutes);
 
 
             secondsElement.textContent =
-                pad(
-                    seconds
-                );
-
+                pad(seconds);
 
         }
 
 
 
         updateCountdown();
-
 
 
         setInterval(
@@ -741,15 +620,13 @@ document.addEventListener(
 
 
         /* =====================================================
-           ANIMACIONES DE ENTRADA
+           ANIMACIONES
         ====================================================== */
 
         const revealElements =
-
             document.querySelectorAll(
                 ".reveal"
             );
-
 
 
         if (
@@ -760,14 +637,11 @@ document.addEventListener(
 
 
             const observer =
-
                 new IntersectionObserver(
-
                     entries => {
 
 
                         entries.forEach(
-
                             entry => {
 
 
@@ -776,11 +650,9 @@ document.addEventListener(
                                 ) {
 
 
-                                    entry.target
-                                        .classList
-                                        .add(
-                                            "is-visible"
-                                        );
+                                    entry.target.classList.add(
+                                        "is-visible"
+                                    );
 
 
                                     observer.unobserve(
@@ -792,25 +664,17 @@ document.addEventListener(
 
 
                             }
-
                         );
 
 
                     },
-
                     {
-
-                        threshold:
-                            .10
-
+                        threshold: .10
                     }
-
                 );
 
 
-
             revealElements.forEach(
-
                 element => {
 
 
@@ -820,7 +684,6 @@ document.addEventListener(
 
 
                 }
-
             );
 
 
@@ -828,7 +691,6 @@ document.addEventListener(
 
 
             revealElements.forEach(
-
                 element => {
 
 
@@ -838,7 +700,6 @@ document.addEventListener(
 
 
                 }
-
             );
 
 
