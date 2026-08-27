@@ -20,15 +20,11 @@
         content="Nuestra Fiesta de Aranza y Mariajulia · 17 de octubre de 2026"
     >
 
-    <title>
-        Nuestra Fiesta · Aranza y Mariajulia
-    </title>
+    <title>Nuestra Fiesta · Aranza y Mariajulia</title>
 
 
     <!-- =====================================================
-         FUENTES
-
-         NO bloqueamos la primera pintura esperando las fuentes.
+         CONEXIONES
     ====================================================== -->
 
     <link
@@ -42,11 +38,33 @@
         crossorigin
     >
 
+
+    <!-- =====================================================
+         RECURSOS CRÍTICOS
+
+         La fotografía ya optimizada (~465 KB) y el audio
+         comienzan a cargarse inmediatamente y en paralelo.
+    ====================================================== -->
+
     <link
         rel="preload"
-        as="style"
-        href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@500;600;700&display=swap"
+        href="img/aranza-mariajulia.webp"
+        as="image"
+        type="image/webp"
+        fetchpriority="high"
     >
+
+    <link
+        rel="preload"
+        href="audio/ultimamente.mp3"
+        as="audio"
+        type="audio/mpeg"
+    >
+
+
+    <!-- =====================================================
+         FUENTES NO BLOQUEANTES
+    ====================================================== -->
 
     <link
         rel="stylesheet"
@@ -82,29 +100,25 @@
 
     <!-- =====================================================
          AUDIO
-
-         NO tiene SRC inicial.
-
-         JS empieza la descarga después de que ya apareció
-         la portada.
-
-         Así no retrasa la primera pintura.
     ====================================================== -->
 
     <audio
         id="bgMusic"
         preload="auto"
         loop
-        data-src="audio/ultimamente.mp3"
-    ></audio>
+    >
+
+        <source
+            src="audio/ultimamente.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
 
 
 
     <!-- =====================================================
          PANTALLA DE APERTURA
-
-         Esta es la prioridad absoluta.
-         Debe aparecer prácticamente de inmediato.
     ====================================================== -->
 
     <div
@@ -113,17 +127,12 @@
     >
 
 
-        <!--
-            Dejamos solamente UNA flor inicialmente.
-
-            Como el mismo PNG se reutiliza, después queda
-            almacenado para todas las demás.
-        -->
-
         <img
             src="img/floral-corner.png"
             class="opening-flower opening-flower--tl"
             alt=""
+            width="1024"
+            height="1024"
             decoding="async"
         >
 
@@ -132,6 +141,8 @@
             src="img/floral-corner.png"
             class="opening-flower opening-flower--br"
             alt=""
+            width="1024"
+            height="1024"
             decoding="async"
         >
 
@@ -158,11 +169,9 @@
             </p>
 
 
-
             <h1>
                 Nuestra Fiesta
             </h1>
-
 
 
             <p class="opening-names">
@@ -209,10 +218,10 @@
                     aria-hidden="true"
                 >
 
-                    <svg viewBox="0 0 24 24">
-
+                    <svg
+                        viewBox="0 0 24 24"
+                    >
                         <path d="M8 5v14l11-7z"/>
-
                     </svg>
 
                 </span>
@@ -225,10 +234,8 @@
 
 
 
-            <small id="openingStatus">
-
-                Preparando nuestra celebración…
-
+            <small>
+                La música comenzará al abrir la invitación
             </small>
 
 
@@ -257,9 +264,7 @@
             viewBox="0 0 24 24"
             aria-hidden="true"
         >
-
             <path d="M8 5v14l11-7z"/>
-
         </svg>
 
 
@@ -268,9 +273,7 @@
             viewBox="0 0 24 24"
             aria-hidden="true"
         >
-
             <path d="M7 5h4v14H7zm6 0h4v14h-4z"/>
-
         </svg>
 
 
@@ -286,7 +289,7 @@
 
 
         <!-- =================================================
-             MARCO
+             MARCO GENERAL
         ================================================== -->
 
         <div
@@ -303,13 +306,15 @@
 
 
         <!-- =================================================
-             FLORES GENERALES
+             FLORES DEL MARCO
         ================================================== -->
 
         <img
             src="img/floral-corner.png"
             class="page-flower page-flower--top-left"
             alt=""
+            width="1024"
+            height="1024"
             decoding="async"
         >
 
@@ -318,6 +323,8 @@
             src="img/floral-corner.png"
             class="page-flower page-flower--top-right"
             alt=""
+            width="1024"
+            height="1024"
             decoding="async"
         >
 
@@ -326,6 +333,8 @@
             src="img/floral-corner.png"
             class="page-flower page-flower--middle-left"
             alt=""
+            width="1024"
+            height="1024"
             loading="lazy"
             decoding="async"
         >
@@ -335,6 +344,8 @@
             src="img/floral-corner.png"
             class="page-flower page-flower--middle-right"
             alt=""
+            width="1024"
+            height="1024"
             loading="lazy"
             decoding="async"
         >
@@ -344,6 +355,8 @@
             src="img/floral-corner.png"
             class="page-flower page-flower--bottom-left"
             alt=""
+            width="1024"
+            height="1024"
             loading="lazy"
             decoding="async"
         >
@@ -353,6 +366,8 @@
             src="img/floral-corner.png"
             class="page-flower page-flower--bottom-right"
             alt=""
+            width="1024"
+            height="1024"
             loading="lazy"
             decoding="async"
         >
@@ -373,25 +388,13 @@
 
 
                 <p class="hero-kicker">
-
                     UNA FECHA MUY ESPECIAL
-
                 </p>
 
 
 
                 <!-- =========================================
-                     FOTO
-
-                     IMPORTANTE:
-
-                     data-src en lugar de src.
-
-                     La imagen NO compite con la primera
-                     pintura de la pantalla de apertura.
-
-                     Inmediatamente después del primer render,
-                     JS inicia su descarga en paralelo al audio.
+                     FOTO PRINCIPAL
                 ========================================== -->
 
                 <div class="photo-stage">
@@ -423,10 +426,13 @@
 
                         <img
                             id="mainPhoto"
-                            data-src="img/aranza-mariajulia.webp"
+                            src="img/aranza-mariajulia.webp"
                             alt="Aranza y Mariajulia"
                             width="1200"
-                            height="1050"
+                            height="1600"
+                            loading="eager"
+                            decoding="async"
+                            fetchpriority="high"
                         >
 
 
@@ -438,6 +444,8 @@
                         src="img/floral-corner.png"
                         class="photo-flower photo-flower--left"
                         alt=""
+                        width="1024"
+                        height="1024"
                         decoding="async"
                     >
 
@@ -446,6 +454,8 @@
                         src="img/floral-corner.png"
                         class="photo-flower photo-flower--right"
                         alt=""
+                        width="1024"
+                        height="1024"
                         decoding="async"
                     >
 
@@ -459,9 +469,7 @@
                 ========================================== -->
 
                 <h1 class="main-title">
-
                     Nuestra Fiesta
-
                 </h1>
 
 
@@ -514,9 +522,7 @@
                     <span class="date-line"></span>
 
                     <strong>
-
                         17 DE OCTUBRE DE 2026
-
                     </strong>
 
                     <span class="date-line"></span>
@@ -526,7 +532,7 @@
 
 
                 <!-- =========================================
-                     TEXTO INVITACIÓN
+                     MENSAJE
                 ========================================== -->
 
                 <p class="invitation-message">
@@ -569,9 +575,7 @@
 
 
                     <p class="section-label">
-
                         MIS PADRES
-
                     </p>
 
 
@@ -821,16 +825,12 @@
 
 
             <p class="section-label">
-
                 CADA DÍA FALTA MENOS
-
             </p>
 
 
             <h2 id="countdownTitle">
-
                 Solo faltan
-
             </h2>
 
 
@@ -934,9 +934,21 @@
                         aria-hidden="true"
                     >
 
-                        <rect x="16" y="40" width="68" height="48" rx="4"/>
+                        <rect
+                            x="16"
+                            y="40"
+                            width="68"
+                            height="48"
+                            rx="4"
+                        />
 
-                        <rect x="10" y="31" width="80" height="18" rx="4"/>
+                        <rect
+                            x="10"
+                            y="31"
+                            width="80"
+                            height="18"
+                            rx="4"
+                        />
 
                         <path d="M45 31v57"/>
 
@@ -961,9 +973,7 @@
 
 
                     <p class="section-label">
-
                         NUESTRAS TALLAS
-
                     </p>
 
 
@@ -981,9 +991,7 @@
 
 
                     <p>
-
                         Tu presencia es nuestro mejor regalo.
-
                     </p>
 
 
@@ -1008,16 +1016,12 @@
 
 
             <p class="section-label">
-
                 NOS ENCANTARÁ VERTE
-
             </p>
 
 
             <h2>
-
                 Confirma tu asistencia
-
             </h2>
 
 
@@ -1129,9 +1133,7 @@
                     class="icon-play"
                     viewBox="0 0 24 24"
                 >
-
                     <path d="M8 5v14l11-7z"/>
-
                 </svg>
 
 
@@ -1139,9 +1141,7 @@
                     class="icon-pause"
                     viewBox="0 0 24 24"
                 >
-
                     <path d="M7 5h4v14H7zm6 0h4v14h-4z"/>
-
                 </svg>
 
 
@@ -1174,7 +1174,7 @@
 
 
         <!-- =================================================
-             FOOTER
+             FOOTER PROMOCIONAL
         ================================================== -->
 
         <footer class="commercial-footer">
@@ -1233,16 +1233,12 @@
 
 
                         <small>
-
                             ¿Te gustaría algo así?
-
                         </small>
 
 
                         <strong>
-
                             Contáctame
-
                         </strong>
 
 
@@ -1256,7 +1252,9 @@
                     >
 
 
-                        <svg viewBox="0 0 24 24">
+                        <svg
+                            viewBox="0 0 24 24"
+                        >
 
                             <path
                                 d="M5 12h13M13 6l6 6-6 6"
@@ -1290,9 +1288,7 @@
 
 
                 <small class="footer-brand">
-
                     DanielRC
-
                 </small>
 
 
@@ -1303,6 +1299,7 @@
 
 
     </main>
+
 
 
     <script
