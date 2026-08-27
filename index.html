@@ -26,7 +26,7 @@
 
 
     <!-- =====================================================
-         PRECONEXIONES
+         CONEXIONES DE FUENTES
     ====================================================== -->
 
     <link
@@ -42,21 +42,12 @@
 
 
     <!-- =====================================================
-         FUENTES
-    ====================================================== -->
+         PRECARGA DE LOS DOS RECURSOS IMPORTANTES
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@500;600;700&display=swap"
-        rel="stylesheet"
-    >
+         Ambos comienzan a descargarse desde el HEAD.
 
-
-    <!-- =====================================================
-         PRECARGA CRÍTICA
-
-         IMPORTANTE:
-         Ahora cargamos DESDE EL PRINCIPIO tanto la fotografía
-         como la canción.
+         NO usamos audio.load() posteriormente porque puede
+         provocar que algunos navegadores reinicien la petición.
     ====================================================== -->
 
     <link
@@ -75,6 +66,16 @@
     >
 
 
+    <!-- =====================================================
+         FUENTES
+    ====================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
     <link
         rel="stylesheet"
         href="styles.css"
@@ -89,8 +90,11 @@
     <!-- =====================================================
          AUDIO
 
-         preload AUTO:
-         empieza a preparar la canción desde la primera carga.
+         IMPORTANTE:
+         preload="auto"
+
+         No hay JavaScript llamando audio.load().
+         La descarga inicia directamente.
     ====================================================== -->
 
     <audio
@@ -109,7 +113,7 @@
 
 
     <!-- =====================================================
-         PANTALLA DE APERTURA
+         PANTALLA INICIAL
     ====================================================== -->
 
     <div
@@ -122,6 +126,8 @@
             src="img/floral-corner.webp"
             class="opening-flower opening-flower--tl"
             alt=""
+            width="350"
+            height="350"
             decoding="async"
             fetchpriority="low"
         >
@@ -131,6 +137,8 @@
             src="img/floral-corner.webp"
             class="opening-flower opening-flower--br"
             alt=""
+            width="350"
+            height="350"
             decoding="async"
             fetchpriority="low"
         >
@@ -158,11 +166,9 @@
             </p>
 
 
-
             <h1>
                 Nuestra Fiesta
             </h1>
-
 
 
             <p class="opening-names">
@@ -203,32 +209,37 @@
                 aria-label="Abrir invitación"
             >
 
-                <span class="open-play">
 
-                    <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
+                <span
+                    class="open-play"
+                    aria-hidden="true"
+                >
+
+                    <svg viewBox="0 0 24 24">
+
                         <path d="M8 5v14l11-7z"/>
+
                     </svg>
 
                 </span>
 
 
-                <span id="openButtonText">
+                <span>
                     Toca para abrir
                 </span>
+
 
             </button>
 
 
 
             <small id="openingStatus">
-                La música está lista para acompañarte
+                Preparando nuestra celebración…
             </small>
 
 
         </div>
+
 
     </div>
 
@@ -243,6 +254,7 @@
         id="musicButton"
         type="button"
         aria-label="Reproducir música"
+        aria-pressed="false"
     >
 
 
@@ -251,7 +263,9 @@
             viewBox="0 0 24 24"
             aria-hidden="true"
         >
+
             <path d="M8 5v14l11-7z"/>
+
         </svg>
 
 
@@ -260,7 +274,9 @@
             viewBox="0 0 24 24"
             aria-hidden="true"
         >
+
             <path d="M7 5h4v14H7zm6 0h4v14h-4z"/>
+
         </svg>
 
 
@@ -275,7 +291,9 @@
     <main class="invitation">
 
 
-        <!-- MARCO -->
+        <!-- =================================================
+             MARCO GENERAL
+        ================================================== -->
 
         <div
             class="master-border master-border--outer"
@@ -291,15 +309,17 @@
 
 
         <!-- =================================================
-             FLORES
+             FLORES GENERALES
         ================================================== -->
-
 
         <img
             src="img/floral-corner.webp"
             class="page-flower page-flower--top-left"
             alt=""
+            width="350"
+            height="350"
             decoding="async"
+            fetchpriority="low"
         >
 
 
@@ -307,7 +327,10 @@
             src="img/floral-corner.webp"
             class="page-flower page-flower--top-right"
             alt=""
+            width="350"
+            height="350"
             decoding="async"
+            fetchpriority="low"
         >
 
 
@@ -315,6 +338,8 @@
             src="img/floral-corner.webp"
             class="page-flower page-flower--middle-left"
             alt=""
+            width="350"
+            height="350"
             loading="lazy"
             decoding="async"
         >
@@ -324,6 +349,8 @@
             src="img/floral-corner.webp"
             class="page-flower page-flower--middle-right"
             alt=""
+            width="350"
+            height="350"
             loading="lazy"
             decoding="async"
         >
@@ -333,6 +360,8 @@
             src="img/floral-corner.webp"
             class="page-flower page-flower--bottom-left"
             alt=""
+            width="350"
+            height="350"
             loading="lazy"
             decoding="async"
         >
@@ -342,6 +371,8 @@
             src="img/floral-corner.webp"
             class="page-flower page-flower--bottom-right"
             alt=""
+            width="350"
+            height="350"
             loading="lazy"
             decoding="async"
         >
@@ -367,7 +398,12 @@
 
 
 
-                <!-- FOTO -->
+                <!-- =========================================
+                     FOTO PRINCIPAL
+
+                     Una sola fotografía.
+                     Se descarga desde el inicio.
+                ========================================== -->
 
                 <div class="photo-stage">
 
@@ -388,11 +424,24 @@
                     <div class="photo-frame">
 
 
+                        <div
+                            class="photo-placeholder"
+                            id="photoPlaceholder"
+                            aria-hidden="true"
+                        >
+
+                            <span></span>
+
+                        </div>
+
+
+
                         <img
+                            id="mainPhoto"
                             src="img/aranza-mariajulia.webp"
                             alt="Aranza y Mariajulia"
-                            width="1000"
-                            height="900"
+                            width="1200"
+                            height="1050"
                             fetchpriority="high"
                             decoding="async"
                         >
@@ -406,7 +455,10 @@
                         src="img/floral-corner.webp"
                         class="photo-flower photo-flower--left"
                         alt=""
+                        width="350"
+                        height="350"
                         decoding="async"
+                        fetchpriority="low"
                     >
 
 
@@ -414,7 +466,10 @@
                         src="img/floral-corner.webp"
                         class="photo-flower photo-flower--right"
                         alt=""
+                        width="350"
+                        height="350"
                         decoding="async"
+                        fetchpriority="low"
                     >
 
 
@@ -422,7 +477,9 @@
 
 
 
-                <!-- TITULO -->
+                <!-- =========================================
+                     TITULO
+                ========================================== -->
 
                 <h1 class="main-title">
                     Nuestra Fiesta
@@ -447,7 +504,9 @@
 
 
 
-                <!-- NOMBRES -->
+                <!-- =========================================
+                     NOMBRES
+                ========================================== -->
 
                 <div class="girls-names">
 
@@ -467,23 +526,31 @@
 
 
 
-                <!-- FECHA -->
+                <!-- =========================================
+                     FECHA
+                ========================================== -->
 
                 <div class="date-banner">
 
+
                     <span class="date-line"></span>
+
 
                     <strong>
                         17 DE OCTUBRE DE 2026
                     </strong>
 
+
                     <span class="date-line"></span>
+
 
                 </div>
 
 
 
-                <!-- MENSAJE -->
+                <!-- =========================================
+                     MENSAJE
+                ========================================== -->
 
                 <p class="invitation-message">
 
@@ -517,13 +584,16 @@
 
 
 
-                <!-- PADRES -->
+                <!-- =========================================
+                     PADRES
+                ========================================== -->
 
                 <div class="parents">
 
                     <p class="section-label">
                         MIS PADRES
                     </p>
+
 
                     <h2>
 
@@ -542,12 +612,13 @@
 
             </div>
 
+
         </section>
 
 
 
         <!-- =================================================
-             EVENTOS
+             MISA Y RECEPCIÓN
         ================================================== -->
 
         <section
@@ -559,7 +630,9 @@
             <div class="events">
 
 
-                <!-- MISA -->
+                <!-- =========================================
+                     MISA
+                ========================================== -->
 
                 <article class="event">
 
@@ -589,13 +662,16 @@
 
                     <div class="event-info">
 
+
                         <p>
                             CEREMONIA RELIGIOSA
                         </p>
 
+
                         <h2>
                             Misa
                         </h2>
+
 
                         <strong>
                             5:00 p.m.
@@ -625,6 +701,7 @@
 
                             Ver ubicación
 
+
                         </a>
 
 
@@ -635,7 +712,9 @@
 
 
 
-                <!-- SEPARADOR -->
+                <!-- =========================================
+                     SEPARADOR
+                ========================================== -->
 
                 <div
                     class="event-divider"
@@ -654,7 +733,9 @@
 
 
 
-                <!-- RECEPCIÓN -->
+                <!-- =========================================
+                     RECEPCIÓN
+                ========================================== -->
 
                 <article class="event">
 
@@ -692,13 +773,16 @@
 
                     <div class="event-info">
 
+
                         <p>
                             DESPUÉS DE LA MISA
                         </p>
 
+
                         <h2>
                             Recepción
                         </h2>
+
 
                         <strong>
                             6:30 p.m.
@@ -728,6 +812,7 @@
 
                             Ver ubicación
 
+
                         </a>
 
 
@@ -745,7 +830,7 @@
 
 
         <!-- =================================================
-             CONTADOR
+             CUENTA REGRESIVA
         ================================================== -->
 
         <section
@@ -785,7 +870,6 @@
                 </div>
 
 
-
                 <div class="count-box">
 
                     <strong id="hours">
@@ -799,7 +883,6 @@
                 </div>
 
 
-
                 <div class="count-box">
 
                     <strong id="minutes">
@@ -811,7 +894,6 @@
                     </span>
 
                 </div>
-
 
 
                 <div class="count-box">
@@ -836,7 +918,9 @@
                 class="event-message"
                 hidden
             >
+
                 ¡Hoy es nuestro gran día!
+
             </p>
 
 
@@ -902,9 +986,11 @@
 
                 <div class="gift-copy">
 
+
                     <p class="section-label">
                         NUESTRAS TALLAS
                     </p>
+
 
                     <h2>
 
@@ -918,9 +1004,11 @@
 
                     </h2>
 
+
                     <p>
                         Tu presencia es nuestro mejor regalo.
                     </p>
+
 
                 </div>
 
@@ -990,7 +1078,7 @@
 
 
         <!-- =================================================
-             MÚSICA
+             REPRODUCTOR
         ================================================== -->
 
         <section
@@ -1066,7 +1154,6 @@
                 </svg>
 
 
-
                 <svg
                     class="icon-pause"
                     viewBox="0 0 24 24"
@@ -1107,9 +1194,6 @@
 
         <!-- =================================================
              FOOTER PROMOCIONAL
-
-             MÁS DISCRETO
-             PERO MÁS LEGIBLE
         ================================================== -->
 
         <footer class="commercial-footer">
@@ -1129,8 +1213,8 @@
 
                 <p class="footer-description">
 
-                    Diseño personalizado
-                    para momentos y proyectos especiales.
+                    Diseños personalizados para momentos
+                    y proyectos especiales.
 
                 </p>
 
@@ -1166,13 +1250,16 @@
 
                     <span class="footer-button-copy">
 
+
                         <small>
                             ¿Te gustaría algo así?
                         </small>
 
+
                         <strong>
                             Contáctame
                         </strong>
+
 
                     </span>
 

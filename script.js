@@ -49,6 +49,18 @@ document.addEventListener(
             );
 
 
+        const mainPhoto =
+            document.getElementById(
+                "mainPhoto"
+            );
+
+
+        const photoPlaceholder =
+            document.getElementById(
+                "photoPlaceholder"
+            );
+
+
         const musicControls = [
 
             musicButton,
@@ -59,9 +71,187 @@ document.addEventListener(
 
 
         /* =====================================================
+           ESTADO DE CARGA CRÍTICA
+        ====================================================== */
+
+        let photoReady =
+            false;
+
+
+        let audioReady =
+            false;
+
+
+
+        function updateOpeningStatus() {
+
+
+            if (
+                photoReady &&
+                audioReady
+            ) {
+
+
+                openingStatus.textContent =
+                    "Todo listo para abrir nuestra invitación";
+
+
+                return;
+
+            }
+
+
+            if (
+                photoReady
+            ) {
+
+
+                openingStatus.textContent =
+                    "Preparando nuestra canción…";
+
+
+                return;
+
+            }
+
+
+            if (
+                audioReady
+            ) {
+
+
+                openingStatus.textContent =
+                    "Preparando nuestra fotografía…";
+
+
+                return;
+
+            }
+
+
+            openingStatus.textContent =
+                "Preparando nuestra celebración…";
+
+
+        }
+
+
+
+        /* =====================================================
+           FOTO PRINCIPAL
+
+           NO se crean versiones adicionales.
+
+           El navegador empieza a descargarla desde HEAD
+           gracias al preload.
+
+           decode() se ejecuta en segundo plano mientras el
+           usuario observa la pantalla inicial.
+        ====================================================== */
+
+        function showMainPhoto() {
+
+
+            photoReady =
+                true;
+
+
+            mainPhoto.classList.add(
+                "is-loaded"
+            );
+
+
+            if (
+                photoPlaceholder
+            ) {
+
+
+                photoPlaceholder.classList.add(
+                    "is-hidden"
+                );
+
+
+            }
+
+
+            updateOpeningStatus();
+
+
+        }
+
+
+
+        if (
+            mainPhoto.complete &&
+            mainPhoto.naturalWidth > 0
+        ) {
+
+
+            mainPhoto
+                .decode()
+                .catch(
+                    () => {}
+                )
+                .finally(
+                    showMainPhoto
+                );
+
+
+        } else {
+
+
+            mainPhoto.addEventListener(
+                "load",
+                async () => {
+
+
+                    try {
+
+
+                        await mainPhoto.decode();
+
+
+                    } catch (
+                        error
+                    ) {
+
+
+                        /*
+                            Si decode() falla por alguna razón,
+                            mostramos la imagen igualmente.
+                        */
+
+
+                    }
+
+
+                    showMainPhoto();
+
+
+                },
+                {
+                    once:
+                        true
+                }
+            );
+
+
+        }
+
+
+
+        /* =====================================================
            AUDIO
 
-           Ya está siendo precargado desde HEAD.
+           IMPORTANTE:
+
+           NO llamar audio.load().
+
+           preload="auto" +
+           <link rel="preload" as="audio">
+
+           hacen que la descarga comience inmediatamente
+           sin reiniciar la petición.
         ====================================================== */
 
         audio.volume =
@@ -69,88 +259,48 @@ document.addEventListener(
 
 
 
-        /*
-           Fuerza al navegador a preparar el recurso
-           inmediatamente.
-
-           Como pesa ~768 KB esto es totalmente razonable.
-        */
-
-        audio.load();
+        function markAudioReady() {
 
 
-
-        /*
-           Indicador interno de preparación.
-        */
-
-        function updateAudioStatus() {
+            audioReady =
+                true;
 
 
-            /*
-               HAVE_FUTURE_DATA = 3
-               HAVE_ENOUGH_DATA = 4
-            */
-
-            if (
-                audio.readyState >= 3
-            ) {
-
-
-                if (
-                    openingStatus
-                ) {
-
-                    openingStatus.textContent =
-                        "La música está lista para acompañarte";
-
-                }
-
-
-            } else {
-
-
-                if (
-                    openingStatus
-                ) {
-
-                    openingStatus.textContent =
-                        "Preparando nuestra canción…";
-
-                }
-
-
-            }
+            updateOpeningStatus();
 
 
         }
 
 
 
-        audio.addEventListener(
-            "loadeddata",
-            updateAudioStatus
-        );
+        if (
+            audio.readyState >=
+            HTMLMediaElement.HAVE_FUTURE_DATA
+        ) {
 
 
-        audio.addEventListener(
-            "canplay",
-            updateAudioStatus
-        );
+            markAudioReady();
 
 
-        audio.addEventListener(
-            "canplaythrough",
-            updateAudioStatus
-        );
+        } else {
 
 
-        updateAudioStatus();
+            audio.addEventListener(
+                "canplay",
+                markAudioReady,
+                {
+                    once:
+                        true
+                }
+            );
+
+
+        }
 
 
 
         /* =====================================================
-           UI MÚSICA
+           UI DEL AUDIO
         ====================================================== */
 
         function syncMusicUI() {
@@ -176,7 +326,9 @@ document.addEventListener(
 
                     button.setAttribute(
                         "aria-pressed",
-                        String(playing)
+                        String(
+                            playing
+                        )
                     );
 
 
@@ -230,7 +382,7 @@ document.addEventListener(
 
 
                 console.info(
-                    "El navegador necesita interacción adicional para iniciar el audio."
+                    "El navegador necesita otra interacción para reproducir el audio."
                 );
 
 
@@ -291,16 +443,21 @@ document.addEventListener(
 
 
                 /*
-                   Primero intentamos iniciar música
-                   DENTRO del gesto de usuario.
+                    El audio se inicia directamente dentro
+                    del gesto del usuario.
                 */
 
-                await playMusic();
+                playMusic();
 
 
 
                 /*
-                   Después abrimos la invitación.
+                    No esperamos a que termine la canción ni
+                    la foto para abrir.
+
+                    La fotografía ya está descargándose y,
+                    si faltara algún fragmento, el placeholder
+                    elegante permanece hasta que termine.
                 */
 
                 openingScreen.classList.add(
@@ -319,7 +476,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           BOTONES AUDIO
+           BOTONES DE MÚSICA
         ====================================================== */
 
         musicControls.forEach(
@@ -359,6 +516,9 @@ document.addEventListener(
 
         /* =====================================================
            CUENTA REGRESIVA
+
+           17 DE OCTUBRE 2026
+           5:00 PM
         ====================================================== */
 
         const targetDate =
@@ -366,15 +526,10 @@ document.addEventListener(
             new Date(
 
                 2026,
-
                 9,
-
                 17,
-
                 17,
-
                 0,
-
                 0
 
             ).getTime();
@@ -547,19 +702,27 @@ document.addEventListener(
 
 
             daysElement.textContent =
-                pad(days);
+                pad(
+                    days
+                );
 
 
             hoursElement.textContent =
-                pad(hours);
+                pad(
+                    hours
+                );
 
 
             minutesElement.textContent =
-                pad(minutes);
+                pad(
+                    minutes
+                );
 
 
             secondsElement.textContent =
-                pad(seconds);
+                pad(
+                    seconds
+                );
 
 
         }
@@ -578,7 +741,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           SCROLL REVEAL
+           ANIMACIONES DE ENTRADA
         ====================================================== */
 
         const revealElements =
@@ -636,8 +799,10 @@ document.addEventListener(
                     },
 
                     {
+
                         threshold:
-                            0.10
+                            .10
+
                     }
 
                 );

@@ -6,6 +6,8 @@
 
     --rose: #d47f8b;
 
+    --rose-dark: #b96472;
+
     --rose-soft: #f2d2d3;
 
     --rose-light: #faeaea;
@@ -43,14 +45,18 @@
 ========================================================= */
 
 * {
+
     box-sizing:
         border-box;
+
 }
 
 
 html {
+
     scroll-behavior:
         smooth;
+
 }
 
 
@@ -83,8 +89,10 @@ body {
 
 
 body.is-locked {
+
     overflow:
         hidden;
+
 }
 
 
@@ -121,7 +129,7 @@ a {
 
 
 /* =========================================================
-   INVITACIÓN
+   INVITACIÓN GENERAL
 ========================================================= */
 
 .invitation {
@@ -130,7 +138,10 @@ a {
         relative;
 
     width:
-        min(920px, 100%);
+        min(
+            920px,
+            100%
+        );
 
     margin:
         0 auto;
@@ -145,19 +156,19 @@ a {
 
         radial-gradient(
             circle at 50% 7%,
-            rgba(240, 204, 202, 0.22),
+            rgba(240,204,202,.22),
             transparent 24%
         ),
 
         radial-gradient(
             circle at 20% 32%,
-            rgba(214, 185, 137, 0.08),
+            rgba(214,185,137,.08),
             transparent 22%
         ),
 
         radial-gradient(
             circle at 80% 62%,
-            rgba(213, 133, 146, 0.08),
+            rgba(213,133,146,.08),
             transparent 25%
         ),
 
@@ -168,7 +179,7 @@ a {
         0
         0
         60px
-        rgba(72, 52, 39, 0.15);
+        rgba(72,52,39,.15);
 
 }
 
@@ -190,16 +201,16 @@ a {
     background-image:
 
         radial-gradient(
-            rgba(174, 131, 59, 0.055)
-            0.7px,
-            transparent 0.7px
+            rgba(174,131,59,.055)
+            .7px,
+            transparent .7px
         );
 
     background-size:
         18px 18px;
 
     opacity:
-        0.55;
+        .55;
 
 }
 
@@ -241,7 +252,7 @@ a {
 
         1.5px
         solid
-        rgba(174, 131, 59, 0.46);
+        rgba(174,131,59,.46);
 
     border-radius:
         40px;
@@ -267,7 +278,7 @@ a {
 
         1px
         solid
-        rgba(212, 127, 139, 0.28);
+        rgba(212,127,139,.28);
 
     border-radius:
         33px;
@@ -343,7 +354,7 @@ a {
         rotate(12deg);
 
     opacity:
-        0.82;
+        .82;
 
 }
 
@@ -364,7 +375,7 @@ a {
         rotate(10deg);
 
     opacity:
-        0.82;
+        .82;
 
 }
 
@@ -439,11 +450,11 @@ a {
     transition:
 
         opacity
-        0.7s
+        .65s
         ease,
 
         visibility
-        0.7s
+        .65s
         ease;
 
 }
@@ -472,10 +483,12 @@ a {
         5;
 
     width:
-        min(520px, 93vw);
+        min(
+            520px,
+            93vw
+        );
 
     padding:
-
         72px
         28px
         48px;
@@ -492,7 +505,7 @@ a {
             255,
             250,
             243,
-            0.9
+            .92
         );
 
     box-shadow:
@@ -500,7 +513,7 @@ a {
         0
         25px
         70px
-        rgba(80, 57, 45, 0.15);
+        rgba(80,57,45,.15);
 
 }
 
@@ -525,7 +538,7 @@ a {
 
         1.5px
         solid
-        rgba(174, 131, 59, 0.48);
+        rgba(174,131,59,.48);
 
     border-radius:
         28px;
@@ -542,7 +555,7 @@ a {
 
         1px
         solid
-        rgba(212, 127, 139, 0.28);
+        rgba(212,127,139,.28);
 
     border-radius:
         23px;
@@ -559,7 +572,10 @@ a {
         2;
 
     width:
-        min(330px, 58vw);
+        min(
+            330px,
+            58vw
+        );
 
     height:
         auto;
@@ -610,13 +626,13 @@ a {
         var(--olive-dark);
 
     font-size:
-        0.7rem;
+        .7rem;
 
     font-weight:
         700;
 
     letter-spacing:
-        0.26em;
+        .26em;
 
 }
 
@@ -635,8 +651,12 @@ a {
     font:
 
         400
-        clamp(4.5rem, 15vw, 7rem)
-        / 0.8
+        clamp(
+            4.5rem,
+            15vw,
+            7rem
+        )
+        / .8
         var(--script);
 
     color:
@@ -662,7 +682,11 @@ a {
     font:
 
         400
-        clamp(2.5rem, 9vw, 4rem)
+        clamp(
+            2.5rem,
+            9vw,
+            4rem
+        )
         / 1
         var(--script);
 
@@ -675,13 +699,13 @@ a {
         var(--gold);
 
     padding:
-        0 7px;
+        0 8px;
 
     font-family:
         var(--serif);
 
     font-size:
-        1.45rem;
+        1.55rem;
 
 }
 
@@ -707,7 +731,7 @@ a {
         center;
 
     gap:
-        13px;
+        14px;
 
 }
 
@@ -721,7 +745,7 @@ a {
         5;
 
     margin:
-        23px 0;
+        24px 0;
 
 }
 
@@ -729,7 +753,7 @@ a {
 .opening-ornament span {
 
     width:
-        70px;
+        74px;
 
     height:
         1.5px;
@@ -749,7 +773,7 @@ a {
         normal;
 
     font-size:
-        1.15rem;
+        1.25rem;
 
 }
 
@@ -802,6 +826,13 @@ a {
             #ba6672
         );
 
+    box-shadow:
+
+        0
+        11px
+        28px
+        rgba(186,102,114,.22);
+
     font-family:
         var(--sans);
 
@@ -829,20 +860,16 @@ a {
         50%;
 
     background:
-
-        rgba(
-            255,
-            255,
-            255,
-            0.18
-        );
+        rgba(255,255,255,.18);
 
 }
 
 
 .open-play svg {
+
     width:
         17px;
+
 }
 
 
@@ -864,14 +891,14 @@ a {
         #927e74;
 
     font-size:
-        0.72rem;
+        .72rem;
 
 }
 
 
 
 /* =========================================================
-   MÚSICA FLOTANTE
+   BOTÓN MÚSICA FLOTANTE
 ========================================================= */
 
 .floating-music {
@@ -901,7 +928,10 @@ a {
         48px;
 
     border:
-        2px solid rgba(255,255,255,.75);
+
+        2px
+        solid
+        rgba(255,255,255,.75);
 
     border-radius:
         50%;
@@ -915,30 +945,45 @@ a {
     background:
         var(--rose);
 
+    box-shadow:
+
+        0
+        8px
+        22px
+        rgba(88,56,50,.15);
+
 }
 
 
 .floating-music svg {
+
     width:
         18px;
+
 }
 
 
 .icon-pause {
+
     display:
         none;
+
 }
 
 
 .is-playing .icon-play {
+
     display:
         none;
+
 }
 
 
 .is-playing .icon-pause {
+
     display:
         block;
+
 }
 
 
@@ -956,7 +1001,6 @@ a {
         5;
 
     padding:
-
         125px
         60px
         50px;
@@ -976,10 +1020,13 @@ a {
         8;
 
     width:
-        min(700px,100%);
+        min(
+            700px,
+            100%
+        );
 
     margin:
-        auto;
+        0 auto;
 
 }
 
@@ -1005,7 +1052,9 @@ a {
 
 
 
-/* FOTO */
+/* =========================================================
+   FOTO
+========================================================= */
 
 .photo-stage {
 
@@ -1013,7 +1062,10 @@ a {
         relative;
 
     width:
-        min(490px,80vw);
+        min(
+            490px,
+            80vw
+        );
 
     margin:
         0 auto 55px;
@@ -1032,25 +1084,143 @@ a {
     z-index:
         5;
 
+    width:
+        100%;
+
     aspect-ratio:
-        1/.91;
+        1 / .91;
 
     overflow:
         hidden;
 
     border:
-        8px solid rgba(255,255,255,.95);
+
+        8px
+        solid
+        rgba(255,255,255,.95);
 
     border-radius:
         50% 50% 16px 16px;
 
     background:
-        var(--cream);
+
+        radial-gradient(
+            circle at 50% 40%,
+            #f9ece8,
+            #f3e7db
+        );
+
+    box-shadow:
+
+        0
+        18px
+        48px
+        rgba(87,64,52,.13);
+
+}
+
+
+.photo-placeholder {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    z-index:
+        1;
+
+    overflow:
+        hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 42%,
+            #f8e7e5,
+            #f2e7db
+        );
+
+    transition:
+        opacity
+        .4s
+        ease;
+
+}
+
+
+.photo-placeholder::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    bottom:
+        0;
+
+    left:
+        -55%;
+
+    width:
+        45%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.62),
+            transparent
+        );
+
+    transform:
+        skewX(-15deg);
+
+    animation:
+        image-placeholder
+        1.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes image-placeholder {
+
+    to {
+
+        left:
+            120%;
+
+    }
+
+}
+
+
+.photo-placeholder.is-hidden {
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
 
 }
 
 
 .photo-frame img {
+
+    position:
+        relative;
+
+    z-index:
+        2;
 
     width:
         100%;
@@ -1063,6 +1233,22 @@ a {
 
     object-position:
         center 72%;
+
+    opacity:
+        0;
+
+    transition:
+        opacity
+        .45s
+        ease;
+
+}
+
+
+.photo-frame img.is-loaded {
+
+    opacity:
+        1;
 
 }
 
@@ -1087,7 +1273,10 @@ a {
         0;
 
     border:
-        2px solid rgba(174,131,59,.72);
+
+        2px
+        solid
+        rgba(174,131,59,.72);
 
     border-radius:
         50% 50% 23px 23px;
@@ -1104,7 +1293,10 @@ a {
         10px;
 
     border:
-        1px solid rgba(217,185,119,.72);
+
+        1px
+        solid
+        rgba(217,185,119,.72);
 
     border-radius:
         50% 50% 19px 19px;
@@ -1159,7 +1351,7 @@ a {
 
 
 /* =========================================================
-   TITULOS
+   TITULO
 ========================================================= */
 
 .main-title {
@@ -1173,7 +1365,11 @@ a {
     font:
 
         400
-        clamp(5rem,13vw,7.7rem)
+        clamp(
+            5rem,
+            13vw,
+            7.7rem
+        )
         / .72
         var(--script);
 
@@ -1191,7 +1387,7 @@ a {
 .title-decoration span {
 
     width:
-        120px;
+        125px;
 
     height:
         1.5px;
@@ -1229,10 +1425,15 @@ a {
         normal;
 
     font-size:
-        1.25rem;
+        1.35rem;
 
 }
 
+
+
+/* =========================================================
+   NOMBRES
+========================================================= */
 
 .girls-names {
 
@@ -1257,7 +1458,11 @@ a {
     font:
 
         400
-        clamp(3.7rem,10vw,5.8rem)
+        clamp(
+            3.7rem,
+            10vw,
+            5.8rem
+        )
         / .84
         var(--script);
 
@@ -1273,7 +1478,7 @@ a {
         normal;
 
     font-size:
-        1.15rem;
+        1.25rem;
 
 }
 
@@ -1320,6 +1525,9 @@ a {
 
 .date-banner strong {
 
+    color:
+        #695048;
+
     font:
         600 .9rem var(--serif);
 
@@ -1356,11 +1564,18 @@ a {
     margin:
         0 auto 27px;
 
+    color:
+        #604a41;
+
     font:
 
         600
-        clamp(1.18rem,2.5vw,1.42rem)
-        /1.47
+        clamp(
+            1.18rem,
+            2.5vw,
+            1.42rem
+        )
+        / 1.47
         var(--serif);
 
 }
@@ -1377,7 +1592,7 @@ a {
 .small-divider span {
 
     width:
-        68px;
+        72px;
 
     height:
         1.5px;
@@ -1397,7 +1612,7 @@ a {
         normal;
 
     font-size:
-        1.15rem;
+        1.25rem;
 
 }
 
@@ -1432,18 +1647,27 @@ a {
     margin:
         5px 0 0;
 
+    color:
+        var(--brown);
+
     font:
 
         600
-        clamp(1.7rem,4vw,2.2rem)
+        clamp(
+            1.7rem,
+            4vw,
+            2.2rem
+        )
         var(--serif);
 
 }
 
 
 .parents h2 span {
+
     color:
         var(--gold);
+
 }
 
 
@@ -1481,16 +1705,22 @@ a {
         720px;
 
     margin:
-        auto;
+        0 auto;
 
     padding:
         35px 25px;
 
     border-top:
-        1px solid rgba(174,131,59,.28);
+
+        1px
+        solid
+        rgba(174,131,59,.28);
 
     border-bottom:
-        1px solid rgba(174,131,59,.28);
+
+        1px
+        solid
+        rgba(174,131,59,.28);
 
 }
 
@@ -1513,6 +1743,9 @@ a {
 
 
 .event-icon {
+
+    flex:
+        0 0 auto;
 
     display:
         grid;
@@ -1552,12 +1785,20 @@ a {
     stroke-width:
         2;
 
+    stroke-linecap:
+        round;
+
+    stroke-linejoin:
+        round;
+
 }
 
 
 .event-info {
+
     text-align:
         left;
+
 }
 
 
@@ -1603,6 +1844,9 @@ a {
     margin-bottom:
         10px;
 
+    color:
+        #60483e;
+
     font:
         600 1.35rem var(--serif);
 
@@ -1620,17 +1864,20 @@ a {
     gap:
         7px;
 
+    min-height:
+        40px;
+
     padding:
         8px 15px;
 
     border-radius:
         999px;
 
-    color:
-        white;
-
     text-decoration:
         none;
+
+    color:
+        white;
 
     background:
 
@@ -1650,8 +1897,10 @@ a {
 
 
 .location-button svg {
+
     width:
         17px;
+
 }
 
 
@@ -1667,7 +1916,7 @@ a {
         center;
 
     gap:
-        8px;
+        9px;
 
     padding:
         0 20px;
@@ -1681,7 +1930,7 @@ a {
         1.5px;
 
     height:
-        45px;
+        48px;
 
     background:
         var(--gold-soft);
@@ -1698,7 +1947,7 @@ a {
         normal;
 
     font-size:
-        1.05rem;
+        1.15rem;
 
 }
 
@@ -1721,6 +1970,12 @@ a {
 
     text-align:
         center;
+
+    content-visibility:
+        auto;
+
+    contain-intrinsic-size:
+        500px;
 
 }
 
@@ -1745,7 +2000,10 @@ a {
         grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(
+            4,
+            1fr
+        );
 
     gap:
         13px;
@@ -1754,7 +2012,7 @@ a {
         650px;
 
     margin:
-        auto;
+        0 auto;
 
 }
 
@@ -1777,7 +2035,10 @@ a {
         1;
 
     border:
-        1px solid rgba(174,131,59,.32);
+
+        1px
+        solid
+        rgba(174,131,59,.32);
 
     border-radius:
         50%;
@@ -1794,7 +2055,15 @@ a {
         var(--rose);
 
     font:
-        700 clamp(2rem,6vw,3.3rem)/1 var(--serif);
+
+        700
+        clamp(
+            2rem,
+            6vw,
+            3.3rem
+        )
+        / 1
+        var(--serif);
 
 }
 
@@ -1812,6 +2081,20 @@ a {
 
     font-weight:
         700;
+
+    letter-spacing:
+        .1em;
+
+}
+
+
+.event-message {
+
+    color:
+        var(--rose);
+
+    font:
+        400 3rem var(--script);
 
 }
 
@@ -1831,6 +2114,12 @@ a {
 
     padding:
         45px 80px;
+
+    content-visibility:
+        auto;
+
+    contain-intrinsic-size:
+        350px;
 
 }
 
@@ -1853,13 +2142,16 @@ a {
         650px;
 
     margin:
-        auto;
+        0 auto;
 
     padding:
         25px 32px;
 
     border:
-        1.5px dashed rgba(174,131,59,.52);
+
+        1.5px
+        dashed
+        rgba(174,131,59,.52);
 
     border-radius:
         25px;
@@ -1946,6 +2238,12 @@ a {
     text-align:
         center;
 
+    content-visibility:
+        auto;
+
+    contain-intrinsic-size:
+        400px;
+
 }
 
 
@@ -1958,7 +2256,14 @@ a {
         var(--olive-dark);
 
     font:
-        600 clamp(2.4rem,6vw,3.5rem) var(--serif);
+
+        600
+        clamp(
+            2.4rem,
+            6vw,
+            3.5rem
+        )
+        var(--serif);
 
 }
 
@@ -1970,6 +2275,9 @@ a {
 
     margin:
         0 auto 24px;
+
+    color:
+        #755f55;
 
     font:
         500 1.1rem/1.55 var(--serif);
@@ -1985,8 +2293,14 @@ a {
     align-items:
         center;
 
+    justify-content:
+        center;
+
     gap:
         10px;
+
+    min-height:
+        53px;
 
     padding:
         12px 26px;
@@ -1994,11 +2308,11 @@ a {
     border-radius:
         999px;
 
-    color:
-        white;
-
     text-decoration:
         none;
+
+    color:
+        white;
 
     background:
 
@@ -2008,6 +2322,16 @@ a {
             #526d50
         );
 
+    box-shadow:
+
+        0
+        10px
+        25px
+        rgba(82,109,80,.16);
+
+    font-size:
+        .86rem;
+
     font-weight:
         700;
 
@@ -2015,14 +2339,16 @@ a {
 
 
 .whatsapp-button svg {
+
     width:
         22px;
+
 }
 
 
 
 /* =========================================================
-   MÚSICA
+   REPRODUCTOR
 ========================================================= */
 
 .music-player {
@@ -2046,7 +2372,10 @@ a {
         15px;
 
     width:
-        min(650px,calc(100% - 70px));
+        min(
+            650px,
+            calc(100% - 70px)
+        );
 
     margin:
         0 auto 70px;
@@ -2055,10 +2384,16 @@ a {
         14px 17px;
 
     border:
-        1px solid rgba(174,131,59,.28);
+
+        1px
+        solid
+        rgba(174,131,59,.28);
 
     border-radius:
         20px;
+
+    background:
+        rgba(247,237,224,.65);
 
 }
 
@@ -2090,8 +2425,10 @@ a {
 
 
 .music-note svg {
+
     width:
         26px;
+
 }
 
 
@@ -2109,10 +2446,16 @@ a {
     font-weight:
         700;
 
+    letter-spacing:
+        .1em;
+
 }
 
 
 .song-info strong {
+
+    color:
+        var(--brown);
 
     font:
         600 1.2rem var(--serif);
@@ -2135,10 +2478,16 @@ a {
         44px;
 
     border:
-        1.5px solid var(--rose);
+
+        1.5px
+        solid
+        var(--rose);
 
     border-radius:
         50%;
+
+    cursor:
+        pointer;
 
     color:
         var(--rose);
@@ -2150,8 +2499,10 @@ a {
 
 
 .music-bottom-button svg {
+
     width:
         17px;
+
 }
 
 
@@ -2166,16 +2517,25 @@ a {
     gap:
         3px;
 
+    height:
+        32px;
+
 }
 
 
 .sound-wave i {
 
+    display:
+        block;
+
     width:
         2px;
 
     height:
-        8px;
+        7px;
+
+    border-radius:
+        2px;
 
     background:
         var(--gold);
@@ -2190,16 +2550,68 @@ a {
 
 
 .sound-wave.is-playing i {
+
     animation-play-state:
         running;
+
+}
+
+
+.sound-wave i:nth-child(2) {
+
+    animation-delay:
+        .1s;
+
+}
+
+
+.sound-wave i:nth-child(3) {
+
+    animation-delay:
+        .2s;
+
+}
+
+
+.sound-wave i:nth-child(4) {
+
+    animation-delay:
+        .3s;
+
+}
+
+
+.sound-wave i:nth-child(5) {
+
+    animation-delay:
+        .4s;
+
+}
+
+
+.sound-wave i:nth-child(6) {
+
+    animation-delay:
+        .5s;
+
 }
 
 
 @keyframes wave {
 
-    50% {
+    0%,
+    100% {
+
         height:
-            27px;
+            7px;
+
+    }
+
+    50% {
+
+        height:
+            25px;
+
     }
 
 }
@@ -2212,6 +2624,12 @@ a {
 
 .final-decoration {
 
+    position:
+        relative;
+
+    z-index:
+        5;
+
     margin:
         0 auto 28px;
 
@@ -2221,7 +2639,7 @@ a {
 .final-decoration span {
 
     width:
-        90px;
+        94px;
 
     height:
         1.5px;
@@ -2259,16 +2677,14 @@ a {
         normal;
 
     font-size:
-        1.1rem;
+        1.25rem;
 
 }
 
 
 
 /* =========================================================
-   FOOTER
-
-   MÁS DISCRETO
+   FOOTER PROMOCIONAL
 ========================================================= */
 
 .commercial-footer {
@@ -2280,7 +2696,9 @@ a {
         6;
 
     padding:
-        42px 30px 58px;
+        44px
+        30px
+        58px;
 
     text-align:
         center;
@@ -2289,7 +2707,7 @@ a {
 
         linear-gradient(
             180deg,
-            rgba(255,250,243,.2),
+            rgba(255,250,243,.18),
             rgba(246,232,218,.68)
         );
 
@@ -2299,37 +2717,44 @@ a {
 .footer-content {
 
     width:
-        min(560px,100%);
+        min(
+            560px,
+            100%
+        );
 
     margin:
-        auto;
+        0 auto;
 
 }
 
 
 /*
-   ESTA FRASE AHORA TIENE PRESENCIA
+    LLAMATIVO PERO ELEGANTE
 */
 
 .footer-question {
 
     max-width:
-        440px;
+        470px;
 
     margin:
-        0 auto 7px;
+        0 auto 8px;
 
     color:
-        #bf6e7a;
+        var(--rose-dark);
 
     font:
 
         700
-        clamp(.98rem,2.5vw,1.15rem)
+        clamp(
+            1.05rem,
+            2.7vw,
+            1.22rem
+        )
         var(--serif);
 
     letter-spacing:
-        .035em;
+        .025em;
 
 }
 
@@ -2337,22 +2762,22 @@ a {
 .footer-description {
 
     max-width:
-        430px;
+        410px;
 
     margin:
-        0 auto 21px;
+        0 auto 22px;
 
     color:
         #817067;
 
     font:
-        500 .82rem/1.5 var(--sans);
+        500 .8rem/1.5 var(--sans);
 
 }
 
 
 /*
-   CTA MENOS GRANDE Y MENOS PUBLICITARIO
+    BOTÓN MÁS PEQUEÑO Y DISCRETO
 */
 
 .footer-contact-button {
@@ -2367,22 +2792,31 @@ a {
         center;
 
     gap:
-        12px;
+        11px;
 
     width:
-        min(330px,100%);
+        min(
+            305px,
+            100%
+        );
 
     min-height:
-        58px;
+        55px;
 
     margin:
-        auto;
+        0 auto;
 
     padding:
-        7px 12px 7px 7px;
+        6px
+        11px
+        6px
+        7px;
 
     border:
-        1px solid rgba(190,108,121,.32);
+
+        1px
+        solid
+        rgba(185,100,113,.26);
 
     border-radius:
         999px;
@@ -2397,19 +2831,21 @@ a {
 
         linear-gradient(
             135deg,
-            rgba(203,123,136,.94),
-            rgba(182,96,110,.94)
+            rgba(204,128,140,.94),
+            rgba(183,99,112,.94)
         );
 
     box-shadow:
 
         0
-        7px
-        20px
-        rgba(166,90,102,.13);
+        6px
+        18px
+        rgba(166,90,102,.11);
 
     transition:
-        .25s ease;
+
+        transform .25s ease,
+        box-shadow .25s ease;
 
 }
 
@@ -2422,9 +2858,9 @@ a {
     box-shadow:
 
         0
-        10px
-        24px
-        rgba(166,90,102,.18);
+        9px
+        21px
+        rgba(166,90,102,.17);
 
 }
 
@@ -2438,10 +2874,10 @@ a {
         center;
 
     width:
-        43px;
+        41px;
 
     height:
-        43px;
+        41px;
 
     border-radius:
         50%;
@@ -2456,8 +2892,10 @@ a {
 
 
 .footer-whatsapp-icon svg {
+
     width:
-        24px;
+        23px;
+
 }
 
 
@@ -2484,18 +2922,21 @@ a {
         rgba(255,255,255,.78);
 
     font-size:
-        .48rem;
+        .46rem;
 
     font-weight:
         600;
 
     letter-spacing:
-        .06em;
+        .04em;
 
 }
 
 
 .footer-button-copy strong {
+
+    margin-top:
+        1px;
 
     color:
         white;
@@ -2503,7 +2944,7 @@ a {
     font:
 
         400
-        1.75rem/.9
+        1.65rem/.9
         var(--script);
 
 }
@@ -2518,13 +2959,16 @@ a {
         center;
 
     width:
-        28px;
+        27px;
 
     height:
-        28px;
+        27px;
 
     border:
-        1px solid rgba(255,255,255,.4);
+
+        1px
+        solid
+        rgba(255,255,255,.4);
 
     border-radius:
         50%;
@@ -2535,7 +2979,7 @@ a {
 .footer-arrow svg {
 
     width:
-        15px;
+        14px;
 
     fill:
         none;
@@ -2545,6 +2989,12 @@ a {
 
     stroke-width:
         2;
+
+    stroke-linecap:
+        round;
+
+    stroke-linejoin:
+        round;
 
 }
 
@@ -2560,13 +3010,31 @@ a {
 .footer-mini-decoration span {
 
     width:
-        62px;
+        66px;
 
     height:
         1.5px;
 
     background:
-        var(--gold-soft);
+
+        linear-gradient(
+            to right,
+            transparent,
+            var(--gold-soft)
+        );
+
+}
+
+
+.footer-mini-decoration span:last-child {
+
+    background:
+
+        linear-gradient(
+            to left,
+            transparent,
+            var(--gold-soft)
+        );
 
 }
 
@@ -2580,7 +3048,7 @@ a {
         normal;
 
     font-size:
-        1rem;
+        1.15rem;
 
 }
 
@@ -2613,7 +3081,9 @@ a {
         translateY(22px);
 
     transition:
-        .85s ease;
+
+        opacity .8s ease,
+        transform .8s ease;
 
 }
 
@@ -2631,7 +3101,7 @@ a {
 
 
 /* =========================================================
-   MOBILE
+   TABLET
 ========================================================= */
 
 @media
@@ -2639,27 +3109,138 @@ a {
 
 
     body {
+
         background:
             var(--ivory);
+
     }
 
 
     .invitation {
+
+        width:
+            100%;
+
         box-shadow:
             none;
+
+    }
+
+
+    .master-border--outer {
+
+        top:
+            10px;
+
+        bottom:
+            10px;
+
+        left:
+            8px;
+
+        right:
+            8px;
+
+    }
+
+
+    .master-border--inner {
+
+        top:
+            18px;
+
+        bottom:
+            18px;
+
+        left:
+            15px;
+
+        right:
+            15px;
+
     }
 
 
     .page-flower {
+
         width:
             210px;
+
+    }
+
+
+    .page-flower--top-left {
+
+        top:
+            -25px;
+
+        left:
+            -85px;
+
+    }
+
+
+    .page-flower--top-right {
+
+        top:
+            -25px;
+
+        right:
+            -85px;
+
+    }
+
+
+    .page-flower--middle-left {
+
+        left:
+            -145px;
+
+        width:
+            220px;
+
+    }
+
+
+    .page-flower--middle-right {
+
+        right:
+            -145px;
+
+        width:
+            220px;
+
+    }
+
+
+    .page-flower--bottom-left {
+
+        left:
+            -85px;
+
+        width:
+            220px;
+
+    }
+
+
+    .page-flower--bottom-right {
+
+        right:
+            -85px;
+
+        width:
+            220px;
+
     }
 
 
     .hero {
 
         padding:
-            95px 32px 35px;
+            95px
+            32px
+            35px;
 
     }
 
@@ -2667,7 +3248,13 @@ a {
     .photo-stage {
 
         width:
-            min(430px,87vw);
+            min(
+                430px,
+                87vw
+            );
+
+        margin-bottom:
+            48px;
 
     }
 
@@ -2685,6 +3272,9 @@ a {
         left:
             -70px;
 
+        bottom:
+            -47px;
+
     }
 
 
@@ -2693,13 +3283,18 @@ a {
         right:
             -70px;
 
+        top:
+            -35px;
+
     }
 
 
     .event-section {
 
         padding:
-            40px 42px;
+            40px
+            42px
+            55px;
 
     }
 
@@ -2711,6 +3306,9 @@ a {
 
         gap:
             28px;
+
+        padding:
+            30px 15px;
 
     }
 
@@ -2726,10 +3324,32 @@ a {
     .event-divider span {
 
         width:
-            75px;
+            80px;
 
         height:
             1.5px;
+
+    }
+
+
+    .event {
+
+        width:
+            min(
+                360px,
+                100%
+            );
+
+        margin:
+            0 auto;
+
+    }
+
+
+    .countdown-section {
+
+        padding:
+            55px 35px;
 
     }
 
@@ -2756,6 +3376,14 @@ a {
     }
 
 
+    .sizes-section {
+
+        padding:
+            40px 38px;
+
+    }
+
+
     .gift-card {
 
         grid-template-columns:
@@ -2764,18 +3392,35 @@ a {
         text-align:
             center;
 
+        gap:
+            17px;
+
+        padding:
+            25px 20px;
+
     }
 
 
     .gift-icon {
 
         margin:
-            auto;
+            0 auto;
+
+    }
+
+
+    .rsvp-section {
+
+        padding:
+            55px 36px;
 
     }
 
 
     .music-player {
+
+        width:
+            calc(100% - 70px);
 
         grid-template-columns:
             auto 1fr auto;
@@ -2784,21 +3429,40 @@ a {
 
 
     .sound-wave {
+
         display:
             none;
+
     }
 
 }
 
 
 
+/* =========================================================
+   MÓVIL
+========================================================= */
+
 @media
 (max-width:430px) {
 
 
+    .hero {
+
+        padding-left:
+            27px;
+
+        padding-right:
+            27px;
+
+    }
+
+
     .main-title {
+
         font-size:
             4.6rem;
+
     }
 
 
@@ -2807,13 +3471,145 @@ a {
         font-size:
             3.35rem;
 
+        gap:
+            5px 10px;
+
+    }
+
+
+    .girls-names i {
+
+        font-size:
+            1.05rem;
+
+    }
+
+
+    .title-decoration span {
+
+        width:
+            82px;
+
+    }
+
+
+    .title-decoration i,
+    .small-divider i,
+    .final-decoration i {
+
+        font-size:
+            1.12rem;
+
+    }
+
+
+    .small-divider span {
+
+        width:
+            55px;
+
+    }
+
+
+    .date-banner {
+
+        gap:
+            7px;
+
+        padding:
+            9px 10px;
+
+    }
+
+
+    .date-line {
+
+        width:
+            20px;
+
+    }
+
+
+    .date-banner strong {
+
+        font-size:
+            .72rem;
+
+        letter-spacing:
+            .08em;
+
+    }
+
+
+    .invitation-message {
+
+        font-size:
+            1.08rem;
+
+    }
+
+
+    .photo-stage {
+
+        width:
+            88vw;
+
+    }
+
+
+    .event-section {
+
+        padding-left:
+            30px;
+
+        padding-right:
+            30px;
+
+    }
+
+
+    .event {
+
+        gap:
+            13px;
+
+    }
+
+
+    .event-icon {
+
+        width:
+            72px;
+
+        height:
+            72px;
+
+    }
+
+
+    .event-icon svg {
+
+        width:
+            43px;
+
+    }
+
+
+    .event-info h2 {
+
+        font-size:
+            1.7rem;
+
     }
 
 
     .countdown {
 
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(
+                2,
+                1fr
+            );
 
     }
 
@@ -2826,10 +3622,38 @@ a {
     }
 
 
+    .music-player {
+
+        width:
+            calc(100% - 54px);
+
+        padding:
+            12px 13px;
+
+    }
+
+
     .footer-question {
 
+        max-width:
+            310px;
+
         font-size:
-            1.05rem;
+            1.1rem;
+
+        line-height:
+            1.18;
+
+    }
+
+
+    .footer-description {
+
+        max-width:
+            310px;
+
+        font-size:
+            .75rem;
 
     }
 
@@ -2837,7 +3661,10 @@ a {
     .footer-contact-button {
 
         width:
-            min(310px,100%);
+            min(
+                290px,
+                100%
+            );
 
     }
 
@@ -2853,10 +3680,23 @@ a {
 (prefers-reduced-motion:reduce) {
 
 
-    * {
+    html {
+
+        scroll-behavior:
+            auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
 
         animation-duration:
             .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
 
         transition-duration:
             .01ms !important;
