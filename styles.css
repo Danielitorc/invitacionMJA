@@ -15,7 +15,6 @@
     --gold-soft: #d9b977;
 
     --brown: #5c473e;
-    --text-soft: #7c6960;
 
     --script:
         "Allura",
@@ -53,6 +52,7 @@ body {
     padding: 0;
 
     background:
+
         linear-gradient(
             135deg,
             #eadfd3,
@@ -65,7 +65,8 @@ body {
     font-family:
         var(--sans);
 
-    overflow-x: hidden;
+    overflow-x:
+        hidden;
 
 }
 
@@ -85,7 +86,8 @@ svg {
 
     display: block;
 
-    fill: currentColor;
+    fill:
+        currentColor;
 
 }
 
@@ -116,9 +118,11 @@ a {
     margin:
         0 auto;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
-    isolation: isolate;
+    isolation:
+        isolate;
 
     background:
 
@@ -143,7 +147,10 @@ a {
         #fffaf3;
 
     box-shadow:
-        0 0 60px
+
+        0
+        0
+        60px
         rgba(72,52,39,.15);
 
 }
@@ -170,21 +177,23 @@ a {
     background-size:
         18px 18px;
 
-    opacity: .55;
+    opacity:
+        .55;
 
 }
 
 
 
 /* =========================================================
-   MARCO
+   MARCO GENERAL
 ========================================================= */
 
 .master-border {
 
     position: absolute;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
     z-index: 2;
 
@@ -199,10 +208,13 @@ a {
     right: 18px;
 
     border:
-        1.5px solid
+
+        1.5px
+        solid
         rgba(174,131,59,.46);
 
-    border-radius: 40px;
+    border-radius:
+        40px;
 
 }
 
@@ -215,10 +227,13 @@ a {
     right: 29px;
 
     border:
-        1px solid
+
+        1px
+        solid
         rgba(212,127,139,.28);
 
-    border-radius: 33px;
+    border-radius:
+        33px;
 
 }
 
@@ -226,6 +241,9 @@ a {
 
 /* =========================================================
    FLORES
+
+   SIN DROP-SHADOW
+   SIN MIX-BLEND-MODE
 ========================================================= */
 
 .page-flower {
@@ -238,15 +256,11 @@ a {
 
     height: auto;
 
-    object-fit: contain;
+    object-fit:
+        contain;
 
-    pointer-events: none;
-
-    filter:
-        drop-shadow(
-            0 8px 12px
-            rgba(72,57,43,.06)
-        );
+    pointer-events:
+        none;
 
 }
 
@@ -254,6 +268,7 @@ a {
 .page-flower--top-left {
 
     top: -55px;
+
     left: -72px;
 
 }
@@ -262,6 +277,7 @@ a {
 .page-flower--top-right {
 
     top: -55px;
+
     right: -72px;
 
     transform:
@@ -281,7 +297,8 @@ a {
     transform:
         rotate(12deg);
 
-    opacity: .84;
+    opacity:
+        .84;
 
 }
 
@@ -298,7 +315,8 @@ a {
         scaleX(-1)
         rotate(10deg);
 
-    opacity: .84;
+    opacity:
+        .84;
 
 }
 
@@ -351,7 +369,8 @@ a {
 
     padding: 25px;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
     background:
 
@@ -368,6 +387,7 @@ a {
         );
 
     transition:
+
         opacity .55s ease,
         visibility .55s ease;
 
@@ -378,9 +398,11 @@ a {
 
     opacity: 0;
 
-    visibility: hidden;
+    visibility:
+        hidden;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
 }
 
@@ -398,19 +420,25 @@ a {
         );
 
     padding:
+
         72px
         28px
         48px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    border-radius: 36px;
+    border-radius:
+        36px;
 
     background:
         rgba(255,250,243,.94);
 
     box-shadow:
-        0 25px 70px
+
+        0
+        25px
+        70px
         rgba(80,57,45,.15);
 
 }
@@ -420,7 +448,8 @@ a {
 
     position: absolute;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
 }
 
@@ -430,10 +459,13 @@ a {
     inset: 12px;
 
     border:
-        1.5px solid
+
+        1.5px
+        solid
         rgba(174,131,59,.48);
 
-    border-radius: 28px;
+    border-radius:
+        28px;
 
 }
 
@@ -443,10 +475,13 @@ a {
     inset: 20px;
 
     border:
-        1px solid
+
+        1px
+        solid
         rgba(212,127,139,.28);
 
-    border-radius: 23px;
+    border-radius:
+        23px;
 
 }
 
@@ -459,33 +494,35 @@ a {
 
     width:
         min(
-            330px,
-            58vw
+            300px,
+            56vw
         );
 
     height: auto;
 
-    object-fit: contain;
+    object-fit:
+        contain;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
 }
 
 
 .opening-flower--tl {
 
-    top: -75px;
+    top: -65px;
 
-    left: -100px;
+    left: -90px;
 
 }
 
 
 .opening-flower--br {
 
-    right: -100px;
+    bottom: -70px;
 
-    bottom: -80px;
+    right: -90px;
 
     transform:
         rotate(180deg);
@@ -507,11 +544,13 @@ a {
     font-family:
         var(--sans);
 
-    font-size: .7rem;
+    font-size:
+        .7rem;
 
     font-weight: 700;
 
-    letter-spacing: .26em;
+    letter-spacing:
+        .26em;
 
 }
 
@@ -523,13 +562,16 @@ a {
     z-index: 5;
 
     margin:
-        14px 0
+
+        14px
+        0
         8px;
 
     color:
         var(--gold);
 
     font:
+
         400
         clamp(
             4.5rem,
@@ -555,6 +597,7 @@ a {
         var(--rose);
 
     font:
+
         400
         clamp(
             2.5rem,
@@ -597,9 +640,11 @@ a {
 
     display: flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
     gap: 14px;
 
@@ -635,16 +680,18 @@ a {
     color:
         var(--rose);
 
-    font-style: normal;
+    font-style:
+        normal;
 
-    font-size: 1.25rem;
+    font-size:
+        1.25rem;
 
 }
 
 
 
 /* =========================================================
-   BOTÓN APERTURA
+   BOTÓN DE APERTURA
 ========================================================= */
 
 .open-button {
@@ -653,24 +700,30 @@ a {
 
     z-index: 20;
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
     gap: 10px;
 
-    min-height: 50px;
+    min-height:
+        50px;
 
     padding:
         9px 23px 9px 9px;
 
     border: 0;
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    color: white;
+    color:
+        white;
 
     background:
 
@@ -681,13 +734,17 @@ a {
         );
 
     box-shadow:
-        0 11px 28px
+
+        0
+        11px
+        28px
         rgba(186,102,114,.22);
 
     font-family:
         var(--sans);
 
-    font-weight: 700;
+    font-weight:
+        700;
 
 }
 
@@ -704,13 +761,17 @@ a {
 
     display: grid;
 
-    place-items: center;
+    place-items:
+        center;
 
-    width: 35px;
+    width:
+        35px;
 
-    height: 35px;
+    height:
+        35px;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
     background:
         rgba(255,255,255,.18);
@@ -719,7 +780,10 @@ a {
 
 
 .open-play svg {
-    width: 17px;
+
+    width:
+        17px;
+
 }
 
 
@@ -729,20 +793,24 @@ a {
 
     z-index: 5;
 
-    display: block;
+    display:
+        block;
 
-    margin-top: 17px;
+    margin-top:
+        17px;
 
-    color: #927e74;
+    color:
+        #927e74;
 
-    font-size: .72rem;
+    font-size:
+        .72rem;
 
 }
 
 
 
 /* =========================================================
-   MÚSICA FLOTANTE
+   BOTÓN DE MÚSICA
 ========================================================= */
 
 .floating-music {
@@ -752,52 +820,77 @@ a {
     z-index: 500;
 
     top: 18px;
+
     right: 18px;
 
     display: grid;
 
-    place-items: center;
+    place-items:
+        center;
 
-    width: 48px;
-    height: 48px;
+    width:
+        48px;
+
+    height:
+        48px;
 
     border:
-        2px solid
+
+        2px
+        solid
         rgba(255,255,255,.75);
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    color: white;
+    color:
+        white;
 
     background:
         var(--rose);
 
     box-shadow:
-        0 8px 22px
+
+        0
+        8px
+        22px
         rgba(88,56,50,.15);
 
 }
 
 
 .floating-music svg {
-    width: 18px;
+
+    width:
+        18px;
+
 }
 
 
 .icon-pause {
-    display: none;
+
+    display:
+        none;
+
 }
 
 
 .is-playing .icon-play {
-    display: none;
+
+    display:
+        none;
+
 }
 
 
 .is-playing .icon-pause {
-    display: block;
+
+    display:
+        block;
+
 }
 
 
@@ -813,11 +906,13 @@ a {
     z-index: 5;
 
     padding:
+
         125px
         60px
         50px;
 
-    text-align: center;
+    text-align:
+        center;
 
 }
 
@@ -829,6 +924,7 @@ a {
     z-index: 8;
 
     width:
+
         min(
             700px,
             100%
@@ -843,23 +939,29 @@ a {
 .hero-kicker {
 
     margin:
-        0 0 24px;
+
+        0
+        0
+        24px;
 
     color:
         var(--olive-dark);
 
-    font-size: .68rem;
+    font-size:
+        .68rem;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
-    letter-spacing: .24em;
+    letter-spacing:
+        .24em;
 
 }
 
 
 
 /* =========================================================
-   FOTO
+   FOTO PRINCIPAL
 ========================================================= */
 
 .photo-stage {
@@ -867,15 +969,20 @@ a {
     position: relative;
 
     width:
+
         min(
             490px,
             80vw
         );
 
     margin:
-        0 auto 55px;
 
-    padding: 18px;
+        0
+        auto
+        55px;
+
+    padding:
+        18px;
 
 }
 
@@ -886,15 +993,19 @@ a {
 
     z-index: 5;
 
-    width: 100%;
+    width:
+        100%;
 
     aspect-ratio:
         1 / .91;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
     border:
-        8px solid
+
+        8px
+        solid
         rgba(255,255,255,.95);
 
     border-radius:
@@ -909,7 +1020,10 @@ a {
         );
 
     box-shadow:
-        0 18px 48px
+
+        0
+        18px
+        48px
         rgba(87,64,52,.13);
 
 }
@@ -923,7 +1037,8 @@ a {
 
     z-index: 1;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
     background:
 
@@ -946,11 +1061,14 @@ a {
     position: absolute;
 
     top: 0;
+
     bottom: 0;
 
-    left: -55%;
+    left:
+        -55%;
 
-    width: 45%;
+    width:
+        45%;
 
     background:
 
@@ -965,6 +1083,7 @@ a {
         skewX(-15deg);
 
     animation:
+
         image-placeholder
         1.4s
         ease-in-out
@@ -976,7 +1095,10 @@ a {
 @keyframes image-placeholder {
 
     to {
-        left: 120%;
+
+        left:
+            120%;
+
     }
 
 }
@@ -984,9 +1106,11 @@ a {
 
 .photo-placeholder.is-hidden {
 
-    opacity: 0;
+    opacity:
+        0;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
 }
 
@@ -997,15 +1121,20 @@ a {
 
     z-index: 2;
 
-    width: 100%;
-    height: 100%;
+    width:
+        100%;
 
-    object-fit: cover;
+    height:
+        100%;
+
+    object-fit:
+        cover;
 
     object-position:
         center 72%;
 
-    opacity: 0;
+    opacity:
+        0;
 
     transition:
         opacity .3s ease;
@@ -1014,15 +1143,20 @@ a {
 
 
 .photo-frame img.is-loaded {
-    opacity: 1;
+
+    opacity:
+        1;
+
 }
 
 
 .photo-arc {
 
-    position: absolute;
+    position:
+        absolute;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
 }
 
@@ -1034,7 +1168,9 @@ a {
     inset: 0;
 
     border:
-        2px solid
+
+        2px
+        solid
         rgba(174,131,59,.72);
 
     border-radius:
@@ -1050,7 +1186,9 @@ a {
     inset: 10px;
 
     border:
-        1px solid
+
+        1px
+        solid
         rgba(217,185,119,.72);
 
     border-radius:
@@ -1061,26 +1199,33 @@ a {
 
 .photo-flower {
 
-    position: absolute;
+    position:
+        absolute;
 
     z-index: 7;
 
-    width: 215px;
+    width:
+        205px;
 
-    height: auto;
+    height:
+        auto;
 
-    object-fit: contain;
+    object-fit:
+        contain;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
 }
 
 
 .photo-flower--left {
 
-    left: -92px;
+    left:
+        -86px;
 
-    bottom: -72px;
+    bottom:
+        -68px;
 
     transform:
         rotate(-7deg);
@@ -1090,11 +1235,14 @@ a {
 
 .photo-flower--right {
 
-    right: -92px;
+    right:
+        -86px;
 
-    top: -65px;
+    top:
+        -60px;
 
     transform:
+
         scaleX(-1)
         rotate(-5deg);
 
@@ -1108,12 +1256,14 @@ a {
 
 .main-title {
 
-    margin: 0;
+    margin:
+        0;
 
     color:
         var(--gold);
 
     font:
+
         400
         clamp(
             5rem,
@@ -1136,9 +1286,11 @@ a {
 
 .title-decoration span {
 
-    width: 125px;
+    width:
+        125px;
 
-    height: 1.5px;
+    height:
+        1.5px;
 
     background:
 
@@ -1169,9 +1321,11 @@ a {
     color:
         var(--rose);
 
-    font-style: normal;
+    font-style:
+        normal;
 
-    font-size: 1.35rem;
+    font-size:
+        1.35rem;
 
 }
 
@@ -1185,11 +1339,14 @@ a {
 
     display: flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
     gap:
         11px 24px;
@@ -1198,6 +1355,7 @@ a {
         var(--rose);
 
     font:
+
         400
         clamp(
             3.7rem,
@@ -1215,9 +1373,11 @@ a {
     color:
         var(--gold);
 
-    font-style: normal;
+    font-style:
+        normal;
 
-    font-size: 1.25rem;
+    font-size:
+        1.25rem;
 
 }
 
@@ -1231,21 +1391,31 @@ a {
 
     display: flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    gap: 13px;
+    gap:
+        13px;
 
-    width: max-content;
+    width:
+        max-content;
 
-    max-width: 100%;
+    max-width:
+        100%;
 
     margin:
-        30px auto 25px;
+
+        30px
+        auto
+        25px;
 
     padding:
-        10px 18px;
+
+        10px
+        18px;
 
     border-radius:
         999px;
@@ -1258,22 +1428,28 @@ a {
 
 .date-banner strong {
 
-    color: #695048;
+    color:
+        #695048;
 
     font:
-        600 .9rem
+
+        600
+        .9rem
         var(--serif);
 
-    letter-spacing: .13em;
+    letter-spacing:
+        .13em;
 
 }
 
 
 .date-line {
 
-    width: 45px;
+    width:
+        45px;
 
-    height: 1px;
+    height:
+        1px;
 
     background:
         var(--gold-soft);
@@ -1288,14 +1464,20 @@ a {
 
 .invitation-message {
 
-    max-width: 650px;
+    max-width:
+        650px;
 
     margin:
-        0 auto 27px;
 
-    color: #604a41;
+        0
+        auto
+        27px;
+
+    color:
+        #604a41;
 
     font:
+
         600
         clamp(
             1.18rem,
@@ -1318,9 +1500,11 @@ a {
 
 .small-divider span {
 
-    width: 72px;
+    width:
+        72px;
 
-    height: 1.5px;
+    height:
+        1.5px;
 
     background:
         var(--gold-soft);
@@ -1333,9 +1517,11 @@ a {
     color:
         var(--rose);
 
-    font-style: normal;
+    font-style:
+        normal;
 
-    font-size: 1.25rem;
+    font-size:
+        1.25rem;
 
 }
 
@@ -1347,16 +1533,20 @@ a {
 
 .section-label {
 
-    margin: 0;
+    margin:
+        0;
 
     color:
         var(--rose);
 
-    font-size: .72rem;
+    font-size:
+        .72rem;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
-    letter-spacing: .17em;
+    letter-spacing:
+        .17em;
 
 }
 
@@ -1370,6 +1560,7 @@ a {
         var(--brown);
 
     font:
+
         600
         clamp(
             1.7rem,
@@ -1382,8 +1573,10 @@ a {
 
 
 .parents h2 span {
+
     color:
         var(--gold);
+
 }
 
 
@@ -1394,11 +1587,13 @@ a {
 
 .event-section {
 
-    position: relative;
+    position:
+        relative;
 
     z-index: 5;
 
     padding:
+
         50px
         70px
         65px;
@@ -1408,27 +1603,36 @@ a {
 
 .events {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         1fr auto 1fr;
 
-    align-items: center;
+    align-items:
+        center;
 
-    max-width: 720px;
+    max-width:
+        720px;
 
     margin:
         0 auto;
 
     padding:
-        35px 25px;
+
+        35px
+        25px;
 
     border-top:
-        1px solid
+
+        1px
+        solid
         rgba(174,131,59,.28);
 
     border-bottom:
-        1px solid
+
+        1px
+        solid
         rgba(174,131,59,.28);
 
 }
@@ -1436,13 +1640,17 @@ a {
 
 .event {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    gap: 18px;
+    gap:
+        18px;
 
 }
 
@@ -1452,14 +1660,20 @@ a {
     flex:
         0 0 auto;
 
-    display: grid;
+    display:
+        grid;
 
-    place-items: center;
+    place-items:
+        center;
 
-    width: 85px;
-    height: 85px;
+    width:
+        85px;
 
-    border-radius: 50%;
+    height:
+        85px;
+
+    border-radius:
+        50%;
 
     color:
         var(--olive-dark);
@@ -1472,39 +1686,51 @@ a {
 
 .event-icon svg {
 
-    width: 51px;
+    width:
+        51px;
 
-    fill: none;
+    fill:
+        none;
 
     stroke:
         currentColor;
 
-    stroke-width: 2;
+    stroke-width:
+        2;
 
-    stroke-linecap: round;
+    stroke-linecap:
+        round;
 
-    stroke-linejoin: round;
+    stroke-linejoin:
+        round;
 
 }
 
 
 .event-info {
-    text-align: left;
+
+    text-align:
+        left;
+
 }
 
 
 .event-info > p {
 
-    margin: 0;
+    margin:
+        0;
 
     color:
         var(--rose);
 
-    font-size: .6rem;
+    font-size:
+        .6rem;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
-    letter-spacing: .1em;
+    letter-spacing:
+        .1em;
 
 }
 
@@ -1518,6 +1744,7 @@ a {
         var(--olive-dark);
 
     font:
+
         700
         1.9rem
         var(--serif);
@@ -1527,14 +1754,17 @@ a {
 
 .event-info strong {
 
-    display: block;
+    display:
+        block;
 
-    margin-bottom: 10px;
+    margin-bottom:
+        10px;
 
     color:
         #60483e;
 
     font:
+
         600
         1.35rem
         var(--serif);
@@ -1544,23 +1774,31 @@ a {
 
 .location-button {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 7px;
+    gap:
+        7px;
 
-    min-height: 40px;
+    min-height:
+        40px;
 
     padding:
-        8px 15px;
+
+        8px
+        15px;
 
     border-radius:
         999px;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    color: white;
+    color:
+        white;
 
     background:
 
@@ -1570,27 +1808,36 @@ a {
             #c36e7a
         );
 
-    font-size: .72rem;
+    font-size:
+        .72rem;
 
-    font-weight: 600;
+    font-weight:
+        600;
 
 }
 
 
 .location-button svg {
-    width: 17px;
+
+    width:
+        17px;
+
 }
 
 
 .event-divider {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 9px;
+    gap:
+        9px;
 
     padding:
         0 20px;
@@ -1600,9 +1847,11 @@ a {
 
 .event-divider span {
 
-    width: 1.5px;
+    width:
+        1.5px;
 
-    height: 48px;
+    height:
+        48px;
 
     background:
         var(--gold-soft);
@@ -1615,9 +1864,11 @@ a {
     color:
         var(--rose);
 
-    font-style: normal;
+    font-style:
+        normal;
 
-    font-size: 1.15rem;
+    font-size:
+        1.15rem;
 
 }
 
@@ -1629,16 +1880,21 @@ a {
 
 .countdown-section {
 
-    position: relative;
+    position:
+        relative;
 
     z-index: 5;
 
     padding:
-        65px 75px;
 
-    text-align: center;
+        65px
+        75px;
 
-    content-visibility: auto;
+    text-align:
+        center;
+
+    content-visibility:
+        auto;
 
     contain-intrinsic-size:
         500px;
@@ -1655,6 +1911,7 @@ a {
         var(--olive-dark);
 
     font:
+
         600
         2.7rem
         var(--serif);
@@ -1664,7 +1921,8 @@ a {
 
 .countdown {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(
@@ -1672,9 +1930,11 @@ a {
             1fr
         );
 
-    gap: 13px;
+    gap:
+        13px;
 
-    max-width: 650px;
+    max-width:
+        650px;
 
     margin:
         0 auto;
@@ -1684,21 +1944,29 @@ a {
 
 .count-box {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    aspect-ratio: 1;
+    aspect-ratio:
+        1;
 
     border:
-        1px solid
+
+        1px
+        solid
         rgba(174,131,59,.32);
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
     background:
         rgba(255,255,255,.63);
@@ -1712,6 +1980,7 @@ a {
         var(--rose);
 
     font:
+
         700
         clamp(
             2rem,
@@ -1726,14 +1995,17 @@ a {
 
 .count-box span {
 
-    margin-top: 5px;
+    margin-top:
+        5px;
 
     color:
         var(--olive);
 
-    font-size: .58rem;
+    font-size:
+        .58rem;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
 }
 
@@ -1744,6 +2016,7 @@ a {
         var(--rose);
 
     font:
+
         400
         3rem
         var(--script);
@@ -1758,14 +2031,18 @@ a {
 
 .sizes-section {
 
-    position: relative;
+    position:
+        relative;
 
     z-index: 5;
 
     padding:
-        45px 80px;
 
-    content-visibility: auto;
+        45px
+        80px;
+
+    content-visibility:
+        auto;
 
     contain-intrinsic-size:
         350px;
@@ -1775,28 +2052,37 @@ a {
 
 .gift-card {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         auto 1fr;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 28px;
+    gap:
+        28px;
 
-    max-width: 650px;
+    max-width:
+        650px;
 
     margin:
         0 auto;
 
     padding:
-        25px 32px;
+
+        25px
+        32px;
 
     border:
-        1.5px dashed
+
+        1.5px
+        dashed
         rgba(174,131,59,.52);
 
-    border-radius: 25px;
+    border-radius:
+        25px;
 
     background:
         rgba(255,255,255,.55);
@@ -1806,14 +2092,20 @@ a {
 
 .gift-icon {
 
-    display: grid;
+    display:
+        grid;
 
-    place-items: center;
+    place-items:
+        center;
 
-    width: 105px;
-    height: 105px;
+    width:
+        105px;
 
-    border-radius: 22px;
+    height:
+        105px;
+
+    border-radius:
+        22px;
 
     color:
         var(--rose);
@@ -1826,14 +2118,17 @@ a {
 
 .gift-icon svg {
 
-    width: 75px;
+    width:
+        75px;
 
-    fill: none;
+    fill:
+        none;
 
     stroke:
         currentColor;
 
-    stroke-width: 2;
+    stroke-width:
+        2;
 
 }
 
@@ -1847,6 +2142,7 @@ a {
         var(--olive-dark);
 
     font:
+
         700
         2.3rem
         var(--serif);
@@ -1861,16 +2157,21 @@ a {
 
 .rsvp-section {
 
-    position: relative;
+    position:
+        relative;
 
     z-index: 5;
 
     padding:
-        70px 40px;
 
-    text-align: center;
+        70px
+        40px;
 
-    content-visibility: auto;
+    text-align:
+        center;
+
+    content-visibility:
+        auto;
 
     contain-intrinsic-size:
         400px;
@@ -1887,6 +2188,7 @@ a {
         var(--olive-dark);
 
     font:
+
         600
         clamp(
             2.4rem,
@@ -1900,15 +2202,20 @@ a {
 
 .rsvp-section > p:not(.section-label) {
 
-    max-width: 540px;
+    max-width:
+        540px;
 
     margin:
-        0 auto 24px;
+
+        0
+        auto
+        24px;
 
     color:
         #755f55;
 
     font:
+
         500
         1.1rem/1.55
         var(--serif);
@@ -1918,25 +2225,34 @@ a {
 
 .whatsapp-button {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    gap: 10px;
+    gap:
+        10px;
 
-    min-height: 53px;
+    min-height:
+        53px;
 
     padding:
-        12px 26px;
+
+        12px
+        26px;
 
     border-radius:
         999px;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    color: white;
+    color:
+        white;
 
     background:
 
@@ -1948,40 +2264,51 @@ a {
 
     box-shadow:
 
-        0 10px 25px
+        0
+        10px
+        25px
         rgba(82,109,80,.16);
 
-    font-size: .86rem;
+    font-size:
+        .86rem;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
 }
 
 
 .whatsapp-button svg {
-    width: 22px;
+
+    width:
+        22px;
+
 }
 
 
 
 /* =========================================================
-   MÚSICA
+   REPRODUCTOR
 ========================================================= */
 
 .music-player {
 
-    position: relative;
+    position:
+        relative;
 
     z-index: 5;
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         auto 1fr auto auto;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 15px;
+    gap:
+        15px;
 
     width:
 
@@ -1991,16 +2318,24 @@ a {
         );
 
     margin:
-        0 auto 70px;
+
+        0
+        auto
+        70px;
 
     padding:
-        14px 17px;
+
+        14px
+        17px;
 
     border:
-        1px solid
+
+        1px
+        solid
         rgba(174,131,59,.28);
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
     background:
         rgba(247,237,224,.65);
@@ -2010,38 +2345,51 @@ a {
 
 .music-note {
 
-    display: grid;
+    display:
+        grid;
 
-    place-items: center;
+    place-items:
+        center;
 
-    width: 50px;
-    height: 50px;
+    width:
+        50px;
 
-    border-radius: 50%;
+    height:
+        50px;
+
+    border-radius:
+        50%;
 
     color:
         var(--gold);
 
-    background: white;
+    background:
+        white;
 
 }
 
 
 .music-note svg {
-    width: 26px;
+
+    width:
+        26px;
+
 }
 
 
 .song-info span {
 
-    display: block;
+    display:
+        block;
 
     color:
         var(--rose);
 
-    font-size: .6rem;
+    font-size:
+        .6rem;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
 }
 
@@ -2052,6 +2400,7 @@ a {
         var(--brown);
 
     font:
+
         600
         1.2rem
         var(--serif);
@@ -2061,61 +2410,83 @@ a {
 
 .music-bottom-button {
 
-    display: grid;
+    display:
+        grid;
 
-    place-items: center;
+    place-items:
+        center;
 
-    width: 44px;
-    height: 44px;
+    width:
+        44px;
+
+    height:
+        44px;
 
     border:
-        1.5px solid
+
+        1.5px
+        solid
         var(--rose);
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
     color:
         var(--rose);
 
-    background: white;
+    background:
+        white;
 
 }
 
 
 .music-bottom-button svg {
-    width: 17px;
+
+    width:
+        17px;
+
 }
 
 
 .sound-wave {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 3px;
+    gap:
+        3px;
 
-    height: 32px;
+    height:
+        32px;
 
 }
 
 
 .sound-wave i {
 
-    display: block;
+    display:
+        block;
 
-    width: 2px;
+    width:
+        2px;
 
-    height: 7px;
+    height:
+        7px;
 
-    border-radius: 2px;
+    border-radius:
+        2px;
 
     background:
         var(--gold);
 
     animation:
+
         wave
         1s
         infinite
@@ -2161,13 +2532,15 @@ a {
     0%,
     100% {
 
-        height: 7px;
+        height:
+            7px;
 
     }
 
     50% {
 
-        height: 25px;
+        height:
+            25px;
 
     }
 
@@ -2181,21 +2554,27 @@ a {
 
 .final-decoration {
 
-    position: relative;
+    position:
+        relative;
 
     z-index: 5;
 
     margin:
-        0 auto 28px;
+
+        0
+        auto
+        28px;
 
 }
 
 
 .final-decoration span {
 
-    width: 94px;
+    width:
+        94px;
 
-    height: 1.5px;
+    height:
+        1.5px;
 
     background:
 
@@ -2226,9 +2605,11 @@ a {
     color:
         var(--rose);
 
-    font-style: normal;
+    font-style:
+        normal;
 
-    font-size: 1.25rem;
+    font-size:
+        1.25rem;
 
 }
 
@@ -2240,16 +2621,19 @@ a {
 
 .commercial-footer {
 
-    position: relative;
+    position:
+        relative;
 
     z-index: 6;
 
     padding:
+
         44px
         30px
         58px;
 
-    text-align: center;
+    text-align:
+        center;
 
     background:
 
@@ -2265,6 +2649,7 @@ a {
 .footer-content {
 
     width:
+
         min(
             560px,
             100%
@@ -2278,15 +2663,20 @@ a {
 
 .footer-question {
 
-    max-width: 470px;
+    max-width:
+        470px;
 
     margin:
-        0 auto 8px;
+
+        0
+        auto
+        8px;
 
     color:
         var(--rose-dark);
 
     font:
+
         700
         clamp(
             1.05rem,
@@ -2300,15 +2690,20 @@ a {
 
 .footer-description {
 
-    max-width: 410px;
+    max-width:
+        410px;
 
     margin:
-        0 auto 22px;
+
+        0
+        auto
+        22px;
 
     color:
         #817067;
 
     font:
+
         500
         .8rem/1.5
         var(--sans);
@@ -2318,39 +2713,52 @@ a {
 
 .footer-contact-button {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         auto 1fr auto;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 11px;
+    gap:
+        11px;
 
     width:
+
         min(
             305px,
             100%
         );
 
-    min-height: 55px;
+    min-height:
+        55px;
 
     margin:
         0 auto;
 
     padding:
-        6px 11px 6px 7px;
+
+        6px
+        11px
+        6px
+        7px;
 
     border:
-        1px solid
+
+        1px
+        solid
         rgba(185,100,113,.26);
 
     border-radius:
         999px;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    color: white;
+    color:
+        white;
 
     background:
 
@@ -2362,7 +2770,9 @@ a {
 
     box-shadow:
 
-        0 6px 18px
+        0
+        6px
+        18px
         rgba(166,90,102,.11);
 
 }
@@ -2370,14 +2780,20 @@ a {
 
 .footer-whatsapp-icon {
 
-    display: grid;
+    display:
+        grid;
 
-    place-items: center;
+    place-items:
+        center;
 
-    width: 41px;
-    height: 41px;
+    width:
+        41px;
 
-    border-radius: 50%;
+    height:
+        41px;
+
+    border-radius:
+        50%;
 
     color:
         #527a57;
@@ -2389,19 +2805,26 @@ a {
 
 
 .footer-whatsapp-icon svg {
-    width: 23px;
+
+    width:
+        23px;
+
 }
 
 
 .footer-button-copy {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
-    align-items: flex-start;
+    align-items:
+        flex-start;
 
-    text-align: left;
+    text-align:
+        left;
 
 }
 
@@ -2411,20 +2834,25 @@ a {
     color:
         rgba(255,255,255,.78);
 
-    font-size: .46rem;
+    font-size:
+        .46rem;
 
-    font-weight: 600;
+    font-weight:
+        600;
 
 }
 
 
 .footer-button-copy strong {
 
-    margin-top: 1px;
+    margin-top:
+        1px;
 
-    color: white;
+    color:
+        white;
 
     font:
+
         400
         1.65rem/.9
         var(--script);
@@ -2434,32 +2862,43 @@ a {
 
 .footer-arrow {
 
-    display: grid;
+    display:
+        grid;
 
-    place-items: center;
+    place-items:
+        center;
 
-    width: 27px;
-    height: 27px;
+    width:
+        27px;
+
+    height:
+        27px;
 
     border:
-        1px solid
+
+        1px
+        solid
         rgba(255,255,255,.4);
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
 }
 
 
 .footer-arrow svg {
 
-    width: 14px;
+    width:
+        14px;
 
-    fill: none;
+    fill:
+        none;
 
     stroke:
         currentColor;
 
-    stroke-width: 2;
+    stroke-width:
+        2;
 
 }
 
@@ -2467,16 +2906,21 @@ a {
 .footer-mini-decoration {
 
     margin:
-        20px 0 8px;
+
+        20px
+        0
+        8px;
 
 }
 
 
 .footer-mini-decoration span {
 
-    width: 66px;
+    width:
+        66px;
 
-    height: 1.5px;
+    height:
+        1.5px;
 
     background:
 
@@ -2507,9 +2951,11 @@ a {
     color:
         var(--rose);
 
-    font-style: normal;
+    font-style:
+        normal;
 
-    font-size: 1.15rem;
+    font-size:
+        1.15rem;
 
 }
 
@@ -2519,9 +2965,11 @@ a {
     color:
         #9a897f;
 
-    font-size: .62rem;
+    font-size:
+        .62rem;
 
-    letter-spacing: .2em;
+    letter-spacing:
+        .2em;
 
 }
 
@@ -2533,12 +2981,14 @@ a {
 
 .reveal {
 
-    opacity: 0;
+    opacity:
+        0;
 
     transform:
         translateY(22px);
 
     transition:
+
         opacity .8s ease,
         transform .8s ease;
 
@@ -2547,9 +2997,11 @@ a {
 
 .reveal.is-visible {
 
-    opacity: 1;
+    opacity:
+        1;
 
-    transform: none;
+    transform:
+        none;
 
 }
 
@@ -2573,9 +3025,11 @@ a {
 
     .invitation {
 
-        width: 100%;
+        width:
+            100%;
 
-        box-shadow: none;
+        box-shadow:
+            none;
 
     }
 
@@ -2583,8 +3037,11 @@ a {
     .master-border--outer {
 
         top: 10px;
+
         bottom: 10px;
+
         left: 8px;
+
         right: 8px;
 
     }
@@ -2593,8 +3050,11 @@ a {
     .master-border--inner {
 
         top: 18px;
+
         bottom: 18px;
+
         left: 15px;
+
         right: 15px;
 
     }
@@ -2602,23 +3062,30 @@ a {
 
     .page-flower {
 
-        width: 220px;
+        width:
+            210px;
 
     }
 
 
     .page-flower--top-left {
 
-        top: -38px;
-        left: -90px;
+        top:
+            -35px;
+
+        left:
+            -85px;
 
     }
 
 
     .page-flower--top-right {
 
-        top: -38px;
-        right: -90px;
+        top:
+            -35px;
+
+        right:
+            -85px;
 
     }
 
@@ -2626,6 +3093,7 @@ a {
     .hero {
 
         padding:
+
             95px
             32px
             35px;
@@ -2636,37 +3104,44 @@ a {
     .photo-stage {
 
         width:
+
             min(
                 430px,
                 87vw
             );
 
-        margin-bottom: 48px;
+        margin-bottom:
+            48px;
 
     }
 
 
     .photo-flower {
 
-        width: 155px;
+        width:
+            145px;
 
     }
 
 
     .photo-flower--left {
 
-        left: -64px;
+        left:
+            -58px;
 
-        bottom: -51px;
+        bottom:
+            -47px;
 
     }
 
 
     .photo-flower--right {
 
-        right: -64px;
+        right:
+            -58px;
 
-        top: -45px;
+        top:
+            -42px;
 
     }
 
@@ -2674,6 +3149,7 @@ a {
     .event-section {
 
         padding:
+
             40px
             42px
             55px;
@@ -2686,7 +3162,8 @@ a {
         grid-template-columns:
             1fr;
 
-        gap: 28px;
+        gap:
+            28px;
 
         padding:
             30px 15px;
@@ -2696,16 +3173,19 @@ a {
 
     .event-divider {
 
-        flex-direction: row;
+        flex-direction:
+            row;
 
     }
 
 
     .event-divider span {
 
-        width: 80px;
+        width:
+            80px;
 
-        height: 1.5px;
+        height:
+            1.5px;
 
     }
 
@@ -2713,25 +3193,31 @@ a {
     .countdown-section {
 
         padding:
-            55px 35px;
+
+            55px
+            35px;
 
     }
 
 
     .countdown {
 
-        gap: 8px;
+        gap:
+            8px;
 
     }
 
 
     .count-box {
 
-        aspect-ratio: auto;
+        aspect-ratio:
+            auto;
 
-        min-height: 92px;
+        min-height:
+            92px;
 
-        border-radius: 22px;
+        border-radius:
+            22px;
 
     }
 
@@ -2739,7 +3225,9 @@ a {
     .sizes-section {
 
         padding:
-            40px 38px;
+
+            40px
+            38px;
 
     }
 
@@ -2749,9 +3237,11 @@ a {
         grid-template-columns:
             1fr;
 
-        text-align: center;
+        text-align:
+            center;
 
-        gap: 17px;
+        gap:
+            17px;
 
     }
 
@@ -2767,7 +3257,9 @@ a {
     .rsvp-section {
 
         padding:
-            55px 36px;
+
+            55px
+            36px;
 
     }
 
@@ -2785,7 +3277,8 @@ a {
 
     .sound-wave {
 
-        display: none;
+        display:
+            none;
 
     }
 
@@ -2803,48 +3296,57 @@ a {
 
     .opening-flower {
 
-        width: 220px;
+        width:
+            205px;
 
     }
 
 
     .opening-flower--tl {
 
-        top: -45px;
+        top:
+            -40px;
 
-        left: -78px;
+        left:
+            -72px;
 
     }
 
 
     .opening-flower--br {
 
-        bottom: -48px;
+        bottom:
+            -42px;
 
-        right: -78px;
+        right:
+            -72px;
 
     }
 
 
     .hero {
 
-        padding-left: 27px;
+        padding-left:
+            27px;
 
-        padding-right: 27px;
+        padding-right:
+            27px;
 
     }
 
 
     .main-title {
 
-        font-size: 4.6rem;
+        font-size:
+            4.6rem;
 
     }
 
 
     .girls-names {
 
-        font-size: 3.35rem;
+        font-size:
+            3.35rem;
 
         gap:
             5px 10px;
@@ -2854,7 +3356,8 @@ a {
 
     .date-banner {
 
-        gap: 7px;
+        gap:
+            7px;
 
         padding:
             9px 10px;
@@ -2864,64 +3367,76 @@ a {
 
     .date-line {
 
-        width: 20px;
+        width:
+            20px;
 
     }
 
 
     .date-banner strong {
 
-        font-size: .72rem;
+        font-size:
+            .72rem;
 
-        letter-spacing: .08em;
+        letter-spacing:
+            .08em;
 
     }
 
 
     .invitation-message {
 
-        font-size: 1.08rem;
+        font-size:
+            1.08rem;
 
     }
 
 
     .photo-stage {
 
-        width: 88vw;
+        width:
+            88vw;
 
     }
 
 
     .photo-flower {
 
-        width: 135px;
+        width:
+            125px;
 
     }
 
 
     .photo-flower--left {
 
-        left: -48px;
+        left:
+            -43px;
 
-        bottom: -43px;
+        bottom:
+            -40px;
 
     }
 
 
     .photo-flower--right {
 
-        right: -48px;
+        right:
+            -43px;
 
-        top: -40px;
+        top:
+            -36px;
 
     }
 
 
     .event-section {
 
-        padding-left: 30px;
+        padding-left:
+            30px;
 
-        padding-right: 30px;
+        padding-right:
+            30px;
 
     }
 
@@ -2939,7 +3454,8 @@ a {
 
     .count-box {
 
-        min-height: 110px;
+        min-height:
+            110px;
 
     }
 
@@ -2957,18 +3473,22 @@ a {
 
     .footer-question {
 
-        max-width: 310px;
+        max-width:
+            310px;
 
-        font-size: 1.1rem;
+        font-size:
+            1.1rem;
 
     }
 
 
     .footer-description {
 
-        max-width: 310px;
+        max-width:
+            310px;
 
-        font-size: .75rem;
+        font-size:
+            .75rem;
 
     }
 
@@ -2976,6 +3496,7 @@ a {
     .footer-contact-button {
 
         width:
+
             min(
                 290px,
                 100%
@@ -2997,7 +3518,8 @@ a {
 
     html {
 
-        scroll-behavior: auto;
+        scroll-behavior:
+            auto;
 
     }
 

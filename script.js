@@ -53,11 +53,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           FOTO
-
-           No usamos decode().
-           No esperamos nada.
-           Apenas dispara LOAD se muestra.
+           FOTO PRINCIPAL
         ====================================================== */
 
         function showPhoto() {
@@ -118,6 +114,23 @@ document.addEventListener(
                 );
 
 
+                mainPhoto.addEventListener(
+                    "error",
+                    () => {
+
+
+                        console.error(
+                            "No se pudo cargar la fotografía principal."
+                        );
+
+
+                    },
+                    {
+                        once: true
+                    }
+                );
+
+
             }
 
 
@@ -126,14 +139,12 @@ document.addEventListener(
 
 
         /* =====================================================
-           PREPARACIÓN INTELIGENTE DE AUDIO
+           AUDIO
 
-           Esperamos solamente 300 ms.
+           Le damos prioridad visual a la portada y foto.
 
-           Esto permite que la portada se pinte primero.
-
-           Después el navegador puede empezar a almacenar
-           la canción antes de que el usuario toque el botón.
+           500 ms después dejamos que el navegador
+           prepare completamente la canción.
         ====================================================== */
 
         if (
@@ -157,7 +168,7 @@ document.addEventListener(
 
 
                 },
-                300
+                500
             );
 
 
@@ -201,7 +212,9 @@ document.addEventListener(
 
                     button.setAttribute(
                         "aria-pressed",
-                        String(playing)
+                        String(
+                            playing
+                        )
                     );
 
 
@@ -624,7 +637,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           REVEAL
+           ANIMACIONES REVEAL
         ====================================================== */
 
         const revealElements =
@@ -679,7 +692,8 @@ document.addEventListener(
                     },
 
                     {
-                        threshold: .08
+                        threshold:
+                            .08
                     }
 
                 );

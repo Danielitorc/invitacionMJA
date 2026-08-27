@@ -24,7 +24,7 @@
 
 
     <!-- =====================================================
-         PRECONEXIÓN FUENTES
+         PRECONEXIÓN DE FUENTES
     ====================================================== -->
 
     <link
@@ -40,15 +40,13 @@
 
 
     <!-- =====================================================
-         FOTO PRINCIPAL
-
-         ÚNICO RECURSO PESADO CON PRIORIDAD ALTA.
-         La imagen pesa ~465 KB.
+         FOTO PRINCIPAL OPTIMIZADA
+         ~465 KB
     ====================================================== -->
 
     <link
         rel="preload"
-        href="img/aranza-mariajulia.webp?v=final-01"
+        href="img/aranza-mariajulia.webp?v=final-02"
         as="image"
         type="image/webp"
         fetchpriority="high"
@@ -58,8 +56,8 @@
     <!-- =====================================================
          CSS CRÍTICO DE LA PORTADA
 
-         Esto permite que la primera pantalla aparezca
-         INCLUSO ANTES de que styles.css termine de llegar.
+         Permite mostrar la pantalla inicial sin esperar
+         styles.css ni Google Fonts.
     ====================================================== -->
 
     <style>
@@ -95,11 +93,13 @@
             overflow: hidden;
 
             background:
+
                 radial-gradient(
                     circle at 50% 35%,
                     rgba(255,255,255,.92),
                     transparent 40%
                 ),
+
                 linear-gradient(
                     145deg,
                     #fffaf4,
@@ -124,7 +124,11 @@
 
             z-index: 5;
 
-            width: min(520px, 93vw);
+            width:
+                min(
+                    520px,
+                    93vw
+                );
 
             padding:
                 72px
@@ -187,8 +191,8 @@
             color: #536044;
 
             font-family:
-                Georgia,
-                serif;
+                Arial,
+                sans-serif;
 
             font-size: .7rem;
 
@@ -216,7 +220,7 @@
 
             font-size:
                 clamp(
-                    4rem,
+                    4.5rem,
                     15vw,
                     7rem
                 );
@@ -234,8 +238,7 @@
             z-index: 5;
 
             margin:
-                24px 0
-                20px;
+                20px 0;
 
             color: #d47f8b;
 
@@ -261,7 +264,11 @@
 
             color: #ae833b;
 
-            font-size: 1.4rem;
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 1.45rem;
 
         }
 
@@ -309,7 +316,7 @@
 
             position: relative;
 
-            z-index: 10;
+            z-index: 20;
 
             display: inline-flex;
 
@@ -334,6 +341,7 @@
             color: white;
 
             background:
+
                 linear-gradient(
                     135deg,
                     #d98a94,
@@ -341,7 +349,10 @@
                 );
 
             box-shadow:
-                0 11px 28px
+
+                0
+                11px
+                28px
                 rgba(186,102,114,.22);
 
             font-family:
@@ -405,7 +416,11 @@
 
             z-index: 2;
 
-            width: min(330px,58vw);
+            width:
+                min(
+                    300px,
+                    56vw
+                );
 
             height: auto;
 
@@ -415,17 +430,17 @@
 
         .opening-flower--tl {
 
-            top: -75px;
+            top: -65px;
 
-            left: -100px;
+            left: -90px;
 
         }
 
         .opening-flower--br {
 
-            right: -100px;
+            right: -90px;
 
-            bottom: -80px;
+            bottom: -70px;
 
             transform:
                 rotate(180deg);
@@ -436,12 +451,7 @@
 
 
     <!-- =====================================================
-         FUNCIÓN CRÍTICA DEL BOTÓN
-
-         ESTA FUNCIÓN VIVE EN EL HTML.
-
-         Aunque script.js falle o quede cacheado,
-         el botón seguirá abriendo la invitación.
+         APERTURA INDEPENDIENTE DE SCRIPT.JS
     ====================================================== -->
 
     <script>
@@ -488,7 +498,7 @@
 
 
     <!-- =====================================================
-         GOOGLE FONTS NO BLOQUEANTE
+         GOOGLE FONTS NO BLOQUEANTES
     ====================================================== -->
 
     <link
@@ -497,7 +507,6 @@
         media="print"
         onload="this.media='all'"
     >
-
 
     <noscript>
 
@@ -511,16 +520,12 @@
 
     <!-- =====================================================
          CSS VERSIONADO
-
-         IMPORTANTE:
-         Esto evita CSS viejo en caché.
     ====================================================== -->
 
     <link
         rel="stylesheet"
-        href="styles.css?v=final-01"
+        href="styles.css?v=final-02"
     >
-
 
 </head>
 
@@ -530,12 +535,6 @@
 
     <!-- =====================================================
          AUDIO
-
-         preload metadata evita descargarlo agresivamente
-         antes de que aparezca la portada.
-
-         script.js comienza a prepararlo inmediatamente
-         después.
     ====================================================== -->
 
     <audio
@@ -545,7 +544,7 @@
     >
 
         <source
-            src="audio/ultimamente.mp3?v=final-01"
+            src="audio/ultimamente.mp3?v=final-02"
             type="audio/mpeg"
         >
 
@@ -554,7 +553,7 @@
 
 
     <!-- =====================================================
-         PORTADA
+         PANTALLA DE APERTURA
     ====================================================== -->
 
     <div
@@ -564,21 +563,21 @@
 
 
         <img
-            src="img/floral-corner.png?v=final-01"
+            src="img/floral-corner.webp?v=final-02"
             class="opening-flower opening-flower--tl"
             alt=""
-            width="1024"
-            height="1024"
+            width="700"
+            height="700"
             decoding="async"
         >
 
 
         <img
-            src="img/floral-corner.png?v=final-01"
+            src="img/floral-corner.webp?v=final-02"
             class="opening-flower opening-flower--br"
             alt=""
-            width="1024"
-            height="1024"
+            width="700"
+            height="700"
             decoding="async"
         >
 
@@ -664,7 +663,9 @@
                     <svg
                         viewBox="0 0 24 24"
                     >
+
                         <path d="M8 5v14l11-7z"/>
+
                     </svg>
 
                 </span>
@@ -692,7 +693,7 @@
 
 
     <!-- =====================================================
-         BOTÓN MÚSICA
+         BOTÓN FLOTANTE DE MÚSICA
     ====================================================== -->
 
     <button
@@ -709,7 +710,9 @@
             viewBox="0 0 24 24"
             aria-hidden="true"
         >
+
             <path d="M8 5v14l11-7z"/>
+
         </svg>
 
 
@@ -718,7 +721,9 @@
             viewBox="0 0 24 24"
             aria-hidden="true"
         >
+
             <path d="M7 5h4v14H7zm6 0h4v14h-4z"/>
+
         </svg>
 
 
@@ -732,6 +737,10 @@
 
     <main class="invitation">
 
+
+        <!-- =================================================
+             MARCO
+        ================================================== -->
 
         <div
             class="master-border master-border--outer"
@@ -751,52 +760,64 @@
         ================================================== -->
 
         <img
-            src="img/floral-corner.png?v=final-01"
+            src="img/floral-corner.webp?v=final-02"
             class="page-flower page-flower--top-left"
             alt=""
+            width="700"
+            height="700"
             decoding="async"
         >
 
 
         <img
-            src="img/floral-corner.png?v=final-01"
+            src="img/floral-corner.webp?v=final-02"
             class="page-flower page-flower--top-right"
             alt=""
+            width="700"
+            height="700"
             decoding="async"
         >
 
 
         <img
-            src="img/floral-corner.png?v=final-01"
+            src="img/floral-corner.webp?v=final-02"
             class="page-flower page-flower--middle-left"
             alt=""
+            width="700"
+            height="700"
             loading="lazy"
             decoding="async"
         >
 
 
         <img
-            src="img/floral-corner.png?v=final-01"
+            src="img/floral-corner.webp?v=final-02"
             class="page-flower page-flower--middle-right"
             alt=""
+            width="700"
+            height="700"
             loading="lazy"
             decoding="async"
         >
 
 
         <img
-            src="img/floral-corner.png?v=final-01"
+            src="img/floral-corner.webp?v=final-02"
             class="page-flower page-flower--bottom-left"
             alt=""
+            width="700"
+            height="700"
             loading="lazy"
             decoding="async"
         >
 
 
         <img
-            src="img/floral-corner.png?v=final-01"
+            src="img/floral-corner.webp?v=final-02"
             class="page-flower page-flower--bottom-right"
             alt=""
+            width="700"
+            height="700"
             loading="lazy"
             decoding="async"
         >
@@ -824,7 +845,9 @@
 
 
 
-                <!-- FOTO PRINCIPAL -->
+                <!-- =========================================
+                     FOTO PRINCIPAL
+                ========================================== -->
 
                 <div class="photo-stage">
 
@@ -855,7 +878,7 @@
 
                         <img
                             id="mainPhoto"
-                            src="img/aranza-mariajulia.webp?v=final-01"
+                            src="img/aranza-mariajulia.webp?v=final-02"
                             alt="Aranza y Mariajulia"
                             width="1200"
                             height="1600"
@@ -870,17 +893,21 @@
 
 
                     <img
-                        src="img/floral-corner.png?v=final-01"
+                        src="img/floral-corner.webp?v=final-02"
                         class="photo-flower photo-flower--left"
                         alt=""
+                        width="700"
+                        height="700"
                         decoding="async"
                     >
 
 
                     <img
-                        src="img/floral-corner.png?v=final-01"
+                        src="img/floral-corner.webp?v=final-02"
                         class="photo-flower photo-flower--right"
                         alt=""
+                        width="700"
+                        height="700"
                         decoding="async"
                     >
 
@@ -888,6 +915,10 @@
                 </div>
 
 
+
+                <!-- =========================================
+                     TITULO
+                ========================================== -->
 
                 <h1 class="main-title">
 
@@ -914,6 +945,10 @@
 
 
 
+                <!-- =========================================
+                     NOMBRES
+                ========================================== -->
+
                 <div class="girls-names">
 
 
@@ -936,6 +971,10 @@
 
 
 
+                <!-- =========================================
+                     FECHA
+                ========================================== -->
+
                 <div class="date-banner">
 
 
@@ -955,6 +994,10 @@
                 </div>
 
 
+
+                <!-- =========================================
+                     MENSAJE
+                ========================================== -->
 
                 <p class="invitation-message">
 
@@ -987,6 +1030,10 @@
                 </div>
 
 
+
+                <!-- =========================================
+                     PADRES
+                ========================================== -->
 
                 <div class="parents">
 
@@ -1066,23 +1113,17 @@
 
 
                         <p>
-
                             CEREMONIA RELIGIOSA
-
                         </p>
 
 
                         <h2>
-
                             Misa
-
                         </h2>
 
 
                         <strong>
-
                             5:00 p.m.
-
                         </strong>
 
 
@@ -1119,6 +1160,8 @@
                 </article>
 
 
+
+                <!-- SEPARADOR -->
 
                 <div
                     class="event-divider"
@@ -1177,23 +1220,17 @@
 
 
                         <p>
-
                             DESPUÉS DE LA MISA
-
                         </p>
 
 
                         <h2>
-
                             Recepción
-
                         </h2>
 
 
                         <strong>
-
                             6:30 p.m.
-
                         </strong>
 
 
@@ -1265,6 +1302,7 @@
             <div
                 class="countdown"
                 id="countdown"
+                aria-live="polite"
             >
 
 
@@ -1526,20 +1564,17 @@
 
             <div class="song-info">
 
-
                 <span>
 
                     CANCIÓN DE FONDO
 
                 </span>
 
-
                 <strong>
 
                     Últimamente
 
                 </strong>
-
 
             </div>
 
@@ -1574,7 +1609,9 @@
                     class="icon-play"
                     viewBox="0 0 24 24"
                 >
+
                     <path d="M8 5v14l11-7z"/>
+
                 </svg>
 
 
@@ -1582,7 +1619,9 @@
                     class="icon-pause"
                     viewBox="0 0 24 24"
                 >
+
                     <path d="M7 5h4v14H7zm6 0h4v14h-4z"/>
+
                 </svg>
 
 
@@ -1647,6 +1686,7 @@
                     href="https://wa.link/m5axbj"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Contactar por WhatsApp"
                 >
 
 
@@ -1749,13 +1789,11 @@
 
 
     <!-- =====================================================
-         JS VERSIONADO
-
-         Obliga al navegador a solicitar la versión nueva.
+         JAVASCRIPT VERSIONADO
     ====================================================== -->
 
     <script
-        src="script.js?v=final-01"
+        src="script.js?v=final-02"
         defer
     ></script>
 
