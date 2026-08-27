@@ -39,6 +39,7 @@ html {
 body {
 
     margin: 0;
+
     padding: 0;
 
     background:
@@ -61,13 +62,19 @@ body.is-locked {
 }
 
 img {
+
     display: block;
+
     max-width: 100%;
+
 }
 
 svg {
+
     display: block;
+
     fill: currentColor;
+
 }
 
 button,
@@ -137,8 +144,7 @@ a {
             transparent .7px
         );
 
-    background-size:
-        18px 18px;
+    background-size: 18px 18px;
 
     opacity: .55;
 
@@ -194,11 +200,6 @@ a {
 
 /* =========================================================
    FLORES
-
-   IMPORTANTE:
-   floral-corner.png YA TIENE TRANSPARENCIA.
-
-   NO usar mix-blend-mode.
 ========================================================= */
 
 .page-flower {
@@ -211,9 +212,9 @@ a {
 
     height: auto;
 
-    pointer-events: none;
-
     object-fit: contain;
+
+    pointer-events: none;
 
     filter:
         drop-shadow(
@@ -226,6 +227,7 @@ a {
 .page-flower--top-left {
 
     top: -55px;
+
     left: -72px;
 
 }
@@ -234,9 +236,11 @@ a {
 .page-flower--top-right {
 
     top: -55px;
+
     right: -72px;
 
-    transform: scaleX(-1);
+    transform:
+        scaleX(-1);
 
 }
 
@@ -249,7 +253,8 @@ a {
 
     width: 285px;
 
-    transform: rotate(12deg);
+    transform:
+        rotate(12deg);
 
     opacity: .84;
 
@@ -281,7 +286,8 @@ a {
 
     width: 315px;
 
-    transform: rotate(-6deg);
+    transform:
+        rotate(-6deg);
 
 }
 
@@ -322,16 +328,27 @@ a {
 
     overflow: hidden;
 
+    /*
+       NO necesita cargar imagen para verse bonita.
+    */
+
     background:
+
         radial-gradient(
-            circle at center,
-            #fffdf7,
-            #f6e9df
+            circle at 50% 35%,
+            rgba(255,255,255,.9),
+            transparent 38%
+        ),
+
+        linear-gradient(
+            145deg,
+            #fffaf4,
+            #f5e7dc
         );
 
     transition:
-        opacity .65s ease,
-        visibility .65s ease;
+        opacity .6s ease,
+        visibility .6s ease;
 
 }
 
@@ -353,7 +370,11 @@ a {
 
     z-index: 5;
 
-    width: min(520px, 93vw);
+    width:
+        min(
+            520px,
+            93vw
+        );
 
     padding:
         72px
@@ -365,12 +386,7 @@ a {
     border-radius: 36px;
 
     background:
-        rgba(
-            255,
-            250,
-            243,
-            .93
-        );
+        rgba(255,250,243,.93);
 
     box-shadow:
         0 25px 70px rgba(80,57,45,.15);
@@ -417,7 +433,11 @@ a {
 
     z-index: 2;
 
-    width: min(360px, 62vw);
+    width:
+        min(
+            330px,
+            58vw
+        );
 
     height: auto;
 
@@ -430,18 +450,21 @@ a {
 
 .opening-flower--tl {
 
-    top: -80px;
-    left: -105px;
+    top: -75px;
+
+    left: -100px;
 
 }
 
 
 .opening-flower--br {
 
-    bottom: -85px;
-    right: -105px;
+    bottom: -80px;
 
-    transform: rotate(180deg);
+    right: -100px;
+
+    transform:
+        rotate(180deg);
 
 }
 
@@ -476,7 +499,11 @@ a {
 
     font:
         400
-        clamp(4.5rem,15vw,7rem)
+        clamp(
+            4.5rem,
+            15vw,
+            7rem
+        )
         / .8
         var(--script);
 
@@ -497,7 +524,11 @@ a {
 
     font:
         400
-        clamp(2.5rem,9vw,4rem)
+        clamp(
+            2.5rem,
+            9vw,
+            4rem
+        )
         / 1
         var(--script);
 
@@ -556,7 +587,8 @@ a {
 
     height: 1.5px;
 
-    background: var(--gold-soft);
+    background:
+        var(--gold-soft);
 
 }
 
@@ -641,9 +673,7 @@ a {
 
 
 .open-play svg {
-
     width: 17px;
-
 }
 
 
@@ -666,7 +696,7 @@ a {
 
 
 /* =========================================================
-   BOTÓN MÚSICA FLOTANTE
+   BOTÓN MÚSICA
 ========================================================= */
 
 .floating-music {
@@ -694,7 +724,8 @@ a {
 
     color: white;
 
-    background: var(--rose);
+    background:
+        var(--rose);
 
     box-shadow:
         0 8px 22px rgba(88,56,50,.15);
@@ -765,7 +796,8 @@ a {
     margin:
         0 0 24px;
 
-    color: var(--olive-dark);
+    color:
+        var(--olive-dark);
 
     font-size: .68rem;
 
@@ -807,7 +839,8 @@ a {
 
     width: 100%;
 
-    aspect-ratio: 1 / .91;
+    aspect-ratio:
+        1 / .91;
 
     overflow: hidden;
 
@@ -848,7 +881,7 @@ a {
         );
 
     transition:
-        opacity .4s ease;
+        opacity .35s ease;
 
 }
 
@@ -860,6 +893,7 @@ a {
     position: absolute;
 
     top: 0;
+
     bottom: 0;
 
     left: -55%;
@@ -874,11 +908,12 @@ a {
             transparent
         );
 
-    transform: skewX(-15deg);
+    transform:
+        skewX(-15deg);
 
     animation:
         image-placeholder
-        1.5s
+        1.4s
         ease-in-out
         infinite;
 
@@ -909,17 +944,20 @@ a {
 
     z-index: 2;
 
+    display: block;
+
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
-    object-position: center 72%;
+    object-position:
+        center 72%;
 
     opacity: 0;
 
     transition:
-        opacity .45s ease;
+        opacity .35s ease;
 
 }
 
@@ -1023,7 +1061,11 @@ a {
 
     font:
         400
-        clamp(5rem,13vw,7.7rem)
+        clamp(
+            5rem,
+            13vw,
+            7.7rem
+        )
         / .72
         var(--script);
 
@@ -1095,11 +1137,16 @@ a {
     gap:
         11px 24px;
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font:
         400
-        clamp(3.7rem,10vw,5.8rem)
+        clamp(
+            3.7rem,
+            10vw,
+            5.8rem
+        )
         / .84
         var(--script);
 
@@ -1168,7 +1215,8 @@ a {
 
     height: 1px;
 
-    background: var(--gold-soft);
+    background:
+        var(--gold-soft);
 
 }
 
@@ -1189,7 +1237,11 @@ a {
 
     font:
         600
-        clamp(1.18rem,2.5vw,1.42rem)
+        clamp(
+            1.18rem,
+            2.5vw,
+            1.42rem
+        )
         / 1.47
         var(--serif);
 
@@ -1210,7 +1262,8 @@ a {
 
     height: 1.5px;
 
-    background: var(--gold-soft);
+    background:
+        var(--gold-soft);
 
 }
 
@@ -1235,7 +1288,8 @@ a {
 
     margin: 0;
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font-size: .72rem;
 
@@ -1251,11 +1305,16 @@ a {
     margin:
         5px 0 0;
 
-    color: var(--brown);
+    color:
+        var(--brown);
 
     font:
         600
-        clamp(1.7rem,4vw,2.2rem)
+        clamp(
+            1.7rem,
+            4vw,
+            2.2rem
+        )
         var(--serif);
 
 }
@@ -1323,8 +1382,7 @@ a {
 
 .event-icon {
 
-    flex:
-        0 0 auto;
+    flex: 0 0 auto;
 
     display: grid;
 
@@ -1335,7 +1393,8 @@ a {
 
     border-radius: 50%;
 
-    color: var(--olive-dark);
+    color:
+        var(--olive-dark);
 
     background:
         rgba(242,210,211,.58);
@@ -1349,7 +1408,8 @@ a {
 
     fill: none;
 
-    stroke: currentColor;
+    stroke:
+        currentColor;
 
     stroke-width: 2;
 
@@ -1360,7 +1420,9 @@ a {
 
 
 .event-info {
+
     text-align: left;
+
 }
 
 
@@ -1368,7 +1430,8 @@ a {
 
     margin: 0;
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font-size: .6rem;
 
@@ -1381,9 +1444,11 @@ a {
 
 .event-info h2 {
 
-    margin: 2px 0;
+    margin:
+        2px 0;
 
-    color: var(--olive-dark);
+    color:
+        var(--olive-dark);
 
     font:
         700 1.9rem var(--serif);
@@ -1465,14 +1530,16 @@ a {
 
     height: 48px;
 
-    background: var(--gold-soft);
+    background:
+        var(--gold-soft);
 
 }
 
 
 .event-divider i {
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font-style: normal;
 
@@ -1509,7 +1576,8 @@ a {
     margin:
         7px 0 30px;
 
-    color: var(--olive-dark);
+    color:
+        var(--olive-dark);
 
     font:
         600 2.7rem var(--serif);
@@ -1558,11 +1626,16 @@ a {
 
 .count-box strong {
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font:
         700
-        clamp(2rem,6vw,3.3rem)
+        clamp(
+            2rem,
+            6vw,
+            3.3rem
+        )
         / 1
         var(--serif);
 
@@ -1573,7 +1646,8 @@ a {
 
     margin-top: 5px;
 
-    color: var(--olive);
+    color:
+        var(--olive);
 
     font-size: .58rem;
 
@@ -1586,7 +1660,8 @@ a {
 
 .event-message {
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font:
         400 3rem var(--script);
@@ -1655,9 +1730,11 @@ a {
 
     border-radius: 22px;
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
-    background: var(--rose-light);
+    background:
+        var(--rose-light);
 
 }
 
@@ -1668,7 +1745,8 @@ a {
 
     fill: none;
 
-    stroke: currentColor;
+    stroke:
+        currentColor;
 
     stroke-width: 2;
 
@@ -1677,9 +1755,11 @@ a {
 
 .gift-copy h2 {
 
-    margin: 4px 0;
+    margin:
+        4px 0;
 
-    color: var(--olive-dark);
+    color:
+        var(--olive-dark);
 
     font:
         700 2.3rem var(--serif);
@@ -1715,11 +1795,16 @@ a {
     margin:
         7px 0 10px;
 
-    color: var(--olive-dark);
+    color:
+        var(--olive-dark);
 
     font:
         600
-        clamp(2.4rem,6vw,3.5rem)
+        clamp(
+            2.4rem,
+            6vw,
+            3.5rem
+        )
         var(--serif);
 
 }
@@ -1735,7 +1820,9 @@ a {
     color: #755f55;
 
     font:
-        500 1.1rem/1.55 var(--serif);
+        500
+        1.1rem/1.55
+        var(--serif);
 
 }
 
@@ -1837,7 +1924,8 @@ a {
 
     border-radius: 50%;
 
-    color: var(--gold);
+    color:
+        var(--gold);
 
     background: white;
 
@@ -1853,7 +1941,8 @@ a {
 
     display: block;
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font-size: .6rem;
 
@@ -1866,7 +1955,8 @@ a {
 
 .song-info strong {
 
-    color: var(--brown);
+    color:
+        var(--brown);
 
     font:
         600 1.2rem var(--serif);
@@ -1890,7 +1980,8 @@ a {
 
     cursor: pointer;
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     background: white;
 
@@ -1925,7 +2016,8 @@ a {
 
     border-radius: 2px;
 
-    background: var(--gold);
+    background:
+        var(--gold);
 
     animation:
         wave 1s infinite ease-in-out;
@@ -1977,7 +2069,7 @@ a {
 
 
 /* =========================================================
-   SEPARADOR FINAL
+   FINAL
 ========================================================= */
 
 .final-decoration {
@@ -2022,7 +2114,8 @@ a {
 
 .final-decoration i {
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font-style: normal;
 
@@ -2079,14 +2172,17 @@ a {
     margin:
         0 auto 8px;
 
-    color: var(--rose-dark);
+    color:
+        var(--rose-dark);
 
     font:
         700
-        clamp(1.05rem,2.7vw,1.22rem)
+        clamp(
+            1.05rem,
+            2.7vw,
+            1.22rem
+        )
         var(--serif);
-
-    letter-spacing: .025em;
 
 }
 
@@ -2101,7 +2197,9 @@ a {
     color: #817067;
 
     font:
-        500 .8rem/1.5 var(--sans);
+        500
+        .8rem/1.5
+        var(--sans);
 
 }
 
@@ -2257,9 +2355,6 @@ a {
 
     stroke-width: 2;
 
-    stroke-linecap: round;
-    stroke-linejoin: round;
-
 }
 
 
@@ -2301,7 +2396,8 @@ a {
 
 .footer-mini-decoration i {
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font-style: normal;
 
@@ -2355,11 +2451,12 @@ a {
 ========================================================= */
 
 @media
-(max-width: 760px) {
+(max-width:760px) {
 
 
     body {
-        background: var(--ivory);
+        background:
+            var(--ivory);
     }
 
 
@@ -2410,44 +2507,10 @@ a {
     }
 
 
-    .page-flower--middle-left {
-
-        left: -145px;
-        width: 230px;
-
-    }
-
-
-    .page-flower--middle-right {
-
-        right: -145px;
-        width: 230px;
-
-    }
-
-
-    .page-flower--bottom-left {
-
-        left: -90px;
-        width: 235px;
-
-    }
-
-
-    .page-flower--bottom-right {
-
-        right: -90px;
-        width: 235px;
-
-    }
-
-
     .hero {
 
         padding:
-            95px
-            32px
-            35px;
+            95px 32px 35px;
 
     }
 
@@ -2473,7 +2536,6 @@ a {
     .photo-flower--left {
 
         left: -64px;
-
         bottom: -51px;
 
     }
@@ -2482,7 +2544,6 @@ a {
     .photo-flower--right {
 
         right: -64px;
-
         top: -45px;
 
     }
@@ -2491,9 +2552,7 @@ a {
     .event-section {
 
         padding:
-            40px
-            42px
-            55px;
+            40px 42px 55px;
 
     }
 
@@ -2620,28 +2679,26 @@ a {
 ========================================================= */
 
 @media
-(max-width: 430px) {
+(max-width:430px) {
 
 
     .opening-flower {
-
-        width: 225px;
-
+        width: 220px;
     }
 
 
     .opening-flower--tl {
 
         top: -45px;
-        left: -80px;
+        left: -78px;
 
     }
 
 
     .opening-flower--br {
 
-        bottom: -45px;
-        right: -80px;
+        bottom: -48px;
+        right: -78px;
 
     }
 
@@ -2655,9 +2712,7 @@ a {
 
 
     .main-title {
-
         font-size: 4.6rem;
-
     }
 
 
@@ -2668,28 +2723,6 @@ a {
         gap:
             5px 10px;
 
-    }
-
-
-    .girls-names i {
-        font-size: 1.05rem;
-    }
-
-
-    .title-decoration span {
-        width: 82px;
-    }
-
-
-    .title-decoration i,
-    .small-divider i,
-    .final-decoration i {
-        font-size: 1.12rem;
-    }
-
-
-    .small-divider span {
-        width: 55px;
     }
 
 
@@ -2735,7 +2768,6 @@ a {
     .photo-flower--left {
 
         left: -48px;
-
         bottom: -43px;
 
     }
@@ -2744,7 +2776,6 @@ a {
     .photo-flower--right {
 
         right: -48px;
-
         top: -40px;
 
     }
@@ -2755,29 +2786,6 @@ a {
         padding-left: 30px;
         padding-right: 30px;
 
-    }
-
-
-    .event {
-        gap: 13px;
-    }
-
-
-    .event-icon {
-
-        width: 72px;
-        height: 72px;
-
-    }
-
-
-    .event-icon svg {
-        width: 43px;
-    }
-
-
-    .event-info h2 {
-        font-size: 1.7rem;
     }
 
 
@@ -2811,8 +2819,6 @@ a {
 
         font-size: 1.1rem;
 
-        line-height: 1.18;
-
     }
 
 
@@ -2844,7 +2850,7 @@ a {
 ========================================================= */
 
 @media
-(prefers-reduced-motion: reduce) {
+(prefers-reduced-motion:reduce) {
 
 
     html {

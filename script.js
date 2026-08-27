@@ -69,11 +69,14 @@ document.addEventListener(
 
 
         /* =====================================================
-           ESTADO DE CARGA
+           ESTADO
         ====================================================== */
 
         let photoReady = false;
+
         let audioReady = false;
+
+        let resourcesStarted = false;
 
 
 
@@ -125,10 +128,27 @@ document.addEventListener(
 
 
         /* =====================================================
-           FOTO PRINCIPAL
+           FOTO
+
+           IMPORTANTE:
+
+           NO usamos image.decode().
+
+           En algunos teléfonos, especialmente con imágenes
+           WebP de dimensiones muy grandes, decode() puede
+           añadir segundos de espera.
+
+           Apenas termina el evento LOAD se muestra.
         ====================================================== */
 
-        function showMainPhoto() {
+        function markPhotoReady() {
+
+
+            if (
+                photoReady
+            ) {
+                return;
+            }
 
 
             photoReady = true;
@@ -156,57 +176,32 @@ document.addEventListener(
 
 
 
-        if (
-            mainPhoto.complete &&
-            mainPhoto.naturalWidth > 0
-        ) {
+        mainPhoto.addEventListener(
+            "load",
+            markPhotoReady,
+            {
+                once: true
+            }
+        );
 
 
-            mainPhoto
-                .decode()
-                .catch(
-                    () => {}
-                )
-                .finally(
-                    showMainPhoto
+
+        mainPhoto.addEventListener(
+            "error",
+            () => {
+
+                console.error(
+                    "No fue posible cargar la fotografía principal."
                 );
 
+                openingStatus.textContent =
+                    "Abre la invitación mientras preparamos la fotografía";
 
-        } else {
-
-
-            mainPhoto.addEventListener(
-                "load",
-                async () => {
-
-
-                    try {
-
-                        await mainPhoto.decode();
-
-                    } catch (
-                        error
-                    ) {
-
-                        /*
-                            La imagen se muestra igualmente
-                            aunque decode() falle.
-                        */
-
-                    }
-
-
-                    showMainPhoto();
-
-
-                },
-                {
-                    once: true
-                }
-            );
-
-
-        }
+            },
+            {
+                once: true
+            }
+        );
 
 
 
@@ -221,6 +216,13 @@ document.addEventListener(
         function markAudioReady() {
 
 
+            if (
+                audioReady
+            ) {
+                return;
+            }
+
+
             audioReady = true;
 
 
@@ -230,28 +232,108 @@ document.addEventListener(
 
 
 
-        if (
-            audio.readyState >=
-            HTMLMediaElement.HAVE_FUTURE_DATA
-        ) {
+        audio.addEventListener(
+            "canplay",
+            markAudioReady,
+            {
+                once: true
+            }
+        );
 
 
-            markAudioReady();
+
+        audio.addEventListener(
+            "error",
+            () => {
+
+                console.error(
+                    "No fue posible preparar el audio."
+                );
+
+            }
+        );
 
 
-        } else {
+
+        /* =====================================================
+           INICIO INTELIGENTE DE RECURSOS PESADOS
+
+           Esperamos DOS frames.
+
+           Esto permite que el navegador pinte primero
+           la pantalla de apertura.
+
+           Inmediatamente después empiezan FOTO + AUDIO
+           prácticamente al mismo tiempo.
+        ====================================================== */
+
+        function startCriticalResources() {
 
 
-            audio.addEventListener(
-                "canplay",
-                markAudioReady,
-                {
-                    once: true
-                }
-            );
+            if (
+                resourcesStarted
+            ) {
+                return;
+            }
+
+
+            resourcesStarted = true;
+
+
+
+            /*
+                FOTO
+            */
+
+            if (
+                !mainPhoto.src
+            ) {
+
+                mainPhoto.src =
+                    mainPhoto.dataset.src;
+
+            }
+
+
+
+            /*
+                AUDIO
+            */
+
+            if (
+                !audio.src
+            ) {
+
+                audio.src =
+                    audio.dataset.src;
+
+
+                audio.load();
+
+            }
 
 
         }
+
+
+
+        requestAnimationFrame(
+            () => {
+
+
+                requestAnimationFrame(
+                    () => {
+
+
+                        startCriticalResources();
+
+
+                    }
+                );
+
+
+            }
+        );
 
 
 
@@ -267,6 +349,7 @@ document.addEventListener(
                 !audio.ended;
 
 
+
             musicControls.forEach(
                 button => {
 
@@ -279,7 +362,9 @@ document.addEventListener(
 
                     button.setAttribute(
                         "aria-pressed",
-                        String(playing)
+                        String(
+                            playing
+                        )
                     );
 
 
@@ -293,6 +378,7 @@ document.addEventListener(
 
                 }
             );
+
 
 
             if (
@@ -314,17 +400,29 @@ document.addEventListener(
         async function playMusic() {
 
 
+            /*
+                Garantizamos que el audio ya tenga SRC.
+            */
+
+            startCriticalResources();
+
+
+
             try {
 
+
                 await audio.play();
+
 
             } catch (
                 error
             ) {
 
+
                 console.info(
                     "El navegador necesita otra interacción para reproducir el audio."
                 );
+
 
             }
 
@@ -376,12 +474,12 @@ document.addEventListener(
 
 
                 /*
-                    Se solicita la reproducción dentro
-                    del gesto del usuario.
+                    NO esperamos imagen.
+
+                    NO esperamos audio.
+
+                    La invitación abre inmediatamente.
                 */
-
-                playMusic();
-
 
                 openingScreen.classList.add(
                     "is-hidden"
@@ -391,6 +489,15 @@ document.addEventListener(
                 document.body.classList.remove(
                     "is-locked"
                 );
+
+
+
+                /*
+                    El click cuenta como gesto del usuario,
+                    por lo que intentamos reproducir.
+                */
+
+                playMusic();
 
 
             }
@@ -437,8 +544,6 @@ document.addEventListener(
 
         /* =====================================================
            CUENTA REGRESIVA
-           17 OCTUBRE 2026
-           5:00 PM
         ====================================================== */
 
         const targetDate =
@@ -500,12 +605,14 @@ document.addEventListener(
             number
         ) {
 
+
             return String(
                 number
             ).padStart(
                 2,
                 "0"
             );
+
 
         }
 
@@ -517,6 +624,7 @@ document.addEventListener(
             const difference =
                 targetDate -
                 Date.now();
+
 
 
             if (
@@ -535,7 +643,9 @@ document.addEventListener(
 
                 return;
 
+
             }
+
 
 
             const second = 1000;
@@ -550,11 +660,13 @@ document.addEventListener(
                 hour * 24;
 
 
+
             const days =
                 Math.floor(
                     difference /
                     day
                 );
+
 
 
             const hours =
@@ -568,6 +680,7 @@ document.addEventListener(
                 );
 
 
+
             const minutes =
                 Math.floor(
                     (
@@ -579,6 +692,7 @@ document.addEventListener(
                 );
 
 
+
             const seconds =
                 Math.floor(
                     (
@@ -588,6 +702,7 @@ document.addEventListener(
                     /
                     second
                 );
+
 
 
             daysElement.textContent =
@@ -605,11 +720,13 @@ document.addEventListener(
             secondsElement.textContent =
                 pad(seconds);
 
+
         }
 
 
 
         updateCountdown();
+
 
 
         setInterval(
@@ -620,7 +737,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           ANIMACIONES
+           REVEAL
         ====================================================== */
 
         const revealElements =
@@ -629,10 +746,10 @@ document.addEventListener(
             );
 
 
+
         if (
             "IntersectionObserver"
-            in
-            window
+            in window
         ) {
 
 
@@ -672,6 +789,7 @@ document.addEventListener(
                         threshold: .10
                     }
                 );
+
 
 
             revealElements.forEach(
