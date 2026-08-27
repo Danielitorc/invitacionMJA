@@ -1,3179 +1,726 @@
-:root {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    --ivory: #fffaf2;
-    --cream: #f8efe3;
 
-    --rose: #d47f8b;
-    --rose-dark: #b96472;
-    --rose-soft: #f2d2d3;
-    --rose-light: #faeaea;
+        /* =====================================================
+           ELEMENTOS
+        ====================================================== */
 
-    --olive: #78815d;
-    --olive-dark: #536044;
-
-    --gold: #ae833b;
-    --gold-soft: #d9b977;
-
-    --brown: #5c473e;
-    --text-soft: #7c6960;
-
-    --script: "Allura", cursive;
-    --serif: "Cormorant Garamond", serif;
-    --sans: "Montserrat", sans-serif;
-
-}
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-
-    margin: 0;
-    padding: 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #eadfd3,
-            #f7eee4
-        );
-
-    color: var(--brown);
-
-    font-family:
-        var(--sans);
-
-    overflow-x: hidden;
-
-}
-
-body.is-locked {
-    overflow: hidden;
-}
-
-img {
-
-    display: block;
-
-    max-width: 100%;
-
-}
-
-svg {
-
-    display: block;
-
-    fill: currentColor;
-
-}
-
-button,
-a {
-
-    -webkit-tap-highlight-color:
-        transparent;
-
-}
-
-
-
-/* =========================================================
-   INVITACIÓN
-========================================================= */
-
-.invitation {
-
-    position: relative;
-
-    width:
-        min(
-            920px,
-            100%
-        );
-
-    margin:
-        0 auto;
-
-    overflow: hidden;
-
-    isolation: isolate;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 7%,
-            rgba(240,204,202,.22),
-            transparent 24%
-        ),
-
-        radial-gradient(
-            circle at 20% 32%,
-            rgba(214,185,137,.08),
-            transparent 22%
-        ),
-
-        radial-gradient(
-            circle at 80% 62%,
-            rgba(213,133,146,.08),
-            transparent 25%
-        ),
-
-        #fffaf3;
-
-    box-shadow:
-
-        0 0 60px
-        rgba(72,52,39,.15);
-
-}
-
-
-.invitation::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    z-index: -2;
-
-    background-image:
-
-        radial-gradient(
-            rgba(174,131,59,.055)
-            .7px,
-            transparent .7px
-        );
-
-    background-size:
-        18px 18px;
-
-    opacity: .55;
-
-}
-
-
-
-/* =========================================================
-   MARCO GENERAL
-========================================================= */
-
-.master-border {
-
-    position: absolute;
-
-    pointer-events: none;
-
-    z-index: 2;
-
-}
-
-
-.master-border--outer {
-
-    top: 18px;
-    bottom: 18px;
-    left: 18px;
-    right: 18px;
-
-    border:
-
-        1.5px solid
-        rgba(174,131,59,.46);
-
-    border-radius:
-        40px;
-
-}
-
-
-.master-border--inner {
-
-    top: 29px;
-    bottom: 29px;
-    left: 29px;
-    right: 29px;
-
-    border:
-
-        1px solid
-        rgba(212,127,139,.28);
-
-    border-radius:
-        33px;
-
-}
-
-
-
-/* =========================================================
-   FLORES
-========================================================= */
-
-.page-flower {
-
-    position: absolute;
-
-    z-index: 3;
-
-    width: 330px;
-
-    height: auto;
-
-    object-fit: contain;
-
-    pointer-events: none;
-
-    filter:
-
-        drop-shadow(
-            0 8px 12px
-            rgba(72,57,43,.06)
-        );
-
-}
-
-
-.page-flower--top-left {
-
-    top: -55px;
-    left: -72px;
-
-}
-
-
-.page-flower--top-right {
-
-    top: -55px;
-    right: -72px;
-
-    transform:
-        scaleX(-1);
-
-}
-
-
-.page-flower--middle-left {
-
-    top: 41%;
-
-    left: -155px;
-
-    width: 285px;
-
-    transform:
-        rotate(12deg);
-
-    opacity: .84;
-
-}
-
-
-.page-flower--middle-right {
-
-    top: 50%;
-
-    right: -155px;
-
-    width: 290px;
-
-    transform:
-        scaleX(-1)
-        rotate(10deg);
-
-    opacity: .84;
-
-}
-
-
-.page-flower--bottom-left {
-
-    bottom: -60px;
-
-    left: -85px;
-
-    width: 315px;
-
-    transform:
-        rotate(-6deg);
-
-}
-
-
-.page-flower--bottom-right {
-
-    bottom: -60px;
-
-    right: -85px;
-
-    width: 315px;
-
-    transform:
-        scaleX(-1)
-        rotate(-6deg);
-
-}
-
-
-
-/* =========================================================
-   PANTALLA DE APERTURA
-========================================================= */
-
-.opening-screen {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 9999;
-
-    display: grid;
-
-    place-items: center;
-
-    padding: 25px;
-
-    overflow: hidden;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 35%,
-            rgba(255,255,255,.92),
-            transparent 40%
-        ),
-
-        linear-gradient(
-            145deg,
-            #fffaf4,
-            #f5e7dc
-        );
-
-    transition:
-
-        opacity .6s ease,
-        visibility .6s ease;
-
-}
-
-
-.opening-screen.is-hidden {
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-}
-
-
-.opening-card {
-
-    position: relative;
-
-    z-index: 5;
-
-    width:
-        min(
-            520px,
-            93vw
-        );
-
-    padding:
-
-        72px
-        28px
-        48px;
-
-    text-align: center;
-
-    border-radius: 36px;
-
-    background:
-        rgba(255,250,243,.94);
-
-    box-shadow:
-
-        0
-        25px
-        70px
-        rgba(80,57,45,.15);
-
-}
-
-
-.opening-border {
-
-    position: absolute;
-
-    pointer-events: none;
-
-}
-
-
-.opening-border--outer {
-
-    inset: 12px;
-
-    border:
-
-        1.5px solid
-        rgba(174,131,59,.48);
-
-    border-radius: 28px;
-
-}
-
-
-.opening-border--inner {
-
-    inset: 20px;
-
-    border:
-
-        1px solid
-        rgba(212,127,139,.28);
-
-    border-radius: 23px;
-
-}
-
-
-.opening-flower {
-
-    position: absolute;
-
-    z-index: 2;
-
-    width:
-
-        min(
-            330px,
-            58vw
-        );
-
-    height: auto;
-
-    object-fit: contain;
-
-    pointer-events: none;
-
-}
-
-
-.opening-flower--tl {
-
-    top: -75px;
-    left: -100px;
-
-}
-
-
-.opening-flower--br {
-
-    bottom: -80px;
-    right: -100px;
-
-    transform:
-        rotate(180deg);
-
-}
-
-
-.opening-date {
-
-    position: relative;
-
-    z-index: 5;
-
-    margin: 0;
-
-    color:
-        var(--olive-dark);
-
-    font-size: .7rem;
-
-    font-weight: 700;
-
-    letter-spacing: .26em;
-
-}
-
-
-.opening-card h1 {
-
-    position: relative;
-
-    z-index: 5;
-
-    margin:
-        14px 0 8px;
-
-    color:
-        var(--gold);
-
-    font:
-
-        400
-        clamp(
-            4.5rem,
-            15vw,
-            7rem
-        )
-        /.8
-        var(--script);
-
-}
-
-
-.opening-names {
-
-    position: relative;
-
-    z-index: 5;
-
-    margin: 20px 0;
-
-    color:
-        var(--rose);
-
-    font:
-
-        400
-        clamp(
-            2.5rem,
-            9vw,
-            4rem
-        )
-        /1
-        var(--script);
-
-}
-
-
-.opening-names span {
-
-    padding:
-        0 8px;
-
-    color:
-        var(--gold);
-
-    font-family:
-        var(--serif);
-
-    font-size:
-        1.55rem;
-
-}
-
-
-
-/* =========================================================
-   SEPARADORES
-========================================================= */
-
-.opening-ornament,
-.title-decoration,
-.small-divider,
-.final-decoration,
-.footer-mini-decoration {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 14px;
-
-}
-
-
-.opening-ornament {
-
-    position: relative;
-
-    z-index: 5;
-
-    margin:
-        24px 0;
-
-}
-
-
-.opening-ornament span {
-
-    width: 74px;
-
-    height: 1.5px;
-
-    background:
-        var(--gold-soft);
-
-}
-
-
-.opening-ornament i {
-
-    color:
-        var(--rose);
-
-    font-style: normal;
-
-    font-size:
-        1.25rem;
-
-}
-
-
-
-/* =========================================================
-   BOTÓN APERTURA
-========================================================= */
-
-.open-button {
-
-    position: relative;
-
-    z-index: 5;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    min-height: 50px;
-
-    padding:
-        9px 23px 9px 9px;
-
-    border: 0;
-
-    border-radius:
-        999px;
-
-    cursor: pointer;
-
-    color: white;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #d98a94,
-            #ba6672
-        );
-
-    box-shadow:
-
-        0 11px 28px
-        rgba(186,102,114,.22);
-
-    font-family:
-        var(--sans);
-
-    font-weight: 700;
-
-}
-
-
-.open-play {
-
-    display: grid;
-
-    place-items: center;
-
-    width: 35px;
-
-    height: 35px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,.18);
-
-}
-
-
-.open-play svg {
-    width: 17px;
-}
-
-
-.opening-card small {
-
-    position: relative;
-
-    z-index: 5;
-
-    display: block;
-
-    margin-top: 17px;
-
-    color: #927e74;
-
-    font-size: .72rem;
-
-}
-
-
-
-/* =========================================================
-   BOTÓN FLOTANTE MÚSICA
-========================================================= */
-
-.floating-music {
-
-    position: fixed;
-
-    z-index: 500;
-
-    top: 18px;
-    right: 18px;
-
-    display: grid;
-
-    place-items: center;
-
-    width: 48px;
-    height: 48px;
-
-    border:
-
-        2px solid
-        rgba(255,255,255,.75);
-
-    border-radius: 50%;
-
-    cursor: pointer;
-
-    color: white;
-
-    background:
-        var(--rose);
-
-    box-shadow:
-
-        0 8px 22px
-        rgba(88,56,50,.15);
-
-}
-
-
-.floating-music svg {
-    width: 18px;
-}
-
-
-.icon-pause {
-    display: none;
-}
-
-
-.is-playing .icon-play {
-    display: none;
-}
-
-
-.is-playing .icon-pause {
-    display: block;
-}
-
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-
-    position: relative;
-
-    z-index: 5;
-
-    padding:
-
-        125px
-        60px
-        50px;
-
-    text-align: center;
-
-}
-
-
-.hero-content {
-
-    position: relative;
-
-    z-index: 8;
-
-    width:
-        min(
-            700px,
-            100%
-        );
-
-    margin:
-        0 auto;
-
-}
-
-
-.hero-kicker {
-
-    margin:
-        0 0 24px;
-
-    color:
-        var(--olive-dark);
-
-    font-size: .68rem;
-
-    font-weight: 700;
-
-    letter-spacing: .24em;
-
-}
-
-
-
-/* =========================================================
-   FOTO PRINCIPAL
-========================================================= */
-
-.photo-stage {
-
-    position: relative;
-
-    width:
-        min(
-            490px,
-            80vw
-        );
-
-    margin:
-        0 auto 55px;
-
-    padding: 18px;
-
-}
-
-
-.photo-frame {
-
-    position: relative;
-
-    z-index: 5;
-
-    width: 100%;
-
-    aspect-ratio:
-        1 / .91;
-
-    overflow: hidden;
-
-    border:
-
-        8px solid
-        rgba(255,255,255,.95);
-
-    border-radius:
-        50% 50% 16px 16px;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 40%,
-            #f9ece8,
-            #f3e7db
-        );
-
-    box-shadow:
-
-        0 18px 48px
-        rgba(87,64,52,.13);
-
-}
-
-
-.photo-placeholder {
-
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 1;
-
-    overflow: hidden;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 42%,
-            #f8e7e5,
-            #f2e7db
-        );
-
-    transition:
-        opacity .35s ease;
-
-}
-
-
-.photo-placeholder::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-
-    left: -55%;
-
-    width: 45%;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.62),
-            transparent
-        );
-
-    transform:
-        skewX(-15deg);
-
-    animation:
-
-        image-placeholder
-        1.4s
-        ease-in-out
-        infinite;
-
-}
-
-
-@keyframes image-placeholder {
-
-    to {
-        left: 120%;
-    }
-
-}
-
-
-.photo-placeholder.is-hidden {
-
-    opacity: 0;
-
-    pointer-events: none;
-
-}
-
-
-.photo-frame img {
-
-    position: relative;
-
-    z-index: 2;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    object-position:
-        center 72%;
-
-    opacity: 0;
-
-    transition:
-        opacity .35s ease;
-
-}
-
-
-.photo-frame img.is-loaded {
-    opacity: 1;
-}
-
-
-.photo-arc {
-
-    position: absolute;
-
-    pointer-events: none;
-
-}
-
-
-.photo-arc--outer {
-
-    z-index: 2;
-
-    inset: 0;
-
-    border:
-
-        2px solid
-        rgba(174,131,59,.72);
-
-    border-radius:
-        50% 50% 23px 23px;
-
-}
-
-
-.photo-arc--inner {
-
-    z-index: 2;
-
-    inset: 10px;
-
-    border:
-
-        1px solid
-        rgba(217,185,119,.72);
-
-    border-radius:
-        50% 50% 19px 19px;
-
-}
-
-
-.photo-flower {
-
-    position: absolute;
-
-    z-index: 7;
-
-    width: 215px;
-
-    height: auto;
-
-    object-fit: contain;
-
-    pointer-events: none;
-
-}
-
-
-.photo-flower--left {
-
-    left: -92px;
-
-    bottom: -72px;
-
-    transform:
-        rotate(-7deg);
-
-}
-
-
-.photo-flower--right {
-
-    right: -92px;
-
-    top: -65px;
-
-    transform:
-        scaleX(-1)
-        rotate(-5deg);
-
-}
-
-
-
-/* =========================================================
-   TITULO
-========================================================= */
-
-.main-title {
-
-    margin: 0;
-
-    color:
-        var(--gold);
-
-    font:
-
-        400
-        clamp(
-            5rem,
-            13vw,
-            7.7rem
-        )
-        /.72
-        var(--script);
-
-}
-
-
-.title-decoration {
-
-    margin:
-        20px 0 24px;
-
-}
-
-
-.title-decoration span {
-
-    width: 125px;
-
-    height: 1.5px;
-
-    background:
-
-        linear-gradient(
-            to right,
-            transparent,
-            var(--rose)
-        );
-
-}
-
-
-.title-decoration span:last-child {
-
-    background:
-
-        linear-gradient(
-            to left,
-            transparent,
-            var(--rose)
-        );
-
-}
-
-
-.title-decoration i {
-
-    color:
-        var(--rose);
-
-    font-style: normal;
-
-    font-size:
-        1.35rem;
-
-}
-
-
-
-/* =========================================================
-   NOMBRES
-========================================================= */
-
-.girls-names {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap:
-        11px 24px;
-
-    color:
-        var(--rose);
-
-    font:
-
-        400
-        clamp(
-            3.7rem,
-            10vw,
-            5.8rem
-        )
-        /.84
-        var(--script);
-
-}
-
-
-.girls-names i {
-
-    color:
-        var(--gold);
-
-    font-style: normal;
-
-    font-size:
-        1.25rem;
-
-}
-
-
-
-/* =========================================================
-   FECHA
-========================================================= */
-
-.date-banner {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 13px;
-
-    width: max-content;
-
-    max-width: 100%;
-
-    margin:
-        30px auto 25px;
-
-    padding:
-        10px 18px;
-
-    border-radius:
-        999px;
-
-    background:
-        rgba(239,226,208,.62);
-
-}
-
-
-.date-banner strong {
-
-    color:
-        #695048;
-
-    font:
-        600 .9rem
-        var(--serif);
-
-    letter-spacing:
-        .13em;
-
-}
-
-
-.date-line {
-
-    width: 45px;
-
-    height: 1px;
-
-    background:
-        var(--gold-soft);
-
-}
-
-
-
-/* =========================================================
-   TEXTO
-========================================================= */
-
-.invitation-message {
-
-    max-width: 650px;
-
-    margin:
-        0 auto 27px;
-
-    color:
-        #604a41;
-
-    font:
-
-        600
-        clamp(
-            1.18rem,
-            2.5vw,
-            1.42rem
-        )
-        /1.47
-        var(--serif);
-
-}
-
-
-.small-divider {
-
-    margin:
-        24px auto;
-
-}
-
-
-.small-divider span {
-
-    width: 72px;
-
-    height: 1.5px;
-
-    background:
-        var(--gold-soft);
-
-}
-
-
-.small-divider i {
-
-    color:
-        var(--rose);
-
-    font-style: normal;
-
-    font-size:
-        1.25rem;
-
-}
-
-
-
-/* =========================================================
-   PADRES
-========================================================= */
-
-.section-label {
-
-    margin: 0;
-
-    color:
-        var(--rose);
-
-    font-size: .72rem;
-
-    font-weight: 700;
-
-    letter-spacing: .17em;
-
-}
-
-
-.parents h2 {
-
-    margin:
-        5px 0 0;
-
-    color:
-        var(--brown);
-
-    font:
-
-        600
-        clamp(
-            1.7rem,
-            4vw,
-            2.2rem
-        )
-        var(--serif);
-
-}
-
-
-.parents h2 span {
-    color: var(--gold);
-}
-
-
-
-/* =========================================================
-   EVENTOS
-========================================================= */
-
-.event-section {
-
-    position: relative;
-
-    z-index: 5;
-
-    padding:
-
-        50px
-        70px
-        65px;
-
-}
-
-
-.events {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr auto 1fr;
-
-    align-items: center;
-
-    max-width: 720px;
-
-    margin:
-        0 auto;
-
-    padding:
-        35px 25px;
-
-    border-top:
-
-        1px solid
-        rgba(174,131,59,.28);
-
-    border-bottom:
-
-        1px solid
-        rgba(174,131,59,.28);
-
-}
-
-
-.event {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 18px;
-
-}
-
-
-.event-icon {
-
-    flex: 0 0 auto;
-
-    display: grid;
-
-    place-items: center;
-
-    width: 85px;
-    height: 85px;
-
-    border-radius: 50%;
-
-    color:
-        var(--olive-dark);
-
-    background:
-        rgba(242,210,211,.58);
-
-}
-
-
-.event-icon svg {
-
-    width: 51px;
-
-    fill: none;
-
-    stroke:
-        currentColor;
-
-    stroke-width: 2;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-
-}
-
-
-.event-info {
-
-    text-align: left;
-
-}
-
-
-.event-info > p {
-
-    margin: 0;
-
-    color:
-        var(--rose);
-
-    font-size: .6rem;
-
-    font-weight: 700;
-
-    letter-spacing: .1em;
-
-}
-
-
-.event-info h2 {
-
-    margin:
-        2px 0;
-
-    color:
-        var(--olive-dark);
-
-    font:
-        700 1.9rem
-        var(--serif);
-
-}
-
-
-.event-info strong {
-
-    display: block;
-
-    margin-bottom: 10px;
-
-    color:
-        #60483e;
-
-    font:
-        600 1.35rem
-        var(--serif);
-
-}
-
-
-.location-button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    min-height: 40px;
-
-    padding:
-        8px 15px;
-
-    border-radius:
-        999px;
-
-    text-decoration: none;
-
-    color: white;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #da8e98,
-            #c36e7a
-        );
-
-    font-size: .72rem;
-
-    font-weight: 600;
-
-}
-
-
-.location-button svg {
-    width: 17px;
-}
-
-
-.event-divider {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 9px;
-
-    padding:
-        0 20px;
-
-}
-
-
-.event-divider span {
-
-    width: 1.5px;
-
-    height: 48px;
-
-    background:
-        var(--gold-soft);
-
-}
-
-
-.event-divider i {
-
-    color:
-        var(--rose);
-
-    font-style: normal;
-
-    font-size:
-        1.15rem;
-
-}
-
-
-
-/* =========================================================
-   CONTADOR
-========================================================= */
-
-.countdown-section {
-
-    position: relative;
-
-    z-index: 5;
-
-    padding:
-        65px 75px;
-
-    text-align: center;
-
-    content-visibility:
-        auto;
-
-    contain-intrinsic-size:
-        500px;
-
-}
-
-
-.countdown-section h2 {
-
-    margin:
-        7px 0 30px;
-
-    color:
-        var(--olive-dark);
-
-    font:
-        600 2.7rem
-        var(--serif);
-
-}
-
-
-.countdown {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap: 13px;
-
-    max-width: 650px;
-
-    margin:
-        0 auto;
-
-}
-
-
-.count-box {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    aspect-ratio: 1;
-
-    border:
-
-        1px solid
-        rgba(174,131,59,.32);
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,.63);
-
-}
-
-
-.count-box strong {
-
-    color:
-        var(--rose);
-
-    font:
-
-        700
-        clamp(
-            2rem,
-            6vw,
-            3.3rem
-        )
-        /1
-        var(--serif);
-
-}
-
-
-.count-box span {
-
-    margin-top: 5px;
-
-    color:
-        var(--olive);
-
-    font-size: .58rem;
-
-    font-weight: 700;
-
-    letter-spacing:
-        .1em;
-
-}
-
-
-.event-message {
-
-    color:
-        var(--rose);
-
-    font:
-        400 3rem
-        var(--script);
-
-}
-
-
-
-/* =========================================================
-   TALLAS
-========================================================= */
-
-.sizes-section {
-
-    position: relative;
-
-    z-index: 5;
-
-    padding:
-        45px 80px;
-
-    content-visibility:
-        auto;
-
-    contain-intrinsic-size:
-        350px;
-
-}
-
-
-.gift-card {
-
-    display: grid;
-
-    grid-template-columns:
-        auto 1fr;
-
-    align-items: center;
-
-    gap: 28px;
-
-    max-width: 650px;
-
-    margin:
-        0 auto;
-
-    padding:
-        25px 32px;
-
-    border:
-
-        1.5px dashed
-        rgba(174,131,59,.52);
-
-    border-radius: 25px;
-
-    background:
-        rgba(255,255,255,.55);
-
-}
-
-
-.gift-icon {
-
-    display: grid;
-
-    place-items: center;
-
-    width: 105px;
-    height: 105px;
-
-    border-radius: 22px;
-
-    color:
-        var(--rose);
-
-    background:
-        var(--rose-light);
-
-}
-
-
-.gift-icon svg {
-
-    width: 75px;
-
-    fill: none;
-
-    stroke:
-        currentColor;
-
-    stroke-width: 2;
-
-}
-
-
-.gift-copy h2 {
-
-    margin:
-        4px 0;
-
-    color:
-        var(--olive-dark);
-
-    font:
-        700 2.3rem
-        var(--serif);
-
-}
-
-
-
-/* =========================================================
-   RSVP
-========================================================= */
-
-.rsvp-section {
-
-    position: relative;
-
-    z-index: 5;
-
-    padding:
-        70px 40px;
-
-    text-align: center;
-
-    content-visibility:
-        auto;
-
-    contain-intrinsic-size:
-        400px;
-
-}
-
-
-.rsvp-section h2 {
-
-    margin:
-        7px 0 10px;
-
-    color:
-        var(--olive-dark);
-
-    font:
-
-        600
-        clamp(
-            2.4rem,
-            6vw,
-            3.5rem
-        )
-        var(--serif);
-
-}
-
-
-.rsvp-section > p:not(.section-label) {
-
-    max-width: 540px;
-
-    margin:
-        0 auto 24px;
-
-    color:
-        #755f55;
-
-    font:
-        500 1.1rem/1.55
-        var(--serif);
-
-}
-
-
-.whatsapp-button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    min-height: 53px;
-
-    padding:
-        12px 26px;
-
-    border-radius:
-        999px;
-
-    text-decoration: none;
-
-    color: white;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #748d68,
-            #526d50
-        );
-
-    box-shadow:
-
-        0 10px 25px
-        rgba(82,109,80,.16);
-
-    font-size: .86rem;
-
-    font-weight: 700;
-
-}
-
-
-.whatsapp-button svg {
-    width: 22px;
-}
-
-
-
-/* =========================================================
-   REPRODUCTOR
-========================================================= */
-
-.music-player {
-
-    position: relative;
-
-    z-index: 5;
-
-    display: grid;
-
-    grid-template-columns:
-        auto 1fr auto auto;
-
-    align-items: center;
-
-    gap: 15px;
-
-    width:
-
-        min(
-            650px,
-            calc(100% - 70px)
-        );
-
-    margin:
-        0 auto 70px;
-
-    padding:
-        14px 17px;
-
-    border:
-
-        1px solid
-        rgba(174,131,59,.28);
-
-    border-radius: 20px;
-
-    background:
-        rgba(247,237,224,.65);
-
-}
-
-
-.music-note {
-
-    display: grid;
-
-    place-items: center;
-
-    width: 50px;
-    height: 50px;
-
-    border-radius: 50%;
-
-    color:
-        var(--gold);
-
-    background:
-        white;
-
-}
-
-
-.music-note svg {
-    width: 26px;
-}
-
-
-.song-info span {
-
-    display: block;
-
-    color:
-        var(--rose);
-
-    font-size: .6rem;
-
-    font-weight: 700;
-
-    letter-spacing: .1em;
-
-}
-
-
-.song-info strong {
-
-    color:
-        var(--brown);
-
-    font:
-        600 1.2rem
-        var(--serif);
-
-}
-
-
-.music-bottom-button {
-
-    display: grid;
-
-    place-items: center;
-
-    width: 44px;
-    height: 44px;
-
-    border:
-
-        1.5px solid
-        var(--rose);
-
-    border-radius: 50%;
-
-    cursor: pointer;
-
-    color:
-        var(--rose);
-
-    background: white;
-
-}
-
-
-.music-bottom-button svg {
-    width: 17px;
-}
-
-
-.sound-wave {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 3px;
-
-    height: 32px;
-
-}
-
-
-.sound-wave i {
-
-    display: block;
-
-    width: 2px;
-
-    height: 7px;
-
-    border-radius: 2px;
-
-    background:
-        var(--gold);
-
-    animation:
-
-        wave
-        1s
-        infinite
-        ease-in-out;
-
-    animation-play-state:
-        paused;
-
-}
-
-
-.sound-wave.is-playing i {
-    animation-play-state: running;
-}
-
-
-.sound-wave i:nth-child(2) {
-    animation-delay: .1s;
-}
-
-
-.sound-wave i:nth-child(3) {
-    animation-delay: .2s;
-}
-
-
-.sound-wave i:nth-child(4) {
-    animation-delay: .3s;
-}
-
-
-.sound-wave i:nth-child(5) {
-    animation-delay: .4s;
-}
-
-
-.sound-wave i:nth-child(6) {
-    animation-delay: .5s;
-}
-
-
-@keyframes wave {
-
-    0%,
-    100% {
-        height: 7px;
-    }
-
-    50% {
-        height: 25px;
-    }
-
-}
-
-
-
-/* =========================================================
-   SEPARADOR FINAL
-========================================================= */
-
-.final-decoration {
-
-    position: relative;
-
-    z-index: 5;
-
-    margin:
-        0 auto 28px;
-
-}
-
-
-.final-decoration span {
-
-    width: 94px;
-
-    height: 1.5px;
-
-    background:
-
-        linear-gradient(
-            to right,
-            transparent,
-            var(--gold-soft)
-        );
-
-}
-
-
-.final-decoration span:last-child {
-
-    background:
-
-        linear-gradient(
-            to left,
-            transparent,
-            var(--gold-soft)
-        );
-
-}
-
-
-.final-decoration i {
-
-    color:
-        var(--rose);
-
-    font-style: normal;
-
-    font-size:
-        1.25rem;
-
-}
-
-
-
-/* =========================================================
-   FOOTER PROMOCIONAL
-========================================================= */
-
-.commercial-footer {
-
-    position: relative;
-
-    z-index: 6;
-
-    padding:
-
-        44px
-        30px
-        58px;
-
-    text-align: center;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            rgba(255,250,243,.18),
-            rgba(246,232,218,.68)
-        );
-
-}
-
-
-.footer-content {
-
-    width:
-
-        min(
-            560px,
-            100%
-        );
-
-    margin:
-        0 auto;
-
-}
-
-
-.footer-question {
-
-    max-width: 470px;
-
-    margin:
-        0 auto 8px;
-
-    color:
-        var(--rose-dark);
-
-    font:
-
-        700
-        clamp(
-            1.05rem,
-            2.7vw,
-            1.22rem
-        )
-        var(--serif);
-
-    letter-spacing:
-        .025em;
-
-}
-
-
-.footer-description {
-
-    max-width: 410px;
-
-    margin:
-        0 auto 22px;
-
-    color:
-        #817067;
-
-    font:
-        500 .8rem/1.5
-        var(--sans);
-
-}
-
-
-.footer-contact-button {
-
-    display: grid;
-
-    grid-template-columns:
-        auto 1fr auto;
-
-    align-items: center;
-
-    gap: 11px;
-
-    width:
-
-        min(
-            305px,
-            100%
-        );
-
-    min-height: 55px;
-
-    margin:
-        0 auto;
-
-    padding:
-        6px 11px 6px 7px;
-
-    border:
-
-        1px solid
-        rgba(185,100,113,.26);
-
-    border-radius:
-        999px;
-
-    text-decoration: none;
-
-    color: white;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            rgba(204,128,140,.94),
-            rgba(183,99,112,.94)
-        );
-
-    box-shadow:
-
-        0 6px 18px
-        rgba(166,90,102,.11);
-
-    transition:
-
-        transform .25s ease,
-        box-shadow .25s ease;
-
-}
-
-
-.footer-contact-button:hover {
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-
-        0 9px 21px
-        rgba(166,90,102,.17);
-
-}
-
-
-.footer-whatsapp-icon {
-
-    display: grid;
-
-    place-items: center;
-
-    width: 41px;
-    height: 41px;
-
-    border-radius: 50%;
-
-    color:
-        #527a57;
-
-    background:
-        rgba(255,255,255,.96);
-
-}
-
-
-.footer-whatsapp-icon svg {
-    width: 23px;
-}
-
-
-.footer-button-copy {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    text-align: left;
-
-}
-
-
-.footer-button-copy small {
-
-    color:
-        rgba(255,255,255,.78);
-
-    font-size: .46rem;
-
-    font-weight: 600;
-
-}
-
-
-.footer-button-copy strong {
-
-    margin-top: 1px;
-
-    color: white;
-
-    font:
-        400 1.65rem/.9
-        var(--script);
-
-}
-
-
-.footer-arrow {
-
-    display: grid;
-
-    place-items: center;
-
-    width: 27px;
-    height: 27px;
-
-    border:
-
-        1px solid
-        rgba(255,255,255,.4);
-
-    border-radius: 50%;
-
-}
-
-
-.footer-arrow svg {
-
-    width: 14px;
-
-    fill: none;
-
-    stroke:
-        currentColor;
-
-    stroke-width: 2;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-
-}
-
-
-.footer-mini-decoration {
-
-    margin:
-        20px 0 8px;
-
-}
-
-
-.footer-mini-decoration span {
-
-    width: 66px;
-
-    height: 1.5px;
-
-    background:
-
-        linear-gradient(
-            to right,
-            transparent,
-            var(--gold-soft)
-        );
-
-}
-
-
-.footer-mini-decoration span:last-child {
-
-    background:
-
-        linear-gradient(
-            to left,
-            transparent,
-            var(--gold-soft)
-        );
-
-}
-
-
-.footer-mini-decoration i {
-
-    color:
-        var(--rose);
-
-    font-style: normal;
-
-    font-size:
-        1.15rem;
-
-}
-
-
-.footer-brand {
-
-    color:
-        #9a897f;
-
-    font-size: .62rem;
-
-    letter-spacing:
-        .2em;
-
-}
-
-
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-.reveal {
-
-    opacity: 0;
-
-    transform:
-        translateY(22px);
-
-    transition:
-
-        opacity .8s ease,
-        transform .8s ease;
-
-}
-
-
-.reveal.is-visible {
-
-    opacity: 1;
-
-    transform: none;
-
-}
-
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media
-(max-width: 760px) {
-
-
-    body {
-
-        background:
-            var(--ivory);
-
-    }
-
-
-    .invitation {
-
-        width: 100%;
-
-        box-shadow: none;
-
-    }
-
-
-    .master-border--outer {
-
-        top: 10px;
-        bottom: 10px;
-        left: 8px;
-        right: 8px;
-
-    }
-
-
-    .master-border--inner {
-
-        top: 18px;
-        bottom: 18px;
-        left: 15px;
-        right: 15px;
-
-    }
-
-
-    .page-flower {
-
-        width: 220px;
-
-    }
-
-
-    .page-flower--top-left {
-
-        top: -38px;
-        left: -90px;
-
-    }
-
-
-    .page-flower--top-right {
-
-        top: -38px;
-        right: -90px;
-
-    }
-
-
-    .page-flower--middle-left {
-
-        left: -145px;
-
-        width: 230px;
-
-    }
-
-
-    .page-flower--middle-right {
-
-        right: -145px;
-
-        width: 230px;
-
-    }
-
-
-    .page-flower--bottom-left {
-
-        left: -90px;
-
-        width: 235px;
-
-    }
-
-
-    .page-flower--bottom-right {
-
-        right: -90px;
-
-        width: 235px;
-
-    }
-
-
-    .hero {
-
-        padding:
-
-            95px
-            32px
-            35px;
-
-    }
-
-
-    .photo-stage {
-
-        width:
-
-            min(
-                430px,
-                87vw
+        const audio =
+            document.getElementById(
+                "bgMusic"
             );
 
-        margin-bottom: 48px;
 
-    }
-
-
-    .photo-flower {
-        width: 155px;
-    }
-
-
-    .photo-flower--left {
-
-        left: -64px;
-
-        bottom: -51px;
-
-    }
-
-
-    .photo-flower--right {
-
-        right: -64px;
-
-        top: -45px;
-
-    }
-
-
-    .event-section {
-
-        padding:
-
-            40px
-            42px
-            55px;
-
-    }
-
-
-    .events {
-
-        grid-template-columns:
-            1fr;
-
-        gap: 28px;
-
-        padding:
-            30px 15px;
-
-    }
-
-
-    .event-divider {
-
-        flex-direction:
-            row;
-
-    }
-
-
-    .event-divider span {
-
-        width: 80px;
-
-        height: 1.5px;
-
-    }
-
-
-    .event {
-
-        width:
-
-            min(
-                360px,
-                100%
+        const musicButton =
+            document.getElementById(
+                "musicButton"
             );
 
-        margin:
-            0 auto;
 
-    }
-
-
-    .countdown-section {
-
-        padding:
-            55px 35px;
-
-    }
-
-
-    .countdown {
-        gap: 8px;
-    }
-
-
-    .count-box {
-
-        aspect-ratio:
-            auto;
-
-        min-height:
-            92px;
-
-        border-radius:
-            22px;
-
-    }
-
-
-    .sizes-section {
-
-        padding:
-            40px 38px;
-
-    }
-
-
-    .gift-card {
-
-        grid-template-columns:
-            1fr;
-
-        text-align: center;
-
-        gap: 17px;
-
-        padding:
-            25px 20px;
-
-    }
-
-
-    .gift-icon {
-
-        margin:
-            0 auto;
-
-    }
-
-
-    .rsvp-section {
-
-        padding:
-            55px 36px;
-
-    }
-
-
-    .music-player {
-
-        width:
-            calc(100% - 70px);
-
-        grid-template-columns:
-            auto 1fr auto;
-
-    }
-
-
-    .sound-wave {
-        display: none;
-    }
-
-}
-
-
-
-/* =========================================================
-   MÓVIL
-========================================================= */
-
-@media
-(max-width: 430px) {
-
-
-    .opening-flower {
-
-        width: 220px;
-
-    }
-
-
-    .opening-flower--tl {
-
-        top: -45px;
-        left: -78px;
-
-    }
-
-
-    .opening-flower--br {
-
-        bottom: -48px;
-        right: -78px;
-
-    }
-
-
-    .hero {
-
-        padding-left: 27px;
-        padding-right: 27px;
-
-    }
-
-
-    .main-title {
-
-        font-size: 4.6rem;
-
-    }
-
-
-    .girls-names {
-
-        font-size: 3.35rem;
-
-        gap:
-            5px 10px;
-
-    }
-
-
-    .girls-names i {
-
-        font-size: 1.05rem;
-
-    }
-
-
-    .title-decoration span {
-
-        width: 82px;
-
-    }
-
-
-    .title-decoration i,
-    .small-divider i,
-    .final-decoration i {
-
-        font-size: 1.12rem;
-
-    }
-
-
-    .small-divider span {
-
-        width: 55px;
-
-    }
-
-
-    .date-banner {
-
-        gap: 7px;
-
-        padding:
-            9px 10px;
-
-    }
-
-
-    .date-line {
-
-        width: 20px;
-
-    }
-
-
-    .date-banner strong {
-
-        font-size: .72rem;
-
-        letter-spacing:
-            .08em;
-
-    }
-
-
-    .invitation-message {
-
-        font-size: 1.08rem;
-
-    }
-
-
-    .photo-stage {
-
-        width: 88vw;
-
-    }
-
-
-    .photo-flower {
-
-        width: 135px;
-
-    }
-
-
-    .photo-flower--left {
-
-        left: -48px;
-
-        bottom: -43px;
-
-    }
-
-
-    .photo-flower--right {
-
-        right: -48px;
-
-        top: -40px;
-
-    }
-
-
-    .event-section {
-
-        padding-left: 30px;
-        padding-right: 30px;
-
-    }
-
-
-    .event {
-
-        gap: 13px;
-
-    }
-
-
-    .event-icon {
-
-        width: 72px;
-        height: 72px;
-
-    }
-
-
-    .event-icon svg {
-
-        width: 43px;
-
-    }
-
-
-    .event-info h2 {
-
-        font-size: 1.7rem;
-
-    }
-
-
-    .countdown {
-
-        grid-template-columns:
-            repeat(2,1fr);
-
-    }
-
-
-    .count-box {
-
-        min-height: 110px;
-
-    }
-
-
-    .music-player {
-
-        width:
-            calc(100% - 54px);
-
-        padding:
-            12px 13px;
-
-    }
-
-
-    .footer-question {
-
-        max-width: 310px;
-
-        font-size: 1.1rem;
-
-        line-height: 1.18;
-
-    }
-
-
-    .footer-description {
-
-        max-width: 310px;
-
-        font-size: .75rem;
-
-    }
-
-
-    .footer-contact-button {
-
-        width:
-
-            min(
-                290px,
-                100%
+        const musicBottomButton =
+            document.getElementById(
+                "musicBottomButton"
             );
 
+
+        const soundWave =
+            document.getElementById(
+                "soundWave"
+            );
+
+
+        const mainPhoto =
+            document.getElementById(
+                "mainPhoto"
+            );
+
+
+        const photoPlaceholder =
+            document.getElementById(
+                "photoPlaceholder"
+            );
+
+
+        const musicControls = [
+
+            musicButton,
+            musicBottomButton
+
+        ].filter(Boolean);
+
+
+
+        /* =====================================================
+           FOTO
+
+           No usamos decode().
+           No esperamos nada.
+           Apenas dispara LOAD se muestra.
+        ====================================================== */
+
+        function showPhoto() {
+
+
+            if (
+                !mainPhoto
+            ) {
+
+                return;
+
+            }
+
+
+            mainPhoto.classList.add(
+                "is-loaded"
+            );
+
+
+            if (
+                photoPlaceholder
+            ) {
+
+                photoPlaceholder.classList.add(
+                    "is-hidden"
+                );
+
+            }
+
+
+        }
+
+
+
+        if (
+            mainPhoto
+        ) {
+
+
+            if (
+                mainPhoto.complete &&
+                mainPhoto.naturalWidth > 0
+            ) {
+
+
+                showPhoto();
+
+
+            } else {
+
+
+                mainPhoto.addEventListener(
+                    "load",
+                    showPhoto,
+                    {
+                        once: true
+                    }
+                );
+
+
+            }
+
+
+        }
+
+
+
+        /* =====================================================
+           PREPARACIÓN INTELIGENTE DE AUDIO
+
+           Esperamos solamente 300 ms.
+
+           Esto permite que la portada se pinte primero.
+
+           Después el navegador puede empezar a almacenar
+           la canción antes de que el usuario toque el botón.
+        ====================================================== */
+
+        if (
+            audio
+        ) {
+
+
+            audio.volume =
+                0.5;
+
+
+            window.setTimeout(
+                () => {
+
+
+                    audio.preload =
+                        "auto";
+
+
+                    audio.load();
+
+
+                },
+                300
+            );
+
+
+        }
+
+
+
+        /* =====================================================
+           UI MÚSICA
+        ====================================================== */
+
+        function syncMusicUI() {
+
+
+            if (
+                !audio
+            ) {
+
+                return;
+
+            }
+
+
+            const playing =
+
+                !audio.paused &&
+                !audio.ended;
+
+
+
+            musicControls.forEach(
+
+                button => {
+
+
+                    button.classList.toggle(
+                        "is-playing",
+                        playing
+                    );
+
+
+                    button.setAttribute(
+                        "aria-pressed",
+                        String(playing)
+                    );
+
+
+                    button.setAttribute(
+                        "aria-label",
+                        playing
+                            ? "Pausar música"
+                            : "Reproducir música"
+                    );
+
+
+                }
+
+            );
+
+
+
+            if (
+                soundWave
+            ) {
+
+
+                soundWave.classList.toggle(
+                    "is-playing",
+                    playing
+                );
+
+
+            }
+
+
+        }
+
+
+
+        async function playMusic() {
+
+
+            if (
+                !audio
+            ) {
+
+                return;
+
+            }
+
+
+            try {
+
+
+                await audio.play();
+
+
+            } catch (
+                error
+            ) {
+
+
+                console.info(
+                    "El navegador requiere interacción adicional para reproducir el audio."
+                );
+
+
+            }
+
+
+            syncMusicUI();
+
+
+        }
+
+
+
+        function pauseMusic() {
+
+
+            if (
+                !audio
+            ) {
+
+                return;
+
+            }
+
+
+            audio.pause();
+
+
+            syncMusicUI();
+
+
+        }
+
+
+
+        async function toggleMusic() {
+
+
+            if (
+                !audio
+            ) {
+
+                return;
+
+            }
+
+
+            if (
+                audio.paused
+            ) {
+
+
+                await playMusic();
+
+
+            } else {
+
+
+                pauseMusic();
+
+
+            }
+
+
+        }
+
+
+
+        musicControls.forEach(
+
+            button => {
+
+
+                button.addEventListener(
+                    "click",
+                    toggleMusic
+                );
+
+
+            }
+
+        );
+
+
+
+        if (
+            audio
+        ) {
+
+
+            audio.addEventListener(
+                "play",
+                syncMusicUI
+            );
+
+
+            audio.addEventListener(
+                "pause",
+                syncMusicUI
+            );
+
+
+            audio.addEventListener(
+                "ended",
+                syncMusicUI
+            );
+
+
+        }
+
+
+
+        /* =====================================================
+           CUENTA REGRESIVA
+        ====================================================== */
+
+        const targetDate =
+
+            new Date(
+                2026,
+                9,
+                17,
+                17,
+                0,
+                0
+            ).getTime();
+
+
+
+        const daysElement =
+            document.getElementById(
+                "days"
+            );
+
+
+        const hoursElement =
+            document.getElementById(
+                "hours"
+            );
+
+
+        const minutesElement =
+            document.getElementById(
+                "minutes"
+            );
+
+
+        const secondsElement =
+            document.getElementById(
+                "seconds"
+            );
+
+
+        const countdown =
+            document.getElementById(
+                "countdown"
+            );
+
+
+        const countdownTitle =
+            document.getElementById(
+                "countdownTitle"
+            );
+
+
+        const eventMessage =
+            document.getElementById(
+                "eventMessage"
+            );
+
+
+
+        function pad(
+            number
+        ) {
+
+
+            return String(
+                number
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        }
+
+
+
+        function updateCountdown() {
+
+
+            const difference =
+
+                targetDate -
+                Date.now();
+
+
+
+            if (
+                difference <= 0
+            ) {
+
+
+                if (
+                    countdown
+                ) {
+
+                    countdown.hidden =
+                        true;
+
+                }
+
+
+                if (
+                    countdownTitle
+                ) {
+
+                    countdownTitle.hidden =
+                        true;
+
+                }
+
+
+                if (
+                    eventMessage
+                ) {
+
+                    eventMessage.hidden =
+                        false;
+
+                }
+
+
+                return;
+
+
+            }
+
+
+
+            const second =
+                1000;
+
+
+            const minute =
+                second * 60;
+
+
+            const hour =
+                minute * 60;
+
+
+            const day =
+                hour * 24;
+
+
+
+            const days =
+
+                Math.floor(
+                    difference /
+                    day
+                );
+
+
+
+            const hours =
+
+                Math.floor(
+                    (
+                        difference %
+                        day
+                    )
+                    /
+                    hour
+                );
+
+
+
+            const minutes =
+
+                Math.floor(
+                    (
+                        difference %
+                        hour
+                    )
+                    /
+                    minute
+                );
+
+
+
+            const seconds =
+
+                Math.floor(
+                    (
+                        difference %
+                        minute
+                    )
+                    /
+                    second
+                );
+
+
+
+            if (
+                daysElement
+            ) {
+
+                daysElement.textContent =
+                    pad(days);
+
+            }
+
+
+            if (
+                hoursElement
+            ) {
+
+                hoursElement.textContent =
+                    pad(hours);
+
+            }
+
+
+            if (
+                minutesElement
+            ) {
+
+                minutesElement.textContent =
+                    pad(minutes);
+
+            }
+
+
+            if (
+                secondsElement
+            ) {
+
+                secondsElement.textContent =
+                    pad(seconds);
+
+            }
+
+
+        }
+
+
+
+        updateCountdown();
+
+
+
+        window.setInterval(
+            updateCountdown,
+            1000
+        );
+
+
+
+        /* =====================================================
+           REVEAL
+        ====================================================== */
+
+        const revealElements =
+
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+
+        if (
+            "IntersectionObserver"
+            in window
+        ) {
+
+
+            const observer =
+
+                new IntersectionObserver(
+
+                    entries => {
+
+
+                        entries.forEach(
+
+                            entry => {
+
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+
+                                    entry.target.classList.add(
+                                        "is-visible"
+                                    );
+
+
+                                    observer.unobserve(
+                                        entry.target
+                                    );
+
+
+                                }
+
+
+                            }
+
+                        );
+
+
+                    },
+
+                    {
+                        threshold: .08
+                    }
+
+                );
+
+
+
+            revealElements.forEach(
+
+                element => {
+
+
+                    observer.observe(
+                        element
+                    );
+
+
+                }
+
+            );
+
+
+        } else {
+
+
+            revealElements.forEach(
+
+                element => {
+
+
+                    element.classList.add(
+                        "is-visible"
+                    );
+
+
+                }
+
+            );
+
+
+        }
+
+
     }
-
-}
-
-
-
-/* =========================================================
-   ACCESIBILIDAD
-========================================================= */
-
-@media
-(prefers-reduced-motion: reduce) {
-
-
-    html {
-        scroll-behavior: auto;
-    }
-
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration:
-            .01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            .01ms !important;
-
-    }
-
-}
+);

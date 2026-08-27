@@ -24,7 +24,7 @@
 
 
     <!-- =====================================================
-         CONEXIONES
+         PRECONEXIÓN FUENTES
     ====================================================== -->
 
     <link
@@ -40,30 +40,455 @@
 
 
     <!-- =====================================================
-         RECURSOS CRÍTICOS
+         FOTO PRINCIPAL
 
-         La fotografía ya optimizada (~465 KB) y el audio
-         comienzan a cargarse inmediatamente y en paralelo.
+         ÚNICO RECURSO PESADO CON PRIORIDAD ALTA.
+         La imagen pesa ~465 KB.
     ====================================================== -->
 
     <link
         rel="preload"
-        href="img/aranza-mariajulia.webp"
+        href="img/aranza-mariajulia.webp?v=final-01"
         as="image"
         type="image/webp"
         fetchpriority="high"
     >
 
-    <link
-        rel="preload"
-        href="audio/ultimamente.mp3"
-        as="audio"
-        type="audio/mpeg"
-    >
+
+    <!-- =====================================================
+         CSS CRÍTICO DE LA PORTADA
+
+         Esto permite que la primera pantalla aparezca
+         INCLUSO ANTES de que styles.css termine de llegar.
+    ====================================================== -->
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body.is-locked {
+            overflow: hidden;
+        }
+
+        .opening-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            display: grid;
+
+            place-items: center;
+
+            padding: 25px;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(255,255,255,.92),
+                    transparent 40%
+                ),
+                linear-gradient(
+                    145deg,
+                    #fffaf4,
+                    #f5e7dc
+                );
+
+        }
+
+        .opening-screen.is-hidden {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+        }
+
+        .opening-card {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: min(520px, 93vw);
+
+            padding:
+                72px
+                28px
+                48px;
+
+            text-align: center;
+
+            border-radius: 36px;
+
+            background:
+                rgba(255,250,243,.96);
+
+            box-shadow:
+                0 25px 70px
+                rgba(80,57,45,.15);
+
+        }
+
+        .opening-border {
+
+            position: absolute;
+
+            pointer-events: none;
+
+        }
+
+        .opening-border--outer {
+
+            inset: 12px;
+
+            border:
+                1.5px solid
+                rgba(174,131,59,.48);
+
+            border-radius: 28px;
+
+        }
+
+        .opening-border--inner {
+
+            inset: 20px;
+
+            border:
+                1px solid
+                rgba(212,127,139,.28);
+
+            border-radius: 23px;
+
+        }
+
+        .opening-date {
+
+            position: relative;
+
+            z-index: 5;
+
+            margin: 0;
+
+            color: #536044;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: .7rem;
+
+            font-weight: 700;
+
+            letter-spacing: .26em;
+
+        }
+
+        .opening-card h1 {
+
+            position: relative;
+
+            z-index: 5;
+
+            margin:
+                14px 0
+                8px;
+
+            color: #ae833b;
+
+            font-family:
+                "Brush Script MT",
+                cursive;
+
+            font-size:
+                clamp(
+                    4rem,
+                    15vw,
+                    7rem
+                );
+
+            font-weight: 400;
+
+            line-height: .8;
+
+        }
+
+        .opening-names {
+
+            position: relative;
+
+            z-index: 5;
+
+            margin:
+                24px 0
+                20px;
+
+            color: #d47f8b;
+
+            font-family:
+                "Brush Script MT",
+                cursive;
+
+            font-size:
+                clamp(
+                    2.5rem,
+                    9vw,
+                    4rem
+                );
+
+            line-height: 1;
+
+        }
+
+        .opening-names span {
+
+            padding:
+                0 8px;
+
+            color: #ae833b;
+
+            font-size: 1.4rem;
+
+        }
+
+        .opening-ornament {
+
+            position: relative;
+
+            z-index: 5;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 14px;
+
+            margin:
+                24px 0;
+
+        }
+
+        .opening-ornament span {
+
+            width: 74px;
+
+            height: 1px;
+
+            background:
+                #d9b977;
+
+        }
+
+        .opening-ornament i {
+
+            color: #d47f8b;
+
+            font-style: normal;
+
+            font-size: 1.2rem;
+
+        }
+
+        .open-button {
+
+            position: relative;
+
+            z-index: 10;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            min-height: 50px;
+
+            padding:
+                9px
+                23px
+                9px
+                9px;
+
+            border: 0;
+
+            border-radius: 999px;
+
+            cursor: pointer;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d98a94,
+                    #ba6672
+                );
+
+            box-shadow:
+                0 11px 28px
+                rgba(186,102,114,.22);
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-weight: 700;
+
+        }
+
+        .open-play {
+
+            display: grid;
+
+            place-items: center;
+
+            width: 35px;
+
+            height: 35px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.18);
+
+        }
+
+        .open-play svg {
+
+            display: block;
+
+            width: 17px;
+
+            fill: currentColor;
+
+        }
+
+        .opening-card small {
+
+            position: relative;
+
+            z-index: 5;
+
+            display: block;
+
+            margin-top: 17px;
+
+            color: #927e74;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: .72rem;
+
+        }
+
+        .opening-flower {
+
+            position: absolute;
+
+            z-index: 2;
+
+            width: min(330px,58vw);
+
+            height: auto;
+
+            pointer-events: none;
+
+        }
+
+        .opening-flower--tl {
+
+            top: -75px;
+
+            left: -100px;
+
+        }
+
+        .opening-flower--br {
+
+            right: -100px;
+
+            bottom: -80px;
+
+            transform:
+                rotate(180deg);
+
+        }
+
+    </style>
 
 
     <!-- =====================================================
-         FUENTES NO BLOQUEANTES
+         FUNCIÓN CRÍTICA DEL BOTÓN
+
+         ESTA FUNCIÓN VIVE EN EL HTML.
+
+         Aunque script.js falle o quede cacheado,
+         el botón seguirá abriendo la invitación.
+    ====================================================== -->
+
+    <script>
+
+        function abrirInvitacion() {
+
+            const openingScreen =
+                document.getElementById(
+                    "openingScreen"
+                );
+
+
+            if (openingScreen) {
+
+                openingScreen.classList.add(
+                    "is-hidden"
+                );
+
+            }
+
+
+            document.body.classList.remove(
+                "is-locked"
+            );
+
+
+            const audio =
+                document.getElementById(
+                    "bgMusic"
+                );
+
+
+            if (audio) {
+
+                audio.play().catch(
+                    () => {}
+                );
+
+            }
+
+        }
+
+    </script>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS NO BLOQUEANTE
     ====================================================== -->
 
     <link
@@ -72,6 +497,7 @@
         media="print"
         onload="this.media='all'"
     >
+
 
     <noscript>
 
@@ -84,13 +510,17 @@
 
 
     <!-- =====================================================
-         CSS
+         CSS VERSIONADO
+
+         IMPORTANTE:
+         Esto evita CSS viejo en caché.
     ====================================================== -->
 
     <link
         rel="stylesheet"
-        href="styles.css"
+        href="styles.css?v=final-01"
     >
+
 
 </head>
 
@@ -100,16 +530,22 @@
 
     <!-- =====================================================
          AUDIO
+
+         preload metadata evita descargarlo agresivamente
+         antes de que aparezca la portada.
+
+         script.js comienza a prepararlo inmediatamente
+         después.
     ====================================================== -->
 
     <audio
         id="bgMusic"
-        preload="auto"
+        preload="metadata"
         loop
     >
 
         <source
-            src="audio/ultimamente.mp3"
+            src="audio/ultimamente.mp3?v=final-01"
             type="audio/mpeg"
         >
 
@@ -118,7 +554,7 @@
 
 
     <!-- =====================================================
-         PANTALLA DE APERTURA
+         PORTADA
     ====================================================== -->
 
     <div
@@ -128,7 +564,7 @@
 
 
         <img
-            src="img/floral-corner.png"
+            src="img/floral-corner.png?v=final-01"
             class="opening-flower opening-flower--tl"
             alt=""
             width="1024"
@@ -138,7 +574,7 @@
 
 
         <img
-            src="img/floral-corner.png"
+            src="img/floral-corner.png?v=final-01"
             class="opening-flower opening-flower--br"
             alt=""
             width="1024"
@@ -165,13 +601,19 @@
 
 
             <p class="opening-date">
+
                 17 · OCTUBRE · 2026
+
             </p>
 
 
+
             <h1>
+
                 Nuestra Fiesta
+
             </h1>
+
 
 
             <p class="opening-names">
@@ -209,6 +651,7 @@
                 id="openInvitation"
                 class="open-button"
                 type="button"
+                onclick="abrirInvitacion()"
                 aria-label="Abrir invitación"
             >
 
@@ -235,7 +678,9 @@
 
 
             <small>
+
                 La música comenzará al abrir la invitación
+
             </small>
 
 
@@ -247,7 +692,7 @@
 
 
     <!-- =====================================================
-         BOTÓN FLOTANTE DE MÚSICA
+         BOTÓN MÚSICA
     ====================================================== -->
 
     <button
@@ -288,10 +733,6 @@
     <main class="invitation">
 
 
-        <!-- =================================================
-             MARCO GENERAL
-        ================================================== -->
-
         <div
             class="master-border master-border--outer"
             aria-hidden="true"
@@ -306,68 +747,56 @@
 
 
         <!-- =================================================
-             FLORES DEL MARCO
+             FLORES GENERALES
         ================================================== -->
 
         <img
-            src="img/floral-corner.png"
+            src="img/floral-corner.png?v=final-01"
             class="page-flower page-flower--top-left"
             alt=""
-            width="1024"
-            height="1024"
             decoding="async"
         >
 
 
         <img
-            src="img/floral-corner.png"
+            src="img/floral-corner.png?v=final-01"
             class="page-flower page-flower--top-right"
             alt=""
-            width="1024"
-            height="1024"
             decoding="async"
         >
 
 
         <img
-            src="img/floral-corner.png"
+            src="img/floral-corner.png?v=final-01"
             class="page-flower page-flower--middle-left"
             alt=""
-            width="1024"
-            height="1024"
             loading="lazy"
             decoding="async"
         >
 
 
         <img
-            src="img/floral-corner.png"
+            src="img/floral-corner.png?v=final-01"
             class="page-flower page-flower--middle-right"
             alt=""
-            width="1024"
-            height="1024"
             loading="lazy"
             decoding="async"
         >
 
 
         <img
-            src="img/floral-corner.png"
+            src="img/floral-corner.png?v=final-01"
             class="page-flower page-flower--bottom-left"
             alt=""
-            width="1024"
-            height="1024"
             loading="lazy"
             decoding="async"
         >
 
 
         <img
-            src="img/floral-corner.png"
+            src="img/floral-corner.png?v=final-01"
             class="page-flower page-flower--bottom-right"
             alt=""
-            width="1024"
-            height="1024"
             loading="lazy"
             decoding="async"
         >
@@ -388,14 +817,14 @@
 
 
                 <p class="hero-kicker">
+
                     UNA FECHA MUY ESPECIAL
+
                 </p>
 
 
 
-                <!-- =========================================
-                     FOTO PRINCIPAL
-                ========================================== -->
+                <!-- FOTO PRINCIPAL -->
 
                 <div class="photo-stage">
 
@@ -426,7 +855,7 @@
 
                         <img
                             id="mainPhoto"
-                            src="img/aranza-mariajulia.webp"
+                            src="img/aranza-mariajulia.webp?v=final-01"
                             alt="Aranza y Mariajulia"
                             width="1200"
                             height="1600"
@@ -441,21 +870,17 @@
 
 
                     <img
-                        src="img/floral-corner.png"
+                        src="img/floral-corner.png?v=final-01"
                         class="photo-flower photo-flower--left"
                         alt=""
-                        width="1024"
-                        height="1024"
                         decoding="async"
                     >
 
 
                     <img
-                        src="img/floral-corner.png"
+                        src="img/floral-corner.png?v=final-01"
                         class="photo-flower photo-flower--right"
                         alt=""
-                        width="1024"
-                        height="1024"
                         decoding="async"
                     >
 
@@ -464,12 +889,10 @@
 
 
 
-                <!-- =========================================
-                     TITULO
-                ========================================== -->
-
                 <h1 class="main-title">
+
                     Nuestra Fiesta
+
                 </h1>
 
 
@@ -491,49 +914,47 @@
 
 
 
-                <!-- =========================================
-                     NOMBRES
-                ========================================== -->
-
                 <div class="girls-names">
+
 
                     <span>
                         Aranza
                     </span>
 
+
                     <i>
                         ♥
                     </i>
+
 
                     <span>
                         Mariajulia
                     </span>
 
+
                 </div>
 
 
-
-                <!-- =========================================
-                     FECHA
-                ========================================== -->
 
                 <div class="date-banner">
 
+
                     <span class="date-line"></span>
+
 
                     <strong>
+
                         17 DE OCTUBRE DE 2026
+
                     </strong>
 
+
                     <span class="date-line"></span>
+
 
                 </div>
 
 
-
-                <!-- =========================================
-                     MENSAJE
-                ========================================== -->
 
                 <p class="invitation-message">
 
@@ -567,15 +988,13 @@
 
 
 
-                <!-- =========================================
-                     PADRES
-                ========================================== -->
-
                 <div class="parents">
 
 
                     <p class="section-label">
+
                         MIS PADRES
+
                     </p>
 
 
@@ -615,9 +1034,7 @@
             <div class="events">
 
 
-                <!-- =========================================
-                     MISA
-                ========================================== -->
+                <!-- MISA -->
 
                 <article class="event">
 
@@ -649,17 +1066,23 @@
 
 
                         <p>
+
                             CEREMONIA RELIGIOSA
+
                         </p>
 
 
                         <h2>
+
                             Misa
+
                         </h2>
 
 
                         <strong>
+
                             5:00 p.m.
+
                         </strong>
 
 
@@ -697,10 +1120,6 @@
 
 
 
-                <!-- =========================================
-                     SEPARADOR
-                ========================================== -->
-
                 <div
                     class="event-divider"
                     aria-hidden="true"
@@ -718,9 +1137,7 @@
 
 
 
-                <!-- =========================================
-                     RECEPCIÓN
-                ========================================== -->
+                <!-- RECEPCIÓN -->
 
                 <article class="event">
 
@@ -760,17 +1177,23 @@
 
 
                         <p>
+
                             DESPUÉS DE LA MISA
+
                         </p>
 
 
                         <h2>
+
                             Recepción
+
                         </h2>
 
 
                         <strong>
+
                             6:30 p.m.
+
                         </strong>
 
 
@@ -815,7 +1238,7 @@
 
 
         <!-- =================================================
-             CUENTA REGRESIVA
+             CONTADOR
         ================================================== -->
 
         <section
@@ -825,12 +1248,16 @@
 
 
             <p class="section-label">
+
                 CADA DÍA FALTA MENOS
+
             </p>
 
 
             <h2 id="countdownTitle">
+
                 Solo faltan
+
             </h2>
 
 
@@ -838,7 +1265,6 @@
             <div
                 class="countdown"
                 id="countdown"
-                aria-live="polite"
             >
 
 
@@ -973,7 +1399,9 @@
 
 
                     <p class="section-label">
+
                         NUESTRAS TALLAS
+
                     </p>
 
 
@@ -991,7 +1419,9 @@
 
 
                     <p>
+
                         Tu presencia es nuestro mejor regalo.
+
                     </p>
 
 
@@ -1016,12 +1446,16 @@
 
 
             <p class="section-label">
+
                 NOS ENCANTARÁ VERTE
+
             </p>
 
 
             <h2>
+
                 Confirma tu asistencia
+
             </h2>
 
 
@@ -1092,13 +1526,20 @@
 
             <div class="song-info">
 
+
                 <span>
+
                     CANCIÓN DE FONDO
+
                 </span>
 
+
                 <strong>
+
                     Últimamente
+
                 </strong>
+
 
             </div>
 
@@ -1174,7 +1615,7 @@
 
 
         <!-- =================================================
-             FOOTER PROMOCIONAL
+             FOOTER
         ================================================== -->
 
         <footer class="commercial-footer">
@@ -1206,7 +1647,6 @@
                     href="https://wa.link/m5axbj"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Contactar por WhatsApp"
                 >
 
 
@@ -1233,12 +1673,16 @@
 
 
                         <small>
+
                             ¿Te gustaría algo así?
+
                         </small>
 
 
                         <strong>
+
                             Contáctame
+
                         </strong>
 
 
@@ -1288,7 +1732,9 @@
 
 
                 <small class="footer-brand">
+
                     DanielRC
+
                 </small>
 
 
@@ -1302,8 +1748,14 @@
 
 
 
+    <!-- =====================================================
+         JS VERSIONADO
+
+         Obliga al navegador a solicitar la versión nueva.
+    ====================================================== -->
+
     <script
-        src="script.js"
+        src="script.js?v=final-01"
         defer
     ></script>
 

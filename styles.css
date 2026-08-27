@@ -17,9 +17,20 @@
     --brown: #5c473e;
     --text-soft: #7c6960;
 
-    --script: "Allura", cursive;
-    --serif: "Cormorant Garamond", serif;
-    --sans: "Montserrat", sans-serif;
+    --script:
+        "Allura",
+        "Brush Script MT",
+        cursive;
+
+    --serif:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    --sans:
+        "Montserrat",
+        Arial,
+        sans-serif;
 
 }
 
@@ -39,7 +50,6 @@ html {
 body {
 
     margin: 0;
-
     padding: 0;
 
     background:
@@ -49,9 +59,11 @@ body {
             #f7eee4
         );
 
-    color: var(--brown);
+    color:
+        var(--brown);
 
-    font-family: var(--sans);
+    font-family:
+        var(--sans);
 
     overflow-x: hidden;
 
@@ -79,7 +91,10 @@ svg {
 
 button,
 a {
-    -webkit-tap-highlight-color: transparent;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
 }
 
 
@@ -92,9 +107,14 @@ a {
 
     position: relative;
 
-    width: min(920px, 100%);
+    width:
+        min(
+            920px,
+            100%
+        );
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     overflow: hidden;
 
@@ -123,7 +143,8 @@ a {
         #fffaf3;
 
     box-shadow:
-        0 0 60px rgba(72,52,39,.15);
+        0 0 60px
+        rgba(72,52,39,.15);
 
 }
 
@@ -139,12 +160,15 @@ a {
     z-index: -2;
 
     background-image:
+
         radial-gradient(
-            rgba(174,131,59,.055) .7px,
+            rgba(174,131,59,.055)
+            .7px,
             transparent .7px
         );
 
-    background-size: 18px 18px;
+    background-size:
+        18px 18px;
 
     opacity: .55;
 
@@ -175,7 +199,8 @@ a {
     right: 18px;
 
     border:
-        1.5px solid rgba(174,131,59,.46);
+        1.5px solid
+        rgba(174,131,59,.46);
 
     border-radius: 40px;
 
@@ -190,7 +215,8 @@ a {
     right: 29px;
 
     border:
-        1px solid rgba(212,127,139,.28);
+        1px solid
+        rgba(212,127,139,.28);
 
     border-radius: 33px;
 
@@ -218,7 +244,8 @@ a {
 
     filter:
         drop-shadow(
-            0 8px 12px rgba(72,57,43,.06)
+            0 8px 12px
+            rgba(72,57,43,.06)
         );
 
 }
@@ -227,7 +254,6 @@ a {
 .page-flower--top-left {
 
     top: -55px;
-
     left: -72px;
 
 }
@@ -236,7 +262,6 @@ a {
 .page-flower--top-right {
 
     top: -55px;
-
     right: -72px;
 
     transform:
@@ -309,7 +334,7 @@ a {
 
 
 /* =========================================================
-   APERTURA
+   PORTADA
 ========================================================= */
 
 .opening-screen {
@@ -328,16 +353,12 @@ a {
 
     overflow: hidden;
 
-    /*
-       NO necesita cargar imagen para verse bonita.
-    */
-
     background:
 
         radial-gradient(
             circle at 50% 35%,
-            rgba(255,255,255,.9),
-            transparent 38%
+            rgba(255,255,255,.92),
+            transparent 40%
         ),
 
         linear-gradient(
@@ -347,8 +368,8 @@ a {
         );
 
     transition:
-        opacity .6s ease,
-        visibility .6s ease;
+        opacity .55s ease,
+        visibility .55s ease;
 
 }
 
@@ -386,10 +407,11 @@ a {
     border-radius: 36px;
 
     background:
-        rgba(255,250,243,.93);
+        rgba(255,250,243,.94);
 
     box-shadow:
-        0 25px 70px rgba(80,57,45,.15);
+        0 25px 70px
+        rgba(80,57,45,.15);
 
 }
 
@@ -408,7 +430,8 @@ a {
     inset: 12px;
 
     border:
-        1.5px solid rgba(174,131,59,.48);
+        1.5px solid
+        rgba(174,131,59,.48);
 
     border-radius: 28px;
 
@@ -420,7 +443,8 @@ a {
     inset: 20px;
 
     border:
-        1px solid rgba(212,127,139,.28);
+        1px solid
+        rgba(212,127,139,.28);
 
     border-radius: 23px;
 
@@ -459,9 +483,9 @@ a {
 
 .opening-flower--br {
 
-    bottom: -80px;
-
     right: -100px;
+
+    bottom: -80px;
 
     transform:
         rotate(180deg);
@@ -477,7 +501,11 @@ a {
 
     margin: 0;
 
-    color: var(--olive-dark);
+    color:
+        var(--olive-dark);
+
+    font-family:
+        var(--sans);
 
     font-size: .7rem;
 
@@ -495,7 +523,11 @@ a {
     z-index: 5;
 
     margin:
-        14px 0 8px;
+        14px 0
+        8px;
+
+    color:
+        var(--gold);
 
     font:
         400
@@ -504,10 +536,8 @@ a {
             15vw,
             7rem
         )
-        / .8
+        /.8
         var(--script);
-
-    color: var(--gold);
 
 }
 
@@ -518,9 +548,11 @@ a {
 
     z-index: 5;
 
-    margin: 20px 0;
+    margin:
+        20px 0;
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font:
         400
@@ -529,7 +561,7 @@ a {
             9vw,
             4rem
         )
-        / 1
+        /1
         var(--script);
 
 }
@@ -537,13 +569,17 @@ a {
 
 .opening-names span {
 
-    color: var(--gold);
+    padding:
+        0 8px;
 
-    padding: 0 8px;
+    color:
+        var(--gold);
 
-    font-family: var(--serif);
+    font-family:
+        var(--serif);
 
-    font-size: 1.55rem;
+    font-size:
+        1.55rem;
 
 }
 
@@ -576,7 +612,8 @@ a {
 
     z-index: 5;
 
-    margin: 24px 0;
+    margin:
+        24px 0;
 
 }
 
@@ -595,7 +632,8 @@ a {
 
 .opening-ornament i {
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font-style: normal;
 
@@ -613,7 +651,7 @@ a {
 
     position: relative;
 
-    z-index: 5;
+    z-index: 20;
 
     display: inline-flex;
 
@@ -624,10 +662,7 @@ a {
     min-height: 50px;
 
     padding:
-        9px
-        23px
-        9px
-        9px;
+        9px 23px 9px 9px;
 
     border: 0;
 
@@ -638,6 +673,7 @@ a {
     color: white;
 
     background:
+
         linear-gradient(
             135deg,
             #d98a94,
@@ -645,11 +681,21 @@ a {
         );
 
     box-shadow:
-        0 11px 28px rgba(186,102,114,.22);
+        0 11px 28px
+        rgba(186,102,114,.22);
 
-    font-family: var(--sans);
+    font-family:
+        var(--sans);
 
     font-weight: 700;
+
+}
+
+
+.open-button:hover {
+
+    transform:
+        translateY(-1px);
 
 }
 
@@ -696,7 +742,7 @@ a {
 
 
 /* =========================================================
-   BOTÓN MÚSICA
+   MÚSICA FLOTANTE
 ========================================================= */
 
 .floating-music {
@@ -705,8 +751,8 @@ a {
 
     z-index: 500;
 
-    right: 18px;
     top: 18px;
+    right: 18px;
 
     display: grid;
 
@@ -716,7 +762,8 @@ a {
     height: 48px;
 
     border:
-        2px solid rgba(255,255,255,.75);
+        2px solid
+        rgba(255,255,255,.75);
 
     border-radius: 50%;
 
@@ -728,7 +775,8 @@ a {
         var(--rose);
 
     box-shadow:
-        0 8px 22px rgba(88,56,50,.15);
+        0 8px 22px
+        rgba(88,56,50,.15);
 
 }
 
@@ -786,7 +834,8 @@ a {
             100%
         );
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
 }
 
@@ -845,12 +894,14 @@ a {
     overflow: hidden;
 
     border:
-        8px solid rgba(255,255,255,.95);
+        8px solid
+        rgba(255,255,255,.95);
 
     border-radius:
         50% 50% 16px 16px;
 
     background:
+
         radial-gradient(
             circle at 50% 40%,
             #f9ece8,
@@ -858,7 +909,8 @@ a {
         );
 
     box-shadow:
-        0 18px 48px rgba(87,64,52,.13);
+        0 18px 48px
+        rgba(87,64,52,.13);
 
 }
 
@@ -874,6 +926,7 @@ a {
     overflow: hidden;
 
     background:
+
         radial-gradient(
             circle at 50% 42%,
             #f8e7e5,
@@ -881,7 +934,7 @@ a {
         );
 
     transition:
-        opacity .35s ease;
+        opacity .3s ease;
 
 }
 
@@ -893,7 +946,6 @@ a {
     position: absolute;
 
     top: 0;
-
     bottom: 0;
 
     left: -55%;
@@ -901,6 +953,7 @@ a {
     width: 45%;
 
     background:
+
         linear-gradient(
             90deg,
             transparent,
@@ -944,8 +997,6 @@ a {
 
     z-index: 2;
 
-    display: block;
-
     width: 100%;
     height: 100%;
 
@@ -957,7 +1008,7 @@ a {
     opacity: 0;
 
     transition:
-        opacity .35s ease;
+        opacity .3s ease;
 
 }
 
@@ -983,7 +1034,8 @@ a {
     inset: 0;
 
     border:
-        2px solid rgba(174,131,59,.72);
+        2px solid
+        rgba(174,131,59,.72);
 
     border-radius:
         50% 50% 23px 23px;
@@ -998,7 +1050,8 @@ a {
     inset: 10px;
 
     border:
-        1px solid rgba(217,185,119,.72);
+        1px solid
+        rgba(217,185,119,.72);
 
     border-radius:
         50% 50% 19px 19px;
@@ -1057,7 +1110,8 @@ a {
 
     margin: 0;
 
-    color: var(--gold);
+    color:
+        var(--gold);
 
     font:
         400
@@ -1066,7 +1120,7 @@ a {
             13vw,
             7.7rem
         )
-        / .72
+        /.72
         var(--script);
 
 }
@@ -1087,6 +1141,7 @@ a {
     height: 1.5px;
 
     background:
+
         linear-gradient(
             to right,
             transparent,
@@ -1099,6 +1154,7 @@ a {
 .title-decoration span:last-child {
 
     background:
+
         linear-gradient(
             to left,
             transparent,
@@ -1110,7 +1166,8 @@ a {
 
 .title-decoration i {
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font-style: normal;
 
@@ -1147,7 +1204,7 @@ a {
             10vw,
             5.8rem
         )
-        / .84
+        /.84
         var(--script);
 
 }
@@ -1155,7 +1212,8 @@ a {
 
 .girls-names i {
 
-    color: var(--gold);
+    color:
+        var(--gold);
 
     font-style: normal;
 
@@ -1189,7 +1247,8 @@ a {
     padding:
         10px 18px;
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
     background:
         rgba(239,226,208,.62);
@@ -1202,7 +1261,8 @@ a {
     color: #695048;
 
     font:
-        600 .9rem var(--serif);
+        600 .9rem
+        var(--serif);
 
     letter-spacing: .13em;
 
@@ -1242,7 +1302,7 @@ a {
             2.5vw,
             1.42rem
         )
-        / 1.47
+        /1.47
         var(--serif);
 
 }
@@ -1270,7 +1330,8 @@ a {
 
 .small-divider i {
 
-    color: var(--rose);
+    color:
+        var(--rose);
 
     font-style: normal;
 
@@ -1321,7 +1382,8 @@ a {
 
 
 .parents h2 span {
-    color: var(--gold);
+    color:
+        var(--gold);
 }
 
 
@@ -1337,7 +1399,9 @@ a {
     z-index: 5;
 
     padding:
-        50px 70px 65px;
+        50px
+        70px
+        65px;
 
 }
 
@@ -1353,16 +1417,19 @@ a {
 
     max-width: 720px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     padding:
         35px 25px;
 
     border-top:
-        1px solid rgba(174,131,59,.28);
+        1px solid
+        rgba(174,131,59,.28);
 
     border-bottom:
-        1px solid rgba(174,131,59,.28);
+        1px solid
+        rgba(174,131,59,.28);
 
 }
 
@@ -1382,7 +1449,8 @@ a {
 
 .event-icon {
 
-    flex: 0 0 auto;
+    flex:
+        0 0 auto;
 
     display: grid;
 
@@ -1414,15 +1482,14 @@ a {
     stroke-width: 2;
 
     stroke-linecap: round;
+
     stroke-linejoin: round;
 
 }
 
 
 .event-info {
-
     text-align: left;
-
 }
 
 
@@ -1451,7 +1518,9 @@ a {
         var(--olive-dark);
 
     font:
-        700 1.9rem var(--serif);
+        700
+        1.9rem
+        var(--serif);
 
 }
 
@@ -1462,10 +1531,13 @@ a {
 
     margin-bottom: 10px;
 
-    color: #60483e;
+    color:
+        #60483e;
 
     font:
-        600 1.35rem var(--serif);
+        600
+        1.35rem
+        var(--serif);
 
 }
 
@@ -1483,13 +1555,15 @@ a {
     padding:
         8px 15px;
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
     text-decoration: none;
 
     color: white;
 
     background:
+
         linear-gradient(
             135deg,
             #da8e98,
@@ -1566,7 +1640,8 @@ a {
 
     content-visibility: auto;
 
-    contain-intrinsic-size: 500px;
+    contain-intrinsic-size:
+        500px;
 
 }
 
@@ -1580,7 +1655,9 @@ a {
         var(--olive-dark);
 
     font:
-        600 2.7rem var(--serif);
+        600
+        2.7rem
+        var(--serif);
 
 }
 
@@ -1590,13 +1667,17 @@ a {
     display: grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(
+            4,
+            1fr
+        );
 
     gap: 13px;
 
     max-width: 650px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
 }
 
@@ -1614,7 +1695,8 @@ a {
     aspect-ratio: 1;
 
     border:
-        1px solid rgba(174,131,59,.32);
+        1px solid
+        rgba(174,131,59,.32);
 
     border-radius: 50%;
 
@@ -1636,7 +1718,7 @@ a {
             6vw,
             3.3rem
         )
-        / 1
+        /1
         var(--serif);
 
 }
@@ -1653,8 +1735,6 @@ a {
 
     font-weight: 700;
 
-    letter-spacing: .1em;
-
 }
 
 
@@ -1664,7 +1744,9 @@ a {
         var(--rose);
 
     font:
-        400 3rem var(--script);
+        400
+        3rem
+        var(--script);
 
 }
 
@@ -1685,7 +1767,8 @@ a {
 
     content-visibility: auto;
 
-    contain-intrinsic-size: 350px;
+    contain-intrinsic-size:
+        350px;
 
 }
 
@@ -1703,13 +1786,15 @@ a {
 
     max-width: 650px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     padding:
         25px 32px;
 
     border:
-        1.5px dashed rgba(174,131,59,.52);
+        1.5px dashed
+        rgba(174,131,59,.52);
 
     border-radius: 25px;
 
@@ -1762,7 +1847,9 @@ a {
         var(--olive-dark);
 
     font:
-        700 2.3rem var(--serif);
+        700
+        2.3rem
+        var(--serif);
 
 }
 
@@ -1785,7 +1872,8 @@ a {
 
     content-visibility: auto;
 
-    contain-intrinsic-size: 400px;
+    contain-intrinsic-size:
+        400px;
 
 }
 
@@ -1817,7 +1905,8 @@ a {
     margin:
         0 auto 24px;
 
-    color: #755f55;
+    color:
+        #755f55;
 
     font:
         500
@@ -1842,13 +1931,15 @@ a {
     padding:
         12px 26px;
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
     text-decoration: none;
 
     color: white;
 
     background:
+
         linear-gradient(
             135deg,
             #748d68,
@@ -1856,7 +1947,9 @@ a {
         );
 
     box-shadow:
-        0 10px 25px rgba(82,109,80,.16);
+
+        0 10px 25px
+        rgba(82,109,80,.16);
 
     font-size: .86rem;
 
@@ -1891,6 +1984,7 @@ a {
     gap: 15px;
 
     width:
+
         min(
             650px,
             calc(100% - 70px)
@@ -1903,7 +1997,8 @@ a {
         14px 17px;
 
     border:
-        1px solid rgba(174,131,59,.28);
+        1px solid
+        rgba(174,131,59,.28);
 
     border-radius: 20px;
 
@@ -1948,8 +2043,6 @@ a {
 
     font-weight: 700;
 
-    letter-spacing: .1em;
-
 }
 
 
@@ -1959,7 +2052,9 @@ a {
         var(--brown);
 
     font:
-        600 1.2rem var(--serif);
+        600
+        1.2rem
+        var(--serif);
 
 }
 
@@ -1974,7 +2069,8 @@ a {
     height: 44px;
 
     border:
-        1.5px solid var(--rose);
+        1.5px solid
+        var(--rose);
 
     border-radius: 50%;
 
@@ -2020,15 +2116,22 @@ a {
         var(--gold);
 
     animation:
-        wave 1s infinite ease-in-out;
+        wave
+        1s
+        infinite
+        ease-in-out;
 
-    animation-play-state: paused;
+    animation-play-state:
+        paused;
 
 }
 
 
 .sound-wave.is-playing i {
-    animation-play-state: running;
+
+    animation-play-state:
+        running;
+
 }
 
 
@@ -2057,11 +2160,15 @@ a {
 
     0%,
     100% {
+
         height: 7px;
+
     }
 
     50% {
+
         height: 25px;
+
     }
 
 }
@@ -2069,7 +2176,7 @@ a {
 
 
 /* =========================================================
-   FINAL
+   SEPARADOR FINAL
 ========================================================= */
 
 .final-decoration {
@@ -2091,6 +2198,7 @@ a {
     height: 1.5px;
 
     background:
+
         linear-gradient(
             to right,
             transparent,
@@ -2103,6 +2211,7 @@ a {
 .final-decoration span:last-child {
 
     background:
+
         linear-gradient(
             to left,
             transparent,
@@ -2143,6 +2252,7 @@ a {
     text-align: center;
 
     background:
+
         linear-gradient(
             180deg,
             rgba(255,250,243,.18),
@@ -2160,7 +2270,8 @@ a {
             100%
         );
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
 }
 
@@ -2194,7 +2305,8 @@ a {
     margin:
         0 auto 22px;
 
-    color: #817067;
+    color:
+        #817067;
 
     font:
         500
@@ -2223,21 +2335,25 @@ a {
 
     min-height: 55px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     padding:
         6px 11px 6px 7px;
 
     border:
-        1px solid rgba(185,100,113,.26);
+        1px solid
+        rgba(185,100,113,.26);
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
     text-decoration: none;
 
     color: white;
 
     background:
+
         linear-gradient(
             135deg,
             rgba(204,128,140,.94),
@@ -2245,22 +2361,9 @@ a {
         );
 
     box-shadow:
-        0 6px 18px rgba(166,90,102,.11);
 
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-
-}
-
-
-.footer-contact-button:hover {
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 9px 21px rgba(166,90,102,.17);
+        0 6px 18px
+        rgba(166,90,102,.11);
 
 }
 
@@ -2276,7 +2379,8 @@ a {
 
     border-radius: 50%;
 
-    color: #527a57;
+    color:
+        #527a57;
 
     background:
         rgba(255,255,255,.96);
@@ -2338,7 +2442,8 @@ a {
     height: 27px;
 
     border:
-        1px solid rgba(255,255,255,.4);
+        1px solid
+        rgba(255,255,255,.4);
 
     border-radius: 50%;
 
@@ -2351,7 +2456,8 @@ a {
 
     fill: none;
 
-    stroke: currentColor;
+    stroke:
+        currentColor;
 
     stroke-width: 2;
 
@@ -2373,6 +2479,7 @@ a {
     height: 1.5px;
 
     background:
+
         linear-gradient(
             to right,
             transparent,
@@ -2385,6 +2492,7 @@ a {
 .footer-mini-decoration span:last-child {
 
     background:
+
         linear-gradient(
             to left,
             transparent,
@@ -2408,7 +2516,8 @@ a {
 
 .footer-brand {
 
-    color: #9a897f;
+    color:
+        #9a897f;
 
     font-size: .62rem;
 
@@ -2451,18 +2560,23 @@ a {
 ========================================================= */
 
 @media
-(max-width:760px) {
+(max-width: 760px) {
 
 
     body {
+
         background:
             var(--ivory);
+
     }
 
 
     .invitation {
+
         width: 100%;
+
         box-shadow: none;
+
     }
 
 
@@ -2487,7 +2601,9 @@ a {
 
 
     .page-flower {
+
         width: 220px;
+
     }
 
 
@@ -2510,7 +2626,9 @@ a {
     .hero {
 
         padding:
-            95px 32px 35px;
+            95px
+            32px
+            35px;
 
     }
 
@@ -2529,13 +2647,16 @@ a {
 
 
     .photo-flower {
+
         width: 155px;
+
     }
 
 
     .photo-flower--left {
 
         left: -64px;
+
         bottom: -51px;
 
     }
@@ -2544,6 +2665,7 @@ a {
     .photo-flower--right {
 
         right: -64px;
+
         top: -45px;
 
     }
@@ -2552,14 +2674,17 @@ a {
     .event-section {
 
         padding:
-            40px 42px 55px;
+            40px
+            42px
+            55px;
 
     }
 
 
     .events {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
         gap: 28px;
 
@@ -2570,7 +2695,9 @@ a {
 
 
     .event-divider {
+
         flex-direction: row;
+
     }
 
 
@@ -2579,19 +2706,6 @@ a {
         width: 80px;
 
         height: 1.5px;
-
-    }
-
-
-    .event {
-
-        width:
-            min(
-                360px,
-                100%
-            );
-
-        margin: 0 auto;
 
     }
 
@@ -2605,7 +2719,9 @@ a {
 
 
     .countdown {
+
         gap: 8px;
+
     }
 
 
@@ -2630,20 +2746,21 @@ a {
 
     .gift-card {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
         text-align: center;
 
         gap: 17px;
 
-        padding:
-            25px 20px;
-
     }
 
 
     .gift-icon {
-        margin: 0 auto;
+
+        margin:
+            0 auto;
+
     }
 
 
@@ -2667,7 +2784,9 @@ a {
 
 
     .sound-wave {
+
         display: none;
+
     }
 
 }
@@ -2679,17 +2798,20 @@ a {
 ========================================================= */
 
 @media
-(max-width:430px) {
+(max-width: 430px) {
 
 
     .opening-flower {
+
         width: 220px;
+
     }
 
 
     .opening-flower--tl {
 
         top: -45px;
+
         left: -78px;
 
     }
@@ -2698,6 +2820,7 @@ a {
     .opening-flower--br {
 
         bottom: -48px;
+
         right: -78px;
 
     }
@@ -2706,13 +2829,16 @@ a {
     .hero {
 
         padding-left: 27px;
+
         padding-right: 27px;
 
     }
 
 
     .main-title {
+
         font-size: 4.6rem;
+
     }
 
 
@@ -2737,7 +2863,9 @@ a {
 
 
     .date-line {
+
         width: 20px;
+
     }
 
 
@@ -2751,23 +2879,30 @@ a {
 
 
     .invitation-message {
+
         font-size: 1.08rem;
+
     }
 
 
     .photo-stage {
+
         width: 88vw;
+
     }
 
 
     .photo-flower {
+
         width: 135px;
+
     }
 
 
     .photo-flower--left {
 
         left: -48px;
+
         bottom: -43px;
 
     }
@@ -2776,6 +2911,7 @@ a {
     .photo-flower--right {
 
         right: -48px;
+
         top: -40px;
 
     }
@@ -2784,6 +2920,7 @@ a {
     .event-section {
 
         padding-left: 30px;
+
         padding-right: 30px;
 
     }
@@ -2792,13 +2929,18 @@ a {
     .countdown {
 
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(
+                2,
+                1fr
+            );
 
     }
 
 
     .count-box {
+
         min-height: 110px;
+
     }
 
 
@@ -2850,11 +2992,13 @@ a {
 ========================================================= */
 
 @media
-(prefers-reduced-motion:reduce) {
+(prefers-reduced-motion: reduce) {
 
 
     html {
+
         scroll-behavior: auto;
+
     }
 
 
