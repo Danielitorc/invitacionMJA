@@ -41,12 +41,31 @@
 
     <!-- =====================================================
          FOTO PRINCIPAL OPTIMIZADA
-         ~465 KB
+         ~214 KB (antes 582 KB: se redujo resolución de
+         1536×2048 a 900×1200 y calidad WebP a 75, que es
+         más que suficiente para el ancho real de 490px
+         en el que se muestra la foto)
     ====================================================== -->
 
     <link
         rel="preload"
-        href="img/aranza-mariajulia.webp?v=final-02"
+        href="img/aranza-mariajulia.webp?v=final-04"
+        as="image"
+        type="image/webp"
+        fetchpriority="high"
+    >
+
+
+    <!-- =====================================================
+         FLOR DECORATIVA OPTIMIZADA
+         ~65 KB (antes 96 KB). Se precarga porque aparece
+         en la pantalla de bienvenida, ANTES de que el
+         usuario dé clic en "Toca para abrir".
+    ====================================================== -->
+
+    <link
+        rel="preload"
+        href="img/floral-corner.webp?v=final-04"
         as="image"
         type="image/webp"
         fetchpriority="high"
@@ -524,7 +543,7 @@
 
     <link
         rel="stylesheet"
-        href="styles.css?v=final-02"
+        href="styles.css?v=final-04"
     >
 
 </head>
@@ -543,8 +562,18 @@
         loop
     >
 
+        <!-- AAC/M4A: mismo audio, ~24% más liviano (600 KB vs
+             787 KB). El navegador elige esta si la soporta. -->
+
         <source
-            src="audio/ultimamente.mp3?v=final-02"
+            src="audio/ultimamente.m4a?v=final-04"
+            type="audio/mp4"
+        >
+
+        <!-- MP3 de respaldo para navegadores sin soporte AAC -->
+
+        <source
+            src="audio/ultimamente.mp3?v=final-04"
             type="audio/mpeg"
         >
 
@@ -563,7 +592,7 @@
 
 
         <img
-            src="img/floral-corner.webp?v=final-02"
+            src="img/floral-corner.webp?v=final-04"
             class="opening-flower opening-flower--tl"
             alt=""
             width="700"
@@ -573,7 +602,7 @@
 
 
         <img
-            src="img/floral-corner.webp?v=final-02"
+            src="img/floral-corner.webp?v=final-04"
             class="opening-flower opening-flower--br"
             alt=""
             width="700"
@@ -620,7 +649,7 @@
                 Aranza
 
                 <span>
-                    ♥
+                    Y
                 </span>
 
                 Mariajulia
@@ -760,7 +789,7 @@
         ================================================== -->
 
         <img
-            src="img/floral-corner.webp?v=final-02"
+            src="img/floral-corner.webp?v=final-04"
             class="page-flower page-flower--top-left"
             alt=""
             width="700"
@@ -770,7 +799,7 @@
 
 
         <img
-            src="img/floral-corner.webp?v=final-02"
+            src="img/floral-corner.webp?v=final-04"
             class="page-flower page-flower--top-right"
             alt=""
             width="700"
@@ -780,7 +809,7 @@
 
 
         <img
-            src="img/floral-corner.webp?v=final-02"
+            src="img/floral-corner.webp?v=final-04"
             class="page-flower page-flower--middle-left"
             alt=""
             width="700"
@@ -791,7 +820,7 @@
 
 
         <img
-            src="img/floral-corner.webp?v=final-02"
+            src="img/floral-corner.webp?v=final-04"
             class="page-flower page-flower--middle-right"
             alt=""
             width="700"
@@ -802,7 +831,7 @@
 
 
         <img
-            src="img/floral-corner.webp?v=final-02"
+            src="img/floral-corner.webp?v=final-04"
             class="page-flower page-flower--bottom-left"
             alt=""
             width="700"
@@ -813,7 +842,7 @@
 
 
         <img
-            src="img/floral-corner.webp?v=final-02"
+            src="img/floral-corner.webp?v=final-04"
             class="page-flower page-flower--bottom-right"
             alt=""
             width="700"
@@ -878,10 +907,10 @@
 
                         <img
                             id="mainPhoto"
-                            src="img/aranza-mariajulia.webp?v=final-02"
+                            src="img/aranza-mariajulia.webp?v=final-04"
                             alt="Aranza y Mariajulia"
-                            width="1200"
-                            height="1600"
+                            width="638"
+                            height="926"
                             loading="eager"
                             decoding="async"
                             fetchpriority="high"
@@ -893,7 +922,7 @@
 
 
                     <img
-                        src="img/floral-corner.webp?v=final-02"
+                        src="img/floral-corner.webp?v=final-04"
                         class="photo-flower photo-flower--left"
                         alt=""
                         width="700"
@@ -903,7 +932,7 @@
 
 
                     <img
-                        src="img/floral-corner.webp?v=final-02"
+                        src="img/floral-corner.webp?v=final-04"
                         class="photo-flower photo-flower--right"
                         alt=""
                         width="700"
@@ -958,7 +987,7 @@
 
 
                     <i>
-                        ♥
+                        Y
                     </i>
 
 
@@ -1793,7 +1822,7 @@
     ====================================================== -->
 
     <script
-        src="script.js?v=final-02"
+        src="script.js?v=final-04"
         defer
     ></script>
 

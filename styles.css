@@ -996,8 +996,11 @@ a {
     width:
         100%;
 
+    /* Coincide con la proporción REAL de la foto
+       (638 x 926 px) para que se vea completa:
+       ni cabezas ni pies quedan cortados. */
     aspect-ratio:
-        1 / .91;
+        638 / 926;
 
     overflow:
         hidden;
@@ -1008,8 +1011,13 @@ a {
         solid
         rgba(255,255,255,.95);
 
+    /* El radio vertical (después del "/") se recalculó
+       en proporción a la nueva altura del marco, para que
+       el arco de arriba mantenga la misma curva suave que
+       antes, en vez de alargarse como un óvalo. */
     border-radius:
-        50% 50% 16px 16px;
+        50% 50% 16px 16px
+        / 30% 30% 16px 16px;
 
     background:
 
@@ -1131,7 +1139,7 @@ a {
         cover;
 
     object-position:
-        center 72%;
+        center center;
 
     opacity:
         0;
