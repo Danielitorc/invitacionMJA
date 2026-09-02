@@ -8,8 +8,8 @@
     <title>Nuestra Fiesta · Aranza y Mariajulia</title>
 
     <!-- PRECARGAS CLAVE -->
-    <link rel="preload" href="img/aranza-mariajulia.webp?v=final-07" as="image" type="image/webp" fetchpriority="high">
-    <link rel="preload" href="img/floral-corner.webp?v=final-07" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="img/aranza-mariajulia.webp?v=final-09" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="img/floral-corner.webp?v=final-09" as="image" type="image/webp" fetchpriority="high">
 
     <!-- FUENTES DE GOOGLE (Carga inmediata) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,23 +47,33 @@
             position: relative; z-index: 5; margin: 14px 0 8px; color: #ae833b;
             font-family: "Allura", "Brush Script MT", cursive; font-size: clamp(4.5rem, 15vw, 7rem); font-weight: 400; line-height: .8;
         }
+
+        /* BLOQUE NUEVO: PRESENTACIÓN Y BAUTIZO (PORTADA) */
+        .ceremony-wrapper {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            margin: 18px 0 20px; gap: 6px; position: relative; z-index: 5;
+        }
+        .ceremony-line { display: flex; align-items: center; gap: 12px; }
+        .ceremony-line span { 
+            color: #78815d; font-family: "Montserrat", Arial, sans-serif; 
+            font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; 
+        }
+        .ceremony-sparkle { width: 12px; color: #d9b977; }
+        .ceremony-y { 
+            color: #d47f8b; font-family: "Cormorant Garamond", Georgia, serif; 
+            font-size: 1.1rem; font-style: italic; line-height: 1; margin: 0; 
+        }
         
-        /* ESTRUCTURA VERTICAL ESTRICTA PARA LOS NOMBRES (PORTADA) */
+        /* ESTRUCTURA VERTICAL ESTRICTA PARA LOS NOMBRES */
         .opening-names {
             position: relative; z-index: 5; margin: 25px 0; color: #d47f8b;
             font-family: "Allura", "Brush Script MT", cursive; font-size: clamp(3rem, 10vw, 4.5rem); line-height: 1;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
-        .opening-names span {
-            display: block;
-        }
+        .opening-names span { display: block; }
         .y-decorativa { 
-            display: block;
-            color: #ae833b; 
-            font-family: "Cormorant Garamond", Georgia, serif; 
-            font-size: clamp(1.6rem, 5vw, 2.2rem); 
-            font-style: italic; text-transform: lowercase; font-weight: 600; line-height: 1;
-            margin: -5px 0;
+            display: block; color: #ae833b; font-family: "Cormorant Garamond", Georgia, serif; 
+            font-size: clamp(1.6rem, 5vw, 2.2rem); font-style: italic; text-transform: lowercase; font-weight: 600; line-height: 1; margin: -5px 0;
         }
         
         .opening-ornament { position: relative; z-index: 5; display: flex; align-items: center; justify-content: center; gap: 14px; margin: 24px 0; }
@@ -98,26 +108,42 @@
         }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=final-07">
+    <link rel="stylesheet" href="styles.css?v=final-09">
 </head>
 
 <body class="is-locked">
 
     <audio id="bgMusic" preload="metadata" loop>
-        <source src="audio/ultimamente.mp3?v=final-07" type="audio/mpeg">
+        <source src="audio/ultimamente.mp3?v=final-09" type="audio/mpeg">
     </audio>
 
     <!-- PANTALLA DE APERTURA -->
     <div class="opening-screen" id="openingScreen">
-        <img src="img/floral-corner.webp?v=final-07" class="opening-flower opening-flower--tl" alt="">
-        <img src="img/floral-corner.webp?v=final-07" class="opening-flower opening-flower--br" alt="">
+        <img src="img/floral-corner.webp?v=final-09" class="opening-flower opening-flower--tl" alt="">
+        <img src="img/floral-corner.webp?v=final-09" class="opening-flower opening-flower--br" alt="">
 
         <div class="opening-card">
             <div class="opening-border opening-border--outer" aria-hidden="true"></div>
             <div class="opening-border opening-border--inner" aria-hidden="true"></div>
 
             <p class="opening-date">17 · OCTUBRE · 2026</p>
+            
             <h1>Nuestra Fiesta</h1>
+
+            <!-- BLOQUE DE PRESENTACIÓN Y BAUTIZO (CON SVGs) -->
+            <div class="ceremony-wrapper">
+                <div class="ceremony-line">
+                    <svg class="ceremony-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.6 17.4 12 24 12C17.4 12 12 17.4 6.6 12 0 12C6.6 12 12 6.6 12 0Z"/></svg>
+                    <span>Presentación 5 años</span>
+                    <svg class="ceremony-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.6 17.4 12 24 12C17.4 12 12 17.4 6.6 12 0 12C6.6 12 12 6.6 12 0Z"/></svg>
+                </div>
+                <i class="ceremony-y">y</i>
+                <div class="ceremony-line">
+                    <svg class="ceremony-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.6 17.4 12 24 12C17.4 12 12 17.4 6.6 12 0 12C6.6 12 12 6.6 12 0Z"/></svg>
+                    <span>Bautizo</span>
+                    <svg class="ceremony-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.6 17.4 12 24 12C17.4 12 12 17.4 6.6 12 0 12C6.6 12 12 6.6 12 0Z"/></svg>
+                </div>
+            </div>
 
             <div class="opening-names">
                 <span>Aranza</span>
@@ -146,12 +172,12 @@
         <div class="master-border master-border--outer" aria-hidden="true"></div>
         <div class="master-border master-border--inner" aria-hidden="true"></div>
 
-        <img src="img/floral-corner.webp?v=final-07" class="page-flower page-flower--top-left" alt="">
-        <img src="img/floral-corner.webp?v=final-07" class="page-flower page-flower--top-right" alt="">
-        <img src="img/floral-corner.webp?v=final-07" class="page-flower page-flower--middle-left" alt="" loading="lazy">
-        <img src="img/floral-corner.webp?v=final-07" class="page-flower page-flower--middle-right" alt="" loading="lazy">
-        <img src="img/floral-corner.webp?v=final-07" class="page-flower page-flower--bottom-left" alt="" loading="lazy">
-        <img src="img/floral-corner.webp?v=final-07" class="page-flower page-flower--bottom-right" alt="" loading="lazy">
+        <img src="img/floral-corner.webp?v=final-09" class="page-flower page-flower--top-left" alt="">
+        <img src="img/floral-corner.webp?v=final-09" class="page-flower page-flower--top-right" alt="">
+        <img src="img/floral-corner.webp?v=final-09" class="page-flower page-flower--middle-left" alt="" loading="lazy">
+        <img src="img/floral-corner.webp?v=final-09" class="page-flower page-flower--middle-right" alt="" loading="lazy">
+        <img src="img/floral-corner.webp?v=final-09" class="page-flower page-flower--bottom-left" alt="" loading="lazy">
+        <img src="img/floral-corner.webp?v=final-09" class="page-flower page-flower--bottom-right" alt="" loading="lazy">
 
         <section class="hero" id="inicio">
             <div class="hero-content reveal">
@@ -162,14 +188,29 @@
                     <div class="photo-arc photo-arc--inner" aria-hidden="true"></div>
                     <div class="photo-frame">
                         <div class="photo-placeholder" id="photoPlaceholder" aria-hidden="true"></div>
-                        <img id="mainPhoto" src="img/aranza-mariajulia.webp?v=final-07" alt="Aranza y Mariajulia" width="638" height="926" loading="eager" decoding="async">
+                        <img id="mainPhoto" src="img/aranza-mariajulia.webp?v=final-09" alt="Aranza y Mariajulia" width="638" height="926" loading="eager" decoding="async">
                     </div>
-                    <img src="img/floral-corner.webp?v=final-07" class="photo-flower photo-flower--left" alt="">
-                    <img src="img/floral-corner.webp?v=final-07" class="photo-flower photo-flower--right" alt="">
+                    <img src="img/floral-corner.webp?v=final-09" class="photo-flower photo-flower--left" alt="">
+                    <img src="img/floral-corner.webp?v=final-09" class="photo-flower photo-flower--right" alt="">
                 </div>
 
                 <h1 class="main-title">Nuestra Fiesta</h1>
                 <div class="title-decoration" aria-hidden="true"><span></span><i>♥</i><span></span></div>
+
+                <!-- BLOQUE DE PRESENTACIÓN Y BAUTIZO (CON SVGs) -->
+                <div class="ceremony-wrapper">
+                    <div class="ceremony-line">
+                        <svg class="ceremony-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.6 17.4 12 24 12C17.4 12 12 17.4 6.6 12 0 12C6.6 12 12 6.6 12 0Z"/></svg>
+                        <span>Presentación 5 años</span>
+                        <svg class="ceremony-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.6 17.4 12 24 12C17.4 12 12 17.4 6.6 12 0 12C6.6 12 12 6.6 12 0Z"/></svg>
+                    </div>
+                    <i class="ceremony-y">y</i>
+                    <div class="ceremony-line">
+                        <svg class="ceremony-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.6 17.4 12 24 12C17.4 12 12 17.4 6.6 12 0 12C6.6 12 12 6.6 12 0Z"/></svg>
+                        <span>Bautizo</span>
+                        <svg class="ceremony-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.6 17.4 12 24 12C17.4 12 12 17.4 6.6 12 0 12C6.6 12 12 6.6 12 0Z"/></svg>
+                    </div>
+                </div>
 
                 <div class="girls-names">
                     <span>Aranza</span>
@@ -306,6 +347,6 @@
         </footer>
     </main>
 
-    <script src="script.js?v=final-07" defer></script>
+    <script src="script.js?v=final-09" defer></script>
 </body>
 </html>

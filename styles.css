@@ -114,33 +114,37 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .photo-flower--right { right: -86px; top: -60px; transform: scaleX(-1) rotate(-5deg); }
 
 
-/* ESTRUCTURA VERTICAL ESTRICTA PARA LOS NOMBRES (INTERIOR DE LA INVITACIÓN) */
+/* CEREMONIAS Y EVENTOS (BLOQUE NUEVO) */
 .main-title { margin: 0; color: var(--gold); font: 400 clamp(5rem, 13vw, 7.7rem)/.72 var(--script); }
 
-.girls-names { 
-    display: flex; 
-    flex-direction: column; /* Apilado vertical obligatorio */
-    align-items: center; 
-    justify-content: center; 
-    color: var(--rose); 
-    font: 400 clamp(3.7rem, 10vw, 6.2rem)/1 var(--script); 
-    margin-top: 10px;
+.ceremony-wrapper {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin: 15px 0 25px; gap: 6px; position: relative; z-index: 5;
 }
-.girls-names span {
-    display: block; /* Asegura que cada nombre tome toda su propia línea */
+.ceremony-line {
+    display: flex; align-items: center; gap: 14px;
 }
-.girls-names .y-decorativa { 
-    display: block;
-    color: var(--gold); 
-    font-family: var(--serif); 
-    font-size: clamp(1.8rem, 5vw, 2.6rem); 
-    font-style: italic; 
-    font-weight: 600;
-    line-height: 1;
-    margin: -10px 0; /* Acerca los nombres hacia el centro de la 'y' */
-    text-transform: lowercase;
+.ceremony-line span {
+    color: var(--olive-dark); font-family: var(--sans); font-size: .7rem;
+    font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+}
+.ceremony-sparkle { width: 14px; color: var(--gold-soft); }
+.ceremony-y {
+    color: var(--rose); font-family: var(--serif); font-size: 1.1rem;
+    font-style: italic; line-height: 1; margin: 0;
 }
 
+
+/* NOMBRES */
+.girls-names { 
+    display: flex; flex-direction: column; align-items: center; justify-content: center; 
+    color: var(--rose); font: 400 clamp(3.7rem, 10vw, 6.2rem)/1 var(--script); margin-top: 10px;
+}
+.girls-names span { display: block; }
+.girls-names .y-decorativa { 
+    display: block; color: var(--gold); font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 2.6rem); 
+    font-style: italic; font-weight: 600; line-height: 1; margin: -10px 0; text-transform: lowercase;
+}
 
 /* FECHA Y MENSAJE */
 .date-banner {
@@ -159,7 +163,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .parents h2 { margin: 5px 0 0; color: var(--brown); font: 600 clamp(1.7rem, 4vw, 2.2rem) var(--serif); }
 .parents h2 span { color: var(--gold); }
 
-/* EVENTOS */
+/* EVENTOS MISA RECEPCION */
 .event-section { position: relative; z-index: 5; padding: 50px 70px 65px; }
 .events {
     display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; max-width: 720px;
@@ -318,8 +322,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
     .opening-flower--br { bottom: -42px; right: -72px; }
     .hero { padding-left: 27px; padding-right: 27px; }
     .main-title { font-size: 4.6rem; }
+
+    /* AJUSTE PARA CEREMONIAS EN MÓVIL */
+    .ceremony-line span { font-size: .6rem; letter-spacing: .15em; }
+    .ceremony-sparkle { width: 11px; }
+    .ceremony-y { font-size: 0.95rem; margin: 0; }
     
-    /* REAJUSTE DE NOMBRES EN MÓVILES (LIMPIO DE GAPS O CONFLICTOS) */
     .girls-names { font-size: 3.6rem; }
     .girls-names .y-decorativa { font-size: 1.6rem; margin: -8px 0; }
     
