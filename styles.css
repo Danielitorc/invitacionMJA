@@ -57,7 +57,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .page-flower--bottom-right { bottom: -60px; right: -85px; width: 315px; transform: scaleX(-1) rotate(-6deg); }
 
 /* SEPARADORES */
-.opening-ornament, .title-decoration, .small-divider, .final-decoration, .footer-mini-decoration { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.title-decoration, .small-divider, .final-decoration, .footer-mini-decoration { display: flex; align-items: center; justify-content: center; gap: 14px; }
 .title-decoration { margin: 20px 0 24px; }
 .title-decoration span { width: 125px; height: 1.5px; background: linear-gradient(to right, transparent, var(--rose)); }
 .title-decoration span:last-child { background: linear-gradient(to left, transparent, var(--rose)); }
@@ -84,7 +84,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .photo-frame {
     position: relative; z-index: 5; width: 100%; aspect-ratio: 638 / 926; overflow: hidden;
     border: 8px solid rgba(255,255,255,.95); 
-    border-radius: 50% 50% 16px 16px / 28% 28% 16px 16px; /* Curvatura perfecta */
+    border-radius: 50% 50% 16px 16px / 28% 28% 16px 16px; 
     background: radial-gradient(circle at 50% 40%, #f9ece8, #f3e7db); 
     box-shadow: 0 18px 48px rgba(87,64,52,.13);
 }
@@ -106,7 +106,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .photo-frame img.is-loaded { opacity: 1; }
 
 .photo-arc { position: absolute; pointer-events: none; }
-/* Marcos corregidos para anidar perfectamente con el radio del 28% de la imagen */
 .photo-arc--outer { z-index: 2; inset: 0; border: 2px solid rgba(174,131,59,.72); border-radius: 50% 50% 26px 26px / 28% 28% 26px 26px; }
 .photo-arc--inner { z-index: 2; inset: 10px; border: 1px solid rgba(217,185,119,.72); border-radius: 50% 50% 20px 20px / 28% 28% 20px 20px; }
 
@@ -114,20 +113,34 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .photo-flower--left { left: -86px; bottom: -68px; transform: rotate(-7deg); }
 .photo-flower--right { right: -86px; top: -60px; transform: scaleX(-1) rotate(-5deg); }
 
-/* TITULO Y NOMBRES CORREGIDOS (LA "Y") */
+
+/* ESTRUCTURA VERTICAL ESTRICTA PARA LOS NOMBRES (INTERIOR DE LA INVITACIÓN) */
 .main-title { margin: 0; color: var(--gold); font: 400 clamp(5rem, 13vw, 7.7rem)/.72 var(--script); }
 
-.girls-names { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 12px; color: var(--rose); font: 400 clamp(3.7rem, 10vw, 5.8rem)/.84 var(--script); }
-.girls-names i { 
+.girls-names { 
+    display: flex; 
+    flex-direction: column; /* Apilado vertical obligatorio */
+    align-items: center; 
+    justify-content: center; 
+    color: var(--rose); 
+    font: 400 clamp(3.7rem, 10vw, 6.2rem)/1 var(--script); 
+    margin-top: 10px;
+}
+.girls-names span {
+    display: block; /* Asegura que cada nombre tome toda su propia línea */
+}
+.girls-names .y-decorativa { 
+    display: block;
     color: var(--gold); 
     font-family: var(--serif); 
     font-size: clamp(1.8rem, 5vw, 2.6rem); 
     font-style: italic; 
-    text-transform: lowercase; /* Fuerza aspecto de minúscula elegante */
     font-weight: 600;
     line-height: 1;
-    margin-top: 4px;
+    margin: -10px 0; /* Acerca los nombres hacia el centro de la 'y' */
+    text-transform: lowercase;
 }
+
 
 /* FECHA Y MENSAJE */
 .date-banner {
@@ -306,9 +319,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
     .hero { padding-left: 27px; padding-right: 27px; }
     .main-title { font-size: 4.6rem; }
     
-    /* REAJUSTE DE LA "Y" EN MÓVILES */
-    .girls-names { font-size: 3.35rem; gap: 5px 8px; }
-    .girls-names i { font-size: 1.5rem; margin-top: 2px; }
+    /* REAJUSTE DE NOMBRES EN MÓVILES (LIMPIO DE GAPS O CONFLICTOS) */
+    .girls-names { font-size: 3.6rem; }
+    .girls-names .y-decorativa { font-size: 1.6rem; margin: -8px 0; }
     
     .date-banner { gap: 7px; padding: 9px 10px; }
     .date-line { width: 20px; }
